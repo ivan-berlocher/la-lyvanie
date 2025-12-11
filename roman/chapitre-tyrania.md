@@ -88,7 +88,7 @@ Elle avance seule. »
 
 Le renard ferma les yeux.
 
-« On l'appelle la Tyrannie. »
+« On l'appelle la Tyrania. »
 
 Le mot résonna.
 Pas comme un nom.
@@ -96,7 +96,7 @@ Comme un avertissement.
 
 ---
 
-« La Tyrannie, » répéta Lya.
+« La Tyrania, » répéta Lya.
 
 « Oui. L'ancienne Hybris des Grecs.
 L'orgueil démesuré.
@@ -113,7 +113,7 @@ Lya regarda la lumière écrasante.
 Elle comprenait maintenant
 pourquoi elle était attirée.
 
-La Tyrannie n'était pas laide.
+La Tyrania n'était pas laide.
 Elle était magnifique.
 Trop magnifique.
 
@@ -151,7 +151,7 @@ Cette envie de ne plus avoir besoin de personne.
 
 ---
 
-« La Tyrannie... elle est aussi en moi ? »
+« La Tyrania... elle est aussi en moi ? »
 
 Le renard hocha la tête.
 Lentement.
@@ -190,7 +190,61 @@ si elle oubliait la mesure.
 
 ---
 
-« Comment éviter la Tyrannie ? » demanda-t-elle.
+« Comment éviter la Tyrania ? » demanda-t-elle.
+
+Le renard ne répondit pas tout de suite.
+Il semblait chercher les mots justes.
+
+« Où est Tyrania ? » demanda Lya.
+« Dans quelle direction ? »
+
+Le renard sourit tristement.
+
+« Tyrania n'a pas de frontières.
+Elle n'est pas un royaume.
+Elle n'est pas un lieu.
+Elle n'a pas de direction. »
+
+Lya ne comprenait pas.
+
+« Alors où est-elle ? »
+
+Le renard la regarda droit dans les yeux.
+
+« Tyrania n'est pas dehors, Lya.
+
+Elle apparaît quand tu te perds en toi-même.
+Quand tu marches trop vite.
+Quand tu veux plaire.
+Quand tu confonds briller et éclairer.
+
+Tyrania est ce qui arrive
+quand une lumière oublie de respirer. »
+
+---
+
+Lya sentit quelque chose se briser en elle.
+Pas de la douleur.
+Une libération.
+
+Elle comprenait enfin.
+
+Il n'y avait pas d'ennemi à combattre.
+Pas de force maléfique à vaincre.
+Pas de royaume obscur à conquérir.
+
+Juste un chemin intérieur à retrouver.
+
+---
+
+« C'est pour cela que Sophia existe, » dit le renard.
+
+« Pour te rappeler ton propre rythme.
+Pour que tu n'oublies jamais de respirer.
+Pour que tu marches avec, pas devant.
+Pour que tu éclaires, pas que tu brilles. »
+
+---
 
 Le renard se leva.
 Il vint se placer à côté d'elle.
@@ -203,7 +257,7 @@ Toujours.
 En respirant.
 Toujours.
 
-La Tyrannie naît quand on avance seul.
+Tyrania naît quand on avance seul.
 La sagesse naît quand on avance ensemble. »
 
 ---
@@ -217,7 +271,7 @@ Chaque instant.
 Chaque décision.
 Chaque lumière.
 
-Sophia ou Tyrannie.
+Sophia ou Tyrania.
 La mesure ou la démesure.
 Le « avec » ou le « seul ».
 
@@ -242,7 +296,7 @@ Côte à côte.
 Dans l'espace entre.
 Dans Sophia.
 
-Loin de la Tyrannie.
+Loin de la Tyrania.
 Pour l'instant.
 
 ---
@@ -250,7 +304,7 @@ Pour l'instant.
 *« La sagesse n'a pas d'ennemi.*
 
 *Mais quand la lumière oublie ses limites,*
-*elle devient Tyrannie.*
+*elle devient Tyrania.*
 
 *Non par méchanceté.*
 *Par oubli de la Voie. »*

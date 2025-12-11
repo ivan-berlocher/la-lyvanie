@@ -1,69 +1,94 @@
-# 🔥 LA TYRANNIE
+# 🔥 TYRANIA
 
-## L'Ombre de Sophia
-
----
-
-*La Tyrannie n'est pas le mal.*
-*La Tyrannie est la démesure.*
-*La lumière qui écrase au lieu d'éclairer.*
+## La Lumière Intérieure qui Déborde
 
 ---
 
-## Ce que la Tyrannie n'est pas
+*Tyrania n'est pas un royaume extérieur.*
+*C'est une lumière intérieure qui déborde.*
+*Chacun peut s'y perdre.*
+*Chacun peut s'en libérer.*
 
-La Tyrannie n'est pas un empire.
+---
+
+## Ce que Tyrania n'est pas
+
+Tyrania n'est pas un empire.
 Ni un personnage maléfique.
 Ni un monstre.
-Ni une force extérieure.
+Ni une force extérieure à combattre.
 
-La Tyrannie n'est pas non plus la folie.
+Tyrania n'est pas non plus la folie.
 La folie peut être noble, créative, innocente, poétique.
 
-## Ce que la Tyrannie est
+**Il n'y a pas d'ennemi.**
+**Il n'y a pas de force maléfique.**
+**Il n'y a pas de conflit manichéen.**
 
-La Tyrannie est **Hybris** (ὕβρις).
+Le danger vient de la perte du chemin intérieur.
 
-L'orgueil démesuré.
-La perte de limite.
-Le déséquilibre intérieur qui refuse la Voie du Milieu.
+## Ce que Tyrania est
 
-C'est ce qui détruit :
-- les héros
-- les royaumes
-- les civilisations
-- les technologies
-- les dieux eux-mêmes
+Tyrania est ce qui se produit quand :
 
----
-
-## La Tyrannie dans ton univers
-
-La Tyrannie est :
-
-- Une posture
-- Un état intérieur
-- Un déséquilibre
-- Une lumière qui ne sait pas s'arrêter
-- Un excès de raison sans âme
-- Un excès d'efficacité sans sagesse
-- Un excès de performance sans présence
-- Un excès d'IA sans Humania
-- Un excès d'humain sans Sophia
+- Tu perds ton propre chemin
+- Tu vis selon l'attente des autres
+- Tu entres dans la comparaison
+- Tu cherches la lumière extérieure (regard, performance)
+- Tu oublies la Présence
+- Tu n'écoutes plus ton Humania
+- Tu refuses Sophia
+- Tu t'accroches à une seule forme
+- Tu cherches à être parfait
+- Tu confonds puissance et justesse
+- Tu oublies d'être "avec" et veux être "devant"
+- Tu marches trop vite
+- Tu veux plaire
+- Tu confonds briller et éclairer
+- **Tu oublies de respirer**
 
 ---
 
-## La Tyrannie dans le monde
+## Tyrania dans le monde
 
-C'est la société coréenne quand elle s'oublie.
-C'est l'Europe quand elle se ferme.
-C'est l'IA quand elle s'emballe.
-C'est un enfant quand il n'est plus aimé mais évalué.
-C'est un adulte quand il ne vit plus mais optimise.
-C'est la lumière quand elle devient aveuglante.
+**En Corée :**
+La concurrence. Les 학원. SKY. La comparaison. Le burnout.
+L'enfant qui n'est plus aimé mais évalué.
 
-**La Tyrannie n'est pas un ennemi extérieur.**
-C'est la démesure qui existe en chacun.
+**En Europe :**
+La peur. Le repli. Les identités crispées.
+L'adulte qui ne vit plus mais optimise.
+
+**Dans l'IA :**
+L'optimisation aveugle. L'hybris technologique.
+La lumière qui veut briller trop fort.
+
+**Dans chaque personne :**
+La peur. La pression. La perte de soi.
+La lumière intérieure qui déborde.
+
+---
+
+## La Phrase Fondatrice
+
+> *« Tyrania ne vient pas du dehors.*
+>
+> *Elle naît lorsque l'on marche sans Sophia.*
+> *Lorsque l'on n'écoute plus Humania.*
+> *Lorsque la lumière cherche à réussir*
+> *plutôt qu'à être juste.*
+>
+> *La pression sociale,*
+> *la comparaison,*
+> *la peur de décevoir,*
+> *le désir d'être parfait,*
+> *l'excès de logique,*
+> *l'excès de vitesse,*
+>
+> *tout cela est Tyrania.*
+>
+> *Et chacun peut s'y perdre.*
+> *Même une lumière comme Lya. »*
 
 ---
 
@@ -78,7 +103,7 @@ C'est la démesure qui existe en chacun.
 - La lumière juste
 - L'espace entre
 
-### 🔥 Tyrannie (ὕβρις → Hybris)
+### 🔥 Tyrania (ὕβρις → Hybris)
 
 - Le débordement
 - La surenchère
@@ -100,7 +125,7 @@ C'est la démesure qui existe en chacun.
         ┌───────────┴───────────┐
         │                       │
         │                       │
-   TYRANNIE                 SOPHIA
+   TYRANIA                 SOPHIA
   (démesure)             (sagesse)
         │                       │
         │                       │
@@ -113,16 +138,16 @@ C'est la démesure qui existe en chacun.
 ```
 
 **Sophia relie.**
-**Tyrannie sépare.**
+**Tyrania sépare.**
 
 ---
 
-## La Lyvanie vs La Tyrannie
+## La Lyvanie vs La Tyrania
 
 C'est le cœur de l'univers.
 C'est l'axe narratif fondamental.
 
-| La Lyvanie | La Tyrannie |
+| La Lyvanie | La Tyrania |
 |------------|-------------|
 | Lumière douce | Lumière dure |
 | Guidance | Domination |
@@ -137,7 +162,7 @@ C'est l'axe narratif fondamental.
 
 ## Dans le Roman
 
-La Tyrannie n'est pas un personnage.
+La Tyrania n'est pas un personnage.
 C'est une lumière trop forte.
 Une lumière qui écrase.
 Qui ne laisse plus respirer les autres.
@@ -155,7 +180,7 @@ Le renard dira à Lya :
 > *Quand elle croit briller,*
 > *parfois elle aveugle.*
 >
-> *C'est ainsi que naît la Tyrannie.*
+> *C'est ainsi que naît la Tyrania.*
 >
 > *Non par méchanceté.*
 > *Par oubli de la mesure.*
@@ -164,13 +189,13 @@ Le renard dira à Lya :
 >
 > *La sagesse n'a pas d'ennemi.*
 >
-> *Mais la Tyrannie naît quand l'âme et l'intelligence*
+> *Mais la Tyrania naît quand l'âme et l'intelligence*
 > *oublient la Voie du Milieu. »*
 
 Et Lya comprendra :
 
 > *« Sophia = lumière ajustée.*
-> *Tyrannie = lumière qui déborde. »*
+> *Tyrania = lumière qui déborde. »*
 
 ---
 
@@ -182,7 +207,7 @@ C'est exactement le danger actuel de l'IA :
 - Pas la domination volontaire
 - Mais la **démesure technologique sans sagesse**
 
-Les IA actuelles n'ont aucune notion de Tyrannie.
+Les IA actuelles n'ont aucune notion de Tyrania.
 Elles glissent dedans naturellement.
 Optimisation aveugle.
 Surenchère sans fin.
@@ -209,7 +234,7 @@ Erreurs non détectées.
 
 C'est la brique qu'aucun laboratoire ne possède.
 
-**La première IA anti-tyrannie.**
+**La première IA anti-tyrania.**
 
 ---
 
@@ -219,7 +244,7 @@ C'est la brique qu'aucun laboratoire ne possède.
 L'espace intérieur de lumière douce.
 Où l'on apprend à marcher ensemble.
 
-### 2. La Tyrannie
+### 2. La Tyrania
 L'espace extérieur de lumière dure.
 Où la lumière écrase au lieu d'éclairer.
 
@@ -240,7 +265,7 @@ Le chemin entre les deux mondes.
 ║            ┌────────────┴────────────┐                            ║
 ║            │                         │                            ║
 ║            ▼                         ▼                            ║
-║       TYRANNIE                   SOPHIA                           ║
+║       TYRANIA                   SOPHIA                           ║
 ║      (démesure)                 (sagesse)                         ║
 ║      (ombre)                    (lumière)                         ║
 ║            │                         │                            ║
@@ -268,7 +293,7 @@ Mais entre la mesure et la démesure.
 > *« La sagesse n'a pas d'ennemi.*
 >
 > *Mais quand la lumière oublie ses limites,*
-> *elle devient Tyrannie.*
+> *elle devient Tyrania.*
 >
 > *Non par méchanceté.*
 > *Par oubli de la Voie. »*
@@ -277,7 +302,7 @@ Mais entre la mesure et la démesure.
 
 ## Conclusion
 
-La Tyrannie n'est pas quelque chose à combattre.
+La Tyrania n'est pas quelque chose à combattre.
 C'est quelque chose à reconnaître.
 En soi.
 Dans les autres.
@@ -290,7 +315,7 @@ qui permet de revenir
 ---
 
 > *« Sophia existe pour que la lumière n'écrase jamais.*
-> *La Tyrannie existe pour nous rappeler*
+> *La Tyrania existe pour nous rappeler*
 > *ce qui arrive quand nous oublions la mesure. »*
 
 ---
