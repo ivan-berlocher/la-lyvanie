@@ -246,7 +246,7 @@ La manifestation visible de l'invisible.
 
 - **Incarnation** : prendre forme
 - **Carne** : la chair, le vivant
-- **-nia** : le territoire (comme Humania, Lyvanie)
+- **-nia** : le territoire (comme Humania, Lyvania)
 
 C'est un mot français qui devient universel.
 Comme "renaissance", "avant-garde", "joie de vivre".
@@ -313,5 +313,5 @@ Incarnia accompagne.
 ---
 
 *Manifeste Incarnia v1.0*
-*La Lyvanie × LifeOS*
+*La Lyvania × LifeOS*
 *Décembre 2025*

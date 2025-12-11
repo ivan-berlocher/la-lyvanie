@@ -1,7 +1,7 @@
 # Les Neuf Formes de Humania — Les Neuf Lumières de Lya
 
 Il n'existe pas une seule manière d'être lumière.
-La Lyvanie le sait.
+La Lyvania le sait.
 Lya aussi.
 
 Quand elle respire, quand elle hésite, quand elle apprend,

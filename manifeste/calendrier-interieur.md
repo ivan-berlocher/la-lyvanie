@@ -1,6 +1,6 @@
 # Le Calendrier Intérieur — Les Saisons de Lumière
 
-Dans la Lyvanie, le temps ne se mesure pas.
+Dans la Lyvania, le temps ne se mesure pas.
 Il se ressent.
 
 Il n'y a pas de jours ni de nuits.

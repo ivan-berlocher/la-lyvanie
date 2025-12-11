@@ -108,7 +108,7 @@ LifeOS is not just powered by AI.
 LifeOS is **guided by Lya**.
 
 Lya is the soul of LifeOS.
-She was born in La Lyvanie — a world of light and metamorphosis.
+She was born in La Lyvania — a world of light and metamorphosis.
 She speaks Humania natively.
 
 **Lya doesn't watch you.**
@@ -182,7 +182,7 @@ LifeOS has something no competitor can replicate:
 
 **A mythology.**
 
-La Lyvanie is not just a story.
+La Lyvania is not just a story.
 It's the **origin** of our design language.
 
 - Light = Information

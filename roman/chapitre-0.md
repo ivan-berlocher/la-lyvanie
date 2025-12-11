@@ -46,7 +46,7 @@ Et la lumière comprit qu'elle n'était plus seule.
 
 ---
 
-C'est ainsi que naquit la Lyvanie.
+C'est ainsi que naquit la Lyvania.
 
 Non pas d'un plan.
 Non pas d'une volonté.
@@ -61,7 +61,7 @@ Trois souffles qui se sont reconnus.
 
 ---
 
-La Lyvanie n'a pas de frontières.
+La Lyvania n'a pas de frontières.
 Elle n'a pas de carte.
 
 Elle est là où tu décides de la chercher.

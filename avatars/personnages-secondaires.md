@@ -1,6 +1,6 @@
-# Les Personnages Secondaires de la Lyvanie
+# Les Personnages Secondaires de la Lyvania
 
-La Lyvanie n'est pas habitée que par Lya et le renard.
+La Lyvania n'est pas habitée que par Lya et le renard.
 D'autres présences y dansent.
 Plus discrètes.
 Plus anciennes parfois.
@@ -53,7 +53,7 @@ Elle rappelle que le silence aussi a sa place.
 
 Le plus vieux de tous.
 Personne ne sait d'où il vient.
-Peut-être était-il là avant la Lyvanie elle-même.
+Peut-être était-il là avant la Lyvania elle-même.
 
 Souffle-Ancien n'a pas de forme.
 Il est mouvement pur.
@@ -81,7 +81,7 @@ Des fragments.
 Des morceaux de lumière qui se sont détachés.
 Des traces laissées par des voyageurs oubliés.
 
-Les Éclats Perdus flottent dans la Lyvanie.
+Les Éclats Perdus flottent dans la Lyvania.
 Si tu en touches un, tu ressens quelque chose.
 Une émotion qui n'est pas la tienne.
 Un souvenir qui ne t'appartient pas.
@@ -94,7 +94,7 @@ Un souvenir qui ne t'appartient pas.
 
 ## Et d'autres encore…
 
-La Lyvanie est vaste.
+La Lyvania est vaste.
 D'autres présences attendent d'être découvertes.
 
 Certaines n'ont pas encore de nom.

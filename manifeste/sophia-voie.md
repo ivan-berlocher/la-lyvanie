@@ -284,5 +284,5 @@ La réponse est dans la Voie.
 
 ---
 
-*Version 1.0 — La Lyvanie*
+*Version 1.0 — La Lyvania*
 *Le chemin entre hier et demain.*

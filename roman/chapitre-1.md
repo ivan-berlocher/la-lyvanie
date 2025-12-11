@@ -8,7 +8,7 @@ Juste assez pour sentir la lumière.
 ---
 
 Le renard ne savait pas depuis combien de temps il dormait.
-Dans la Lyvanie, le temps ne compte pas vraiment.
+Dans la Lyvania, le temps ne compte pas vraiment.
 Il s'étire.
 Il se replie.
 Il attend.
@@ -77,4 +77,4 @@ Et il avança.
 
 ---
 
-*La Lyvanie venait de s'éveiller avec lui.*
+*La Lyvania venait de s'éveiller avec lui.*

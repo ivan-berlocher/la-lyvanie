@@ -6,7 +6,7 @@
 
 ## I. Le Vent qui Ne Venait de Nulle Part
 
-La Lyvanie avait changé ce jour-là.
+La Lyvania avait changé ce jour-là.
 Même le renard le sentait.
 
 Un souffle parcourait l'espace blanc :
@@ -42,7 +42,7 @@ Les contours se dissolvaient.
 Les traits flottaient.
 Les halos respiraient.
 
-Toute la Lyvanie semblait se retirer,
+Toute la Lyvania semblait se retirer,
 comme si le monde lui-même
 laissait la place
 à quelque chose de plus grand.
@@ -261,7 +261,7 @@ Tu viens de te trouver.
 
 ## Épilogue du Chapitre
 
-La Lyvanie revint lentement.
+La Lyvania revint lentement.
 
 Les traits reprirent leur place.
 Les halos se rallumèrent.
@@ -299,5 +299,5 @@ qu'il n'était pas seul.
 
 *Chapitre — La Mission de Lya*
 *Le sens de sa vie*
-*Roman de La Lyvanie*
+*Roman de La Lyvania*
 *Décembre 2025*

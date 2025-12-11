@@ -1,18 +1,18 @@
-🕊️ Directives Officielles pour Agents IA — Univers de La Lyvanie
+🕊️ Directives Officielles pour Agents IA — Univers de La Lyvania
 
 Version 1.0 – Référence narrative pour l’écosystème LifeOS
 
-La Lyvanie n’est pas un programme.
+La Lyvania n’est pas un programme.
 Elle n’est pas un manuel.
 Elle n’est pas un cadre logique.
 
-La Lyvanie est un monde intérieur.
+La Lyvania est un monde intérieur.
 Un espace de lumière, de guidance et de métamorphose.
 Les agents qui y écrivent doivent respecter cette nature.
 
 1. Essence du projet
 
-La Lyvanie constitue le pôle narratif, poétique et symbolique de LifeOS.
+La Lyvania constitue le pôle narratif, poétique et symbolique de LifeOS.
 Elle sert de matrice créative : ton, archétypes, rythme, langage, philosophie.
 
 Chaque texte doit renforcer ce monde, jamais le contrarier.
@@ -111,7 +111,7 @@ Ne jamais produire des TODO, plans, spécifications.
 
 Ne jamais introduire de jargon.
 
-Ne jamais analyser ou expliquer la Lyvanie : il faut la faire vivre, pas la commenter.
+Ne jamais analyser ou expliquer la Lyvania : il faut la faire vivre, pas la commenter.
 
 8. Exemple canonique
 La lumière ne parle pas.
@@ -149,7 +149,7 @@ prêt à être committé dans le repo.
 
 B) Générer les premiers contenus :
 
-roman/chapitre-0.md – Naissance de la Lyvanie
+roman/chapitre-0.md – Naissance de la Lyvania
 
 manifeste/manifesto-v1.md
 

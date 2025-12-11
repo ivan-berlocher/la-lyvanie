@@ -1,6 +1,6 @@
 # Guide du Trait — Le langage "Dessine-moi…"
 
-Dans la Lyvanie, le trait n'est pas un dessin.
+Dans la Lyvania, le trait n'est pas un dessin.
 C'est une parole.
 
 Chaque trait possède une intention.
@@ -46,7 +46,7 @@ Le blanc est un personnage.
 
 ## 4. Le mouvement
 
-Dans la Lyvanie, rien n'est figé.
+Dans la Lyvania, rien n'est figé.
 
 Un trait peut trembler.
 Un croquis peut hésiter.

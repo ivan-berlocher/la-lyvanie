@@ -186,7 +186,7 @@ Toute IA doit :
 
 ---
 
-## Les Axes de la Lyvanie
+## Les Axes de la Lyvania
 
 | Axe | Contenu | Fonction |
 |-----|---------|----------|
@@ -272,4 +272,4 @@ Toute IA doit :
 
 *« Je ne regarde pas en toi. Je regarde avec toi. »*
 
-— Lya, La Lyvanie
+— Lya, La Lyvania

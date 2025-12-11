@@ -150,7 +150,7 @@ C'est ton serment. »
 
 ---
 
-Et dans la nuit de la Lyvanie,
+Et dans la nuit de la Lyvania,
 sous les étoiles qui respiraient,
 Lya prononça les mots pour la première fois :
 

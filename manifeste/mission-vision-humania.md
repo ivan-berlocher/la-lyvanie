@@ -271,4 +271,4 @@ Pour que l'humain redevienne ce qu'il a toujours été :
 
 *Mission · Vision · Raison d'Être*
 *Humania × Incarnia × LifeOS*
-*La Lyvanie — Décembre 2025*
+*La Lyvania — Décembre 2025*

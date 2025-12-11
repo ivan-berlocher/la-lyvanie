@@ -249,5 +249,5 @@ C'est l'architecture cognitive du futur.
 ---
 
 *Le Triple Pilier de Sophia v1.0*
-*La Lyvanie × LifeOS*
+*La Lyvania × LifeOS*
 *Décembre 2025*

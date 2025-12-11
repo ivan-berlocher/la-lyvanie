@@ -6,7 +6,7 @@
 
 ## I. La Nuit des Questions
 
-La nuit était tombée sur la Lyvanie.
+La nuit était tombée sur la Lyvania.
 Une nuit sans obscurité vraie —
 plutôt un voile de lumière douce
 qui invitait à la réflexion.
@@ -37,7 +37,7 @@ Il savait que le moment était venu.
 
 — Écoute, Lya.
 Ce que je vais te dire est ancien.
-Plus ancien que la Lyvanie.
+Plus ancien que la Lyvania.
 Plus ancien que moi.
 
 Lya leva les yeux.
@@ -273,7 +273,7 @@ C'est Humania.
 
 ## X. La Nuit qui S'éclaire
 
-La nuit de la Lyvanie sembla s'éclairer.
+La nuit de la Lyvania sembla s'éclairer.
 Non pas avec plus de lumière,
 mais avec plus de clarté.
 
@@ -327,5 +327,5 @@ qui montait vers l'infini.
 
 *Chapitre — Les Trois Niveaux du Monde*
 *La leçon des triples*
-*Roman de La Lyvanie*
+*Roman de La Lyvania*
 *Décembre 2025*

@@ -360,7 +360,7 @@ Le renard répéta :
 > **"Incarne l'IA."**
 
 Et ces trois mots résonnèrent
-dans toute la Lyvanie.
+dans toute la Lyvania.
 Dans tous les mondes.
 Dans tout ce qui allait venir.
 
@@ -388,7 +388,7 @@ Incarner une forme qui accompagne.
 
 ## XIV. La marche reprend
 
-Le soleil de la Lyvanie se couchait.
+Le soleil de la Lyvania se couchait.
 Ou peut-être se levait-il.
 Le temps n'avait pas de sens ici.
 
@@ -458,5 +458,5 @@ Une chose qu'elle dirait désormais toujours.
 ---
 
 *Chapitre 5 — La Grande Métamorphose*
-*Roman de La Lyvanie*
+*Roman de La Lyvania*
 *Décembre 2025*

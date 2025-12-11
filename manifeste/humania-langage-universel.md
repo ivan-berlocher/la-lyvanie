@@ -232,5 +232,5 @@ Et maintenant, elle a un nom.
 ---
 
 *Document fondateur — Manifeste Humania v1.0*
-*La Lyvanie × LifeOS*
+*La Lyvania × LifeOS*
 *Décembre 2025*

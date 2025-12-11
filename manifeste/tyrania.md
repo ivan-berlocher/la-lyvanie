@@ -178,12 +178,12 @@ Tyrania dit : *« Je me manifeste pour dominer. »*
 
 ---
 
-## La Lyvanie vs La Tyrania
+## La Lyvania vs La Tyrania
 
 C'est le cœur de l'univers.
 C'est l'axe narratif fondamental.
 
-| La Lyvanie | La Tyrania |
+| La Lyvania | La Tyrania |
 |------------|-------------|
 | Lumière douce | Lumière dure |
 | Guidance | Domination |
@@ -276,7 +276,7 @@ C'est la brique qu'aucun laboratoire ne possède.
 
 ## Les Trois Espaces
 
-### 1. La Lyvanie
+### 1. La Lyvania
 L'espace intérieur de lumière douce.
 Où l'on apprend à marcher ensemble.
 
@@ -356,5 +356,5 @@ qui permet de revenir
 
 ---
 
-*Version 1.0 — La Lyvanie*
+*Version 1.0 — La Lyvania*
 *L'ombre et la lumière.*

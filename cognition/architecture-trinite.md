@@ -383,5 +383,5 @@ interface Manifestation {
 ---
 
 *Architecture LifeOS — La Trinité v1.0*
-*La Lyvanie × LifeOS*
+*La Lyvania × LifeOS*
 *Décembre 2025*

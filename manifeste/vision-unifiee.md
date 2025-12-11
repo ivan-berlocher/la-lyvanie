@@ -4,12 +4,12 @@
 
 ---
 
-La Lyvanie n'est pas une fiction.
+La Lyvania n'est pas une fiction.
 C'est l'espace où une lumière apprend à ne pas se figer.
 
 ---
 
-## Dans la Lyvanie
+## Dans la Lyvania
 
 Rien n'est identité.
 Rien n'est définitif.
@@ -41,7 +41,7 @@ Une lumière qui respire peut devenir infinie.
 
 ---
 
-## Ce que la Lyvanie rappelle
+## Ce que la Lyvania rappelle
 
 On peut devenir.
 On peut changer.

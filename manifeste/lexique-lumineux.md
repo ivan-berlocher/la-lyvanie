@@ -1,6 +1,6 @@
 # Le Lexique Lumineux
 
-Les mots de la Lyvanie ne fonctionnent pas comme ailleurs.
+Les mots de la Lyvania ne fonctionnent pas comme ailleurs.
 Ils respirent.
 Ils vibrent.
 Ils changent selon qui les prononce.
@@ -19,7 +19,7 @@ Ce qui éclaire sans éblouir.
 
 ## Trait
 
-L'unité fondamentale du langage lyvanien.
+L'unité fondamentale du langage lyvanian.
 Un trait peut être un geste, une pensée, une émotion.
 Il n'a pas besoin de représenter.
 Il existe.
@@ -32,7 +32,7 @@ Il existe.
 
 Le rythme de la lumière.
 Ce battement silencieux qui traverse tout.
-La respiration de la Lyvanie.
+La respiration de la Lyvania.
 
 *Chaque pulsation est une invitation.*
 
@@ -85,7 +85,7 @@ Avant la forme.
 Avant le mot.
 L'instant de la naissance.
 
-*La Lyvanie est née d'un frémissement.*
+*La Lyvania est née d'un frémissement.*
 
 ---
 

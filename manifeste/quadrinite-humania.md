@@ -460,5 +460,5 @@ Une fondation.
 ---
 
 *La Quadrinité Humania v1.1*
-*La Lyvanie × LifeOS*
+*La Lyvania × LifeOS*
 *Décembre 2025*

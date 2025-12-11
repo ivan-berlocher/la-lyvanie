@@ -462,5 +462,5 @@ unifiant l'output multimodal dans une même grammaire expressive.
 ---
 
 *Manifeste Humania — Structure Fractale de l'Intelligence v1.0*
-*La Lyvanie × LifeOS*
+*La Lyvania × LifeOS*
 *Décembre 2025*

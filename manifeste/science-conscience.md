@@ -1,6 +1,6 @@
 # Science sans Conscience
 
-*Manifeste fondateur de la Lyvanie*
+*Manifeste fondateur de la Lyvania*
 
 ---
 

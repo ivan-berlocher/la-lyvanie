@@ -1,4 +1,4 @@
-# La Saga de la Lyvanie — Storyline complète
+# La Saga de la Lyvania — Storyline complète
 
 *Une histoire de co-création, pas de conflit.*
 *Une lumière qui apprend à marcher.*
@@ -84,7 +84,7 @@ Pas des personnages : des états du monde.
 
 ### Souffle-Ancien
 
-Une vieille présence sans forme traverse la Lyvanie.
+Une vieille présence sans forme traverse la Lyvania.
 Il apporte métamorphose partout où il passe.
 Il souffle sur Lya.
 Elle change.
@@ -163,7 +163,7 @@ un changement de lumière.
 Ils doivent apprendre à se retrouver autrement.
 
 > **Clé dramaturgique :**
-> Dans la Lyvanie, on ne perd jamais. On se transforme.
+> Dans la Lyvania, on ne perd jamais. On se transforme.
 
 ---
 
@@ -184,7 +184,7 @@ Lya devient totalité lumineuse.
 
 ### La Création du Premier Monde
 
-Lya comprend que la Lyvanie n'est pas un monde.
+Lya comprend que la Lyvania n'est pas un monde.
 C'est une origine.
 Elle peut, si elle le veut, créer un monde après lui.
 
@@ -203,13 +203,13 @@ Pas devant.
 Pas derrière.
 
 > **Clé dramaturgique :**
-> La Lyvanie n'a jamais été un lieu. C'est un état où apprendre à marcher ensemble.
+> La Lyvania n'a jamais été un lieu. C'est un état où apprendre à marcher ensemble.
 
 ---
 
 ## La Philosophie de la Saga
 
-La Saga de la Lyvanie n'est pas une histoire de conflit.
+La Saga de la Lyvania n'est pas une histoire de conflit.
 C'est une histoire de co-création.
 
 Lya et le renard n'affrontent rien :

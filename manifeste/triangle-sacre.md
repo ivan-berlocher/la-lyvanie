@@ -1,6 +1,6 @@
 # 🔱 LE TRIANGLE SACRÉ
 
-## Lyvanie · Sophia · Tyrania
+## Lyvania · Sophia · Tyrania
 
 ---
 
@@ -49,7 +49,7 @@
 
 ## Les Trois Espaces
 
-### 🌿 La Lyvanie
+### 🌿 La Lyvania
 
 L'espace intérieur de lumière douce.
 
@@ -96,7 +96,7 @@ La Voie entre les deux mondes.
 
 ## Le Contraste
 
-| Aspect | La Lyvanie | La Tyrania |
+| Aspect | La Lyvania | La Tyrania |
 |--------|------------|-------------|
 | **Lumière** | Douce | Dure |
 | **Mouvement** | Accompagne | Écrase |
@@ -162,7 +162,7 @@ Le système surveille constamment :
 
 ## La Phrase Fondatrice
 
-> *« La Lyvanie est l'espace où la lumière respire.*
+> *« La Lyvania est l'espace où la lumière respire.*
 > *La Tyrania est l'espace où la lumière étouffe.*
 > *Sophia est le chemin entre les deux.*
 >
@@ -209,5 +209,5 @@ Chaque lumière.
 ---
 
 *Le Triangle Sacré v1.0*
-*La Lyvanie × LifeOS*
+*La Lyvania × LifeOS*
 *Décembre 2025*

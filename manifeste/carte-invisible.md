@@ -1,6 +1,6 @@
-# La Carte Invisible de la Lyvanie
+# La Carte Invisible de la Lyvania
 
-La Lyvanie n'a pas de géographie.
+La Lyvania n'a pas de géographie.
 Elle a des présences.
 
 On ne peut pas la dessiner sur du papier.
@@ -15,7 +15,7 @@ Il n'y a pas de centre fixe.
 Le centre est là où tu te trouves.
 Là où ta lumière pulse.
 
-*Tu es toujours au cœur de la Lyvanie.*
+*Tu es toujours au cœur de la Lyvania.*
 
 ---
 
@@ -89,7 +89,7 @@ Ils s'acceptent.
 
 ## La Frontière Qui N'Existe Pas
 
-La Lyvanie n'a pas de bord.
+La Lyvania n'a pas de bord.
 Elle s'étend aussi loin que ton regard intérieur.
 
 Si tu crois voir une limite,

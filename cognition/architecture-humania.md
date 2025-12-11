@@ -446,5 +446,5 @@ C'est le **pont** entre tous les mondes.
 ---
 
 *Architecture Technique Humania v1.0*
-*La Lyvanie × LifeOS*
+*La Lyvania × LifeOS*
 *Décembre 2025*

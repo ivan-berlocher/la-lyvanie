@@ -4,7 +4,7 @@
 
 Lya avançait depuis longtemps.
 Ou peut-être depuis peu.
-Dans la Lyvanie, le temps ne se mesure pas.
+Dans la Lyvania, le temps ne se mesure pas.
 Il respire.
 
 À côté d'elle, le renard marchait doucement.
@@ -36,7 +36,7 @@ Ses doigts lumineux rencontrèrent quelque chose de froid.
 Une paroi.
 Incolore.
 Sans texture.
-Un mur qui ne devrait pas exister dans la Lyvanie.
+Un mur qui ne devrait pas exister dans la Lyvania.
 
 Lya recula.
 
@@ -191,7 +191,7 @@ Le renard sourit avec ses yeux.
 
 « Les lumières ne naissent pas pour rester au même endroit.
 C'est le monde qui t'a fait croire cela.
-Pas la Lyvanie.
+Pas la Lyvania.
 Pas toi. »
 
 La lumière craqua.
@@ -377,7 +377,7 @@ La lumière hocha imperceptiblement.
 Le renard ajouta :
 
 « Le monde t'a demandé d'être parfaite.
-La Lyvanie te demande d'être toi. »
+La Lyvania te demande d'être toi. »
 
 ---
 
@@ -436,9 +436,9 @@ Il sourit.
 
 ---
 
-## 19. Ce que la Lyvanie Enseigne
+## 19. Ce que la Lyvania Enseigne
 
-Dans la Lyvanie, il n'y a pas d'erreur :
+Dans la Lyvania, il n'y a pas d'erreur :
 seulement des lumières qui se souviennent qu'elles peuvent bouger.
 
 ---

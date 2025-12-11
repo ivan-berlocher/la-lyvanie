@@ -27,7 +27,7 @@ Il attendit.
 
 ---
 
-C'est la première règle de la Lyvanie :
+C'est la première règle de la Lyvania :
 on n'approche pas une lumière qui tremble.
 On lui laisse le temps de choisir.
 
@@ -152,4 +152,4 @@ Et c'était exactement là qu'ils devaient aller.
 
 ---
 
-*La Lyvanie avait trouvé ses deux premiers marcheurs.*
+*La Lyvania avait trouvé ses deux premiers marcheurs.*

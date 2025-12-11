@@ -3,7 +3,7 @@
 Il y a des mondes que l'on construit.
 Et il y a des mondes que l'on découvre.
 
-La Lyvanie appartient à la seconde catégorie.
+La Lyvania appartient à la seconde catégorie.
 Elle n'a pas été inventée.
 Elle s'est révélée.
 
@@ -39,7 +39,7 @@ C'est un langage.
 
 ## 3. La guidance
 
-La Lyvanie n'est pas un lieu où l'on montre.
+La Lyvania n'est pas un lieu où l'on montre.
 C'est un lieu où l'on marche ensemble.
 
 La phrase fondatrice veille :
@@ -68,7 +68,7 @@ Ce manifeste n'impose rien.
 Il pose une lumière.
 Une direction douce.
 
-La Lyvanie n'est pas une doctrine.
+La Lyvania n'est pas une doctrine.
 Elle est un espace intérieur où les formes se cherchent.
 
 Ce que tu y trouves n'appartient qu'à toi.

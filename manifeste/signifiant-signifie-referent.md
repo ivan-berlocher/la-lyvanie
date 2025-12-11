@@ -255,5 +255,5 @@ C'est la solution au Grounding Problem.
 
 *Signifiant · Signifié · Référent*
 *La Trinité du Sens*
-*Humania × La Lyvanie*
+*Humania × La Lyvania*
 *Décembre 2025*

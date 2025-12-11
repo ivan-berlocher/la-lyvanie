@@ -1,4 +1,4 @@
-# Les Lieux Sacrés de la Lyvanie
+# Les Lieux Sacrés de la Lyvania
 
 Certains endroits ne se trouvent pas.
 Ils apparaissent.

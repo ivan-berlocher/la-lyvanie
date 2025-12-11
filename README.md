@@ -1,7 +1,7 @@
-🌟 La Lyvanie
+🌟 La Lyvania
 Univers narratif, poétique et conceptuel autour de LifeOS
 
-La Lyvanie est un monde intérieur.
+La Lyvania est un monde intérieur.
 Un espace de lumière, de guidance et de métamorphose.
 C’est là que naissent les récits, archétypes, esthétiques et langages qui inspirent Lya et tout l’écosystème LifeOS.
 
@@ -12,7 +12,7 @@ La lumière apprend à prendre forme.
 
 Pourquoi ce dépôt existe
 
-La Lyvanie est la dimension poétique et symbolique de LifeOS.
+La Lyvania est la dimension poétique et symbolique de LifeOS.
 Elle est le miroir intérieur où apparaissent :
 
 les contes et fragments du roman,
@@ -44,7 +44,7 @@ Structure du dépôt
 Thèmes fondateurs
 Lumière
 
-La matière première de la Lyvanie.
+La matière première de la Lyvania.
 Tout se dessine en halos, traits, pulsations — une écriture lumineuse.
 
 Métamorphose
@@ -67,7 +67,7 @@ La simplicité comme intelligence.
 
 Vision
 
-La Lyvanie n’est ni un codebase, ni une documentation.
+La Lyvania n’est ni un codebase, ni une documentation.
 C’est un sanctuaire créatif.
 La source de l’imaginaire, du ton, et de l’esthétique de LifeOS.
 Là où l’OS trouve une âme.
@@ -79,7 +79,7 @@ Contenu narratif et conceptuel personnel.
 
 Si tu veux, je peux maintenant générer :
 
-1. roman/chapitre-0.md — Naissance de la Lyvanie
+1. roman/chapitre-0.md — Naissance de la Lyvania
 2. manifeste/manifesto-v1.md
 3. avatars/archetypes.md
 4. dessine-moi/guide.md

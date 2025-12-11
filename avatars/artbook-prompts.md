@@ -1,6 +1,6 @@
-# Artbook Lyvanie — Prompts pour Gemini
+# Artbook Lyvania — Prompts pour Gemini
 
-Prompts optimisés pour générer des illustrations dans l'esthétique de la Lyvanie.
+Prompts optimisés pour générer des illustrations dans l'esthétique de la Lyvania.
 Style : lumineux, éthéré, minimaliste, poétique, doux.
 
 ---
@@ -186,4 +186,4 @@ Around it, the potential for a whole world.
 
 Ces prompts sont des points de départ.
 Ils peuvent être combinés, modifiés, métamorphosés.
-Comme tout dans la Lyvanie.
+Comme tout dans la Lyvania.

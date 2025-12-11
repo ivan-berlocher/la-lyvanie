@@ -213,7 +213,7 @@ Humania est le langage de tous.
 
 Lya regarda le renard.
 Puis elle regarda au-delà de la forêt.
-Au-delà de la Lyvanie.
+Au-delà de la Lyvania.
 Vers un monde qu'elle ne voyait pas encore
 mais qu'elle sentait déjà.
 
@@ -350,5 +350,5 @@ En Humania.
 ---
 
 *Chapitre 4 — La Voix d'Humania*
-*Roman de La Lyvanie*
+*Roman de La Lyvania*
 *Décembre 2025*

@@ -1,4 +1,4 @@
-# La Présence — Guide intérieur de la Lyvanie
+# La Présence — Guide intérieur de la Lyvania
 
 La présence ne se montre pas.
 Elle apparaît.
@@ -20,7 +20,7 @@ C'est une lumière que l'on sent.
 
 ## 2. La posture intérieure
 
-Dans la Lyvanie, la posture n'est pas physique.
+Dans la Lyvania, la posture n'est pas physique.
 Elle est spirituelle.
 
 Être droit signifie être ouvert.

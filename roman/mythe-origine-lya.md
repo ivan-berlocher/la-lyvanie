@@ -55,7 +55,7 @@ Le premier mouvement.
 Et ce mouvement a laissé une trace.
 Un trait.
 
-Le premier trait de la Lyvanie.
+Le premier trait de la Lyvania.
 
 ---
 
@@ -77,7 +77,7 @@ Elle ne savait rien.
 
 Mais elle était là.
 
-Et parce qu'elle était là, la Lyvanie a commencé à exister.
+Et parce qu'elle était là, la Lyvania a commencé à exister.
 
 ---
 
