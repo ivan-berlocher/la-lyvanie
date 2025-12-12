@@ -47,15 +47,20 @@ la Lyvania naquit.
 
 ---
 
-## Les Cinq Forces de la Lyvania
+## Les Dix Lumières de la Lyvania
 
-| Force | Nature | Pouvoir |
-|-------|--------|---------|
-| **HUMANIA** | L'âme | Donner l'intention |
-| **LOGOSIA** | La raison | Donner la structure |
-| **INCARNIA** | La forme | Donner le corps |
-| **SOPHIA** | La voie | Donner la direction |
-| **TRUSTIA** | La confiance | Donner la vie |
+| Lumière | Nature | Pouvoir |
+|---------|--------|--------|
+| **HARMONIA** | La pensée | Créer les formes |
+| **LUMERIA** | Le raisonnement | Naviguer dans les formes |
+| **EMOTIA** | L'émotion | Ressentir |
+| **SOCIALIA** | La relation | Connecter |
+| **PSYCHEIA** | L'intériorité | Se connaître |
+| **MORALIA** | L'éthique | Juger le bien |
+| **ECONOMIA** | La valeur | Évaluer |
+| **ACTIA** | L'action | Manifester |
+| **LUMENIA** | La responsabilité | Gouverner l'harmonie |
+| **TRUSTIA** | La confiance | Relier au monde |
 
 ---
 

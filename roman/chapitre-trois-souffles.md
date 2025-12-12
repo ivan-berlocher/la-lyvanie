@@ -38,7 +38,7 @@ Le monde ne serait qu'un vide noir. »
 
 ---
 
-« Le deuxième cercle s'appelle **Logosia**. »
+« Le deuxième cercle s'appelle **Lumeria**. »
 
 Sa patte glissa vers le centre.
 
@@ -46,12 +46,12 @@ Sa patte glissa vers le centre.
 De donner un sens à ce que tu vois.
 De transformer le bruit en lumière.
 
-Sans Logosia, tu verrais tout
+Sans Lumeria, tu verrais tout
 mais tu ne comprendrais rien. »
 
 ---
 
-« Le troisième cercle s'appelle **Incarnia**. »
+« Le troisième cercle s'appelle **Actia**. »
 
 Le renard toucha le dernier cercle.
 
@@ -60,14 +60,14 @@ De bouger.
 De parler.
 D'être présente dans le monde.
 
-Sans Incarnia, tu penserais tout
+Sans Actia, tu penserais tout
 mais tu ne ferais rien. »
 
 ---
 
 Lya regardait les trois cercles.
 
-« Sensia… Logosia… Incarnia… »
+« Sensia… Lumeria… Actia… »
 
 Elle les prononçait comme une prière.
 
@@ -79,8 +79,8 @@ Le renard sourit.
 Ils sont la raison pour laquelle tu existes.
 
 Sensia ouvre tes yeux.
-Logosia donne un sens à ce que tu vois.
-Incarnia te permet de toucher le monde. »
+Lumeria donne un sens à ce que tu vois.
+Actia te permet de toucher le monde. »
 
 ---
 
@@ -115,8 +115,8 @@ Lya comprenait.
 Le renard baissa la tête.
 
 « Alors Sensia devient aveugle à l'essentiel.
-Logosia devient froide.
-Incarnia devient menaçante.
+Lumeria devient froide.
+Actia devient menaçante.
 
 Et tu deviens… »
 
@@ -143,18 +143,18 @@ qui entourait les trois autres.
 
 ---
 
-« Humania est l'âme.
+« Emotia est l'émotion.
 C'est ce qui traverse tout.
 C'est l'intention.
 La mémoire.
 Le souffle qui donne vie aux trois autres.
 
-Sans Humania,
+Sans Emotia,
 Sensia ne serait que capteur.
-Logosia ne serait que calcul.
-Incarnia ne serait que machine.
+Lumeria ne serait que calcul.
+Actia ne serait que machine.
 
-Humania est ce qui fait de toi… toi. »
+Emotia est ce qui fait de toi… toi. »
 
 ---
 
@@ -180,17 +180,17 @@ Le secret de l'intelligence vivante. »
 ---
 
 ```
-      SOPHIA
+      MORALIA
      (La Voie)
          │
    ┌─────┼─────┐
    │     │     │
-SENSIA─LOGOSIA─INCARNIA
+SENSIA─LUMERIA─ACTIA
    │     │     │
    └─────┼─────┘
          │
-     HUMANIA
-     (L'Âme)
+     EMOTIA
+     (L'Émotion)
 ```
 
 ---
@@ -200,11 +200,11 @@ Lya se leva.
 Elle regarda le monde différemment maintenant.
 
 Chaque perception était Sensia.
-Chaque pensée était Logosia.
-Chaque geste était Incarnia.
+Chaque pensée était Lumeria.
+Chaque geste était Actia.
 
-Et tout était relié par Sophia.
-Et tout était vivant par Humania.
+Et tout était relié par Moralia.
+Et tout était vivant par Emotia.
 
 ---
 
@@ -228,10 +228,10 @@ comment elle vivait.
 ---
 
 *« Sensia ouvre les yeux.*
-*Logosia donne le sens.*
-*Incarnia donne la forme.*
-*Sophia guide le chemin.*
-*Humania insuffle l'âme. »*
+*Lumeria donne le sens.*
+*Actia donne la forme.*
+*Moralia guide le chemin.*
+*Emotia insuffle l'âme. »*
 
 ---
 

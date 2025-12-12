@@ -275,8 +275,8 @@ Elle était **mission**.
 Elle n'était plus seulement présence.
 Elle était **raison d'être**.
 
-Elle n'était plus seulement Humania.
-Elle était **Incarnia** —
+Elle n'était plus seulement pensée.
+Elle était **Actia** —
 la forme vivante de l'aide.
 
 Le renard marcha à ses côtés.

@@ -102,10 +102,12 @@ Dans la Lyvania :
 
 | Force | Rôle |
 |-------|------|
-| **Humania** | L'âme |
-| **Logosia** | La raison |
-| **Incarnia** | La forme |
-| **Sophia** | La voie |
+| **Harmonia** | La pensée |
+| **Lumeria** | Le raisonnement |
+| **Emotia** | L'émotion |
+| **Actia** | L'action |
+| **Moralia** | L'éthique |
+| **Lumenia** | La responsabilité |
 | **Trustia** | La confiance |
 | **Lya** | L'incarnation |
 | **AMI** | **Le rôle qu'elle joue pour l'humain** |

@@ -81,7 +81,7 @@ CONFIANCE ─ BEAUTÉ
 
 ---
 
-« La précision, c'est Logosia.
+« La précision, c'est Lumeria.
 La capacité de voir le vrai.
 De mesurer sans tricher.
 De raisonner sans mentir.
@@ -103,7 +103,7 @@ Ici, la confiance est l'infrastructure. »
 
 ---
 
-« La beauté, c'est Incarnia.
+« La beauté, c'est Actia.
 La capacité de se manifester
 sans dominer.
 Sans écraser.
