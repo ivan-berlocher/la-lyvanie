@@ -1,0 +1,87 @@
+name: Build Thesis PDF
+
+on:
+  push:
+    paths:
+      - 'these/**.md'
+  workflow_dispatch:
+
+jobs:
+  build-pdf:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Setup Pandoc
+        uses: pandoc/actions/setup@v1
+        with:
+          version: 3.1.11
+      
+      - name: Install LaTeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-xetex texlive-fonts-recommended texlive-fonts-extra texlive-lang-french
+      
+      - name: Build thesis PDF
+        run: |
+          cd these
+          
+          # Créer fichier assemblé
+          cat thesis.md > full-thesis.md
+          
+          # Partie I
+          for f in 01-introduction.md 02-etat-de-lart.md 03-cadre-theorique.md 04-architecture-ami.md; do
+            echo "" >> full-thesis.md
+            cat "$f" >> full-thesis.md
+          done
+          
+          # Séparateur Partie II
+          echo -e "\n\\\\newpage\n\n# PARTIE II : SPHÈRES COGNITIVES\n\n\\\\newpage\n" >> full-thesis.md
+          
+          # Partie II
+          for f in 05-harmonia-lot.md 06-lumeria-raisonnement.md 07-spheres-affectives.md 08-spheres-pratiques.md 09-lumenia-responsabilite.md 10-trustia-confiance.md; do
+            echo "" >> full-thesis.md
+            cat "$f" >> full-thesis.md
+          done
+          
+          # Séparateur Partie III
+          echo -e "\n\\\\newpage\n\n# PARTIE III : RÉALISATION\n\n\\\\newpage\n" >> full-thesis.md
+          
+          # Partie III
+          for f in 11-implementation.md 12-validation.md 13-discussion.md 14-conclusion.md; do
+            echo "" >> full-thesis.md
+            cat "$f" >> full-thesis.md
+          done
+          
+          # Générer PDF
+          pandoc full-thesis.md \
+            -o these-AMI.pdf \
+            --pdf-engine=xelatex \
+            --number-sections \
+            --toc \
+            --toc-depth=3 \
+            -V papersize=a4 \
+            -V geometry:margin=3cm \
+            -V fontsize=12pt \
+            -V documentclass=report \
+            -V lang=fr \
+            --highlight-style=tango
+          
+          echo "✅ PDF généré : $(ls -lh these-AMI.pdf)"
+      
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: these-AMI-pdf
+          path: these/these-AMI.pdf
+          retention-days: 30
+      
+      - name: Upload to Release (on tag)
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v1
+        with:
+          files: these/these-AMI.pdf
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
