@@ -92,9 +92,52 @@ Remplace `[SPECIFIC TOPIC], especially [PAPER/PROJECT KEYWORD]` par une preuve c
 - [ ] Remplacer [LAB NAME] par le nom exact du lab
 - [ ] Remplacer [SPECIFIC TOPIC]...[KEYWORD] par référence concrète à leurs travaux
 - [ ] Attacher: 1-page summary PDF + CV PDF
+- [ ] Nommer les PDF proprement:
+  - `Berlocher_Ivan_ResearchSummary.pdf`
+  - `Berlocher_Ivan_CV.pdf`
 - [ ] Lien GitHub dans le corps ✓ (déjà inclus)
+- [ ] Pas de CC, pas de BCC
 - [ ] Relire une dernière fois
-- [ ] Envoyer lundi-mercredi matin (meilleur taux de réponse)
+- [ ] Envoyer **lundi-mercredi, 08:00-10:00 heure locale**
+
+---
+
+## Follow-up J+10 (Important — x2 taux de réponse)
+
+**Subject:** Re: PhD Collaboration Inquiry — Executable Cognitive Kernel (Harmonia)
+
+---
+
+Dear Professor [NAME],
+
+I'm following up briefly on my previous email regarding Harmonia, in case it got lost in your inbox.
+
+I would be happy to share additional technical details or provide a short live demo if this aligns with your interests.
+
+Thank you again for your time.
+
+Best regards,
+
+**Ivan Berlocher**  
+ivan@berlocher.ch
+
+---
+
+## Micro-options facultatives (selon profil du prof)
+
+### Option A — Prof très "systems / infra"
+
+Modifier la première phrase:
+
+> "…formal representations for AI reasoning and **cognitive AI systems**."
+
+### Option B — Prof très "evaluation"
+
+Ajouter dans la section démo:
+
+> "…visible reasoning traces **that can be logged and evaluated**."
+
+*Si tu ne touches à rien → aucun problème.*
 
 ---
 
