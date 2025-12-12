@@ -1,6 +1,6 @@
 # Email Template — PhD Collaboration Contact
 
-## Version Finale (Ultra-Envoyable)
+## Version Finale V3.1 (Systems-Oriented)
 
 ---
 
@@ -10,7 +10,7 @@
 
 Dear Professor [NAME],
 
-I'm reaching out about potential PhD collaboration opportunities in your lab, in the area of cognitive architectures and formal representations for AI reasoning.
+I'm reaching out regarding potential PhD collaboration opportunities in your lab, in the area of cognitive architectures and formal representations for AI reasoning and AI systems.
 
 I have developed a functioning cognitive kernel, **Harmonia**, which is implemented and currently running end-to-end (perception → intent representation → reasoning/memory → action → trace).
 
@@ -18,7 +18,7 @@ The system includes:
 
 1. **Universal Intent Language (UIL):** a typed intermediate representation (IR) of intent between perception, reasoning, and action.
 
-2. **Modular execution pipeline (PSMR):** Perception → Sensemaking → Modeling → Response, implemented as an inspectable pipeline (not a single model call).
+2. **Modular execution pipeline (PSMR):** Perception → Sensemaking → Modeling → Response, implemented as an inspectable pipeline rather than a single model call.
 
 3. **Multi-agent architecture** with explicit routing/arbitration and traceable meta-reasoning.
 
@@ -27,11 +27,11 @@ The prototype demonstrates:
 - Multimodal intent parsing into typed UIL (JSON + reasoning trace per turn)
 - Hybrid symbolic + neural reasoning over graph-based memory
 - Autonomous action selection with visible reasoning traces
-- Model-agnostic design: LLM calls are pluggable and separated from orchestration/memory
+- Model-agnostic design where LLM inference is pluggable and separated from kernel orchestration and memory
 
-I attached a one-page research summary. If helpful, I can also share a technical whitepaper, code excerpts, or repo access (github.com/ivan-berlocher — private repo available on request), and give a short live demo (~10 minutes).
+I attached a one-page research summary. If helpful, I can also share a technical whitepaper, code excerpts, or repository access (github.com/ivan-berlocher — private repo available on request), and provide a short live demo (~10 minutes).
 
-I believe this aligns with [LAB NAME]'s work on [SPECIFIC TOPIC], especially [PAPER/PROJECT KEYWORD]. I would welcome the opportunity to discuss whether it could form the basis of a PhD project or research collaboration.
+I believe this aligns well with [LAB NAME]'s work on [SPECIFIC TOPIC], especially [PAPER/PROJECT KEYWORD]. I would welcome the opportunity to discuss whether this could form the basis of a PhD project or research collaboration.
 
 Best regards,
 
