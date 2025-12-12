@@ -1,112 +1,110 @@
 # Email Template — PhD Collaboration Contact
 
-## Version Finale (Implementation-First)
+## Version Finale (Ultra-Envoyable)
 
 ---
 
-**Subject:** PhD Collaboration Inquiry — Implemented Cognitive Kernel & Universal Intent Language
-
-*Alternative:* PhD Inquiry — Executable Cognitive Architecture with Formal Intent Language
+**Subject:** PhD Collaboration Inquiry — Executable Cognitive Kernel (Harmonia) & Typed Intent Language (UIL)
 
 ---
 
 Dear Professor [NAME],
 
-I am reaching out regarding potential PhD collaboration opportunities in your lab, specifically in the area of **cognitive architectures** and **formal representations for AI reasoning**.
+I'm reaching out about potential PhD collaboration opportunities in your lab, in the area of cognitive architectures and formal representations for AI reasoning.
 
-I have developed a functioning cognitive kernel, **Harmonia**, which is not a conceptual proposal but an **implemented system currently running end-to-end**.
+I have developed a functioning cognitive kernel, **Harmonia**, which is implemented and currently running end-to-end (perception → intent representation → reasoning/memory → action → trace).
 
 The system includes:
 
-1. **Universal Intent Language (UIL):** a typed, structured representation of cognitive intent used as an intermediate representation between perception, reasoning, and action.
+1. **Universal Intent Language (UIL):** a typed intermediate representation (IR) of intent between perception, reasoning, and action.
 
-2. **Cognitive execution pipeline (PSMR):** Perception → Sensemaking → Modeling → Response, implemented as a modular, inspectable pipeline rather than a monolithic model call.
+2. **Modular execution pipeline (PSMR):** Perception → Sensemaking → Modeling → Response, implemented as an inspectable pipeline (not a single model call).
 
-3. **Multi-agent architecture** with specialist agents coordinated through explicit intent routing, arbitration rules, and traceable meta-reasoning.
+3. **Multi-agent architecture** with explicit routing/arbitration and traceable meta-reasoning.
 
 The prototype demonstrates:
 
-- Real-time intent parsing from multimodal inputs
-- Symbolic + neural hybrid reasoning over a graph-based memory
+- Multimodal intent parsing into typed UIL (JSON + reasoning trace per turn)
+- Hybrid symbolic + neural reasoning over graph-based memory
 - Autonomous action selection with visible reasoning traces
-- Clear separation between kernel logic and LLM inference
+- Model-agnostic design: LLM calls are pluggable and separated from orchestration/memory
 
-**Key contributions:**
+I attached a one-page research summary. If helpful, I can also share a technical whitepaper, code excerpts, or repo access (github.com/ivan-berlocher — private repo available on request), and give a short live demo (~10 minutes).
 
-- A formal intent representation designed as an **executable intermediate language** rather than a purely linguistic abstraction
-- A cognitive kernel architecture **separating reasoning, memory, and model inference**
-- An implemented perception-to-action loop that can be **inspected, logged, and evaluated**
-
-I have attached a one-page research summary outlining the architecture and current implementation. I would also be happy to share a technical whitepaper, code excerpts, or provide a short (~10 minute) live demonstration of the system.
-
-I believe this work aligns well with [LAB NAME]'s research on [SPECIFIC TOPIC], and I would welcome the opportunity to discuss whether it could form the basis of a PhD project or research collaboration.
-
-Thank you very much for your time and consideration.
+I believe this aligns with [LAB NAME]'s work on [SPECIFIC TOPIC], especially [PAPER/PROJECT KEYWORD]. I would welcome the opportunity to discuss whether it could form the basis of a PhD project or research collaboration.
 
 Best regards,
 
 **Ivan Berlocher**  
 ivan@berlocher.ch  
-github.com/ivan-berlocher  
-linkedin.com/in/ivan-berlocher
+github.com/ivan-berlocher | linkedin.com/in/ivan-berlocher
 
 ---
 
-## Attachments
+## Attachments (to email)
 
 - Research Summary (1 page PDF)
-- CV
-- [Optional] Whitepaper: "UIL: A Formal Grammar for Cognitive Architectures"
-- [Optional] Demo video (60s)
-- [Optional] GitHub repo link
+- CV (1-2 pages PDF)
 
 ---
 
-## Customization by Institution
+## Personnalisation (1 ligne — OBLIGATOIRE)
 
-### ETH AI Center
+Remplace `[SPECIFIC TOPIC], especially [PAPER/PROJECT KEYWORD]` par une preuve concrète que tu connais leurs travaux.
 
-> "I believe this work aligns well with the AI Center's research on **autonomous systems, formal AI methods, and interpretable architectures**..."
+### Exemples par institution
 
-**Target professors:** Ryan Cotterell (NLP/formal), Andreas Krause (ML systems), Thomas Hofmann
+**ETH — Ryan Cotterell:**
+> "...aligns with your work on formal methods in NLP, especially your research on structured prediction and linguistic formalization."
 
-### EPFL CLAIRE / NLP Group
+**ETH — Andreas Krause:**
+> "...aligns with your work on sequential decision-making and interpretable ML systems."
 
-> "I believe this work aligns well with CLAIRE's focus on **multimodal AI, embodied cognition, and neuro-symbolic approaches**..."
+**EPFL — Antoine Bosselut:**
+> "...aligns with your work on knowledge-grounded reasoning and commonsense in language models."
 
-**Target professors:** Antoine Bosselut, Martin Jaggi, Robert West
+**EPFL — Robert West:**
+> "...aligns with your work on human-AI interaction and knowledge representation at scale."
 
-### UZH Institute for AI
-
-> "I believe this work aligns well with your **interdisciplinary approach bridging cognitive science, linguistics, and AI systems**..."
-
-**Target professors:** Rico Sennrich, Raffaella Bernardi
-
-### Max Planck Intelligent Systems
-
-> "I believe this work aligns well with your research on **cognitive foundations of intelligent behavior and structured representations**..."
+**UZH — Rico Sennrich:**
+> "...aligns with your work on neural machine translation and structured representations in NLP."
 
 ---
 
-## Why This Version Works
+## Target Professors (pour toi, PAS dans l'email)
 
-| Aspect | Old Version | New Version |
-|--------|-------------|-------------|
-| First impression | "PhD applicant with ideas" | "Engineer with running system" |
-| Implementation signal | Weak ("working prototype") | Strong ("end-to-end", "inspectable", "logged") |
-| LLM differentiation | Implicit | Explicit ("separation from model inference") |
-| Risk perception | "Another GPT wrapper?" | "Systematic architecture work" |
-| PhD positioning | "I want to research this" | "I want to formalize + evaluate what exists" |
+| Institution | Professor | Research Fit |
+|-------------|-----------|--------------|
+| ETH AI Center | Ryan Cotterell | Formal NLP, structured prediction |
+| ETH AI Center | Andreas Krause | ML systems, interpretability |
+| ETH AI Center | Thomas Hofmann | Deep learning, NLP |
+| EPFL CLAIRE | Antoine Bosselut | Knowledge, reasoning |
+| EPFL | Robert West | Human-AI, knowledge graphs |
+| EPFL | Martin Jaggi | Distributed ML, optimization |
+| UZH | Rico Sennrich | NLP, MT, structured |
 
 ---
 
-## Checklist Before Sending
+## Checklist Final (Envoi)
 
-- [ ] Replace [NAME] with professor's name
-- [ ] Replace [LAB NAME] with specific lab
-- [ ] Replace [SPECIFIC TOPIC] with their actual research area
-- [ ] Attach 1-page research summary PDF
-- [ ] Attach CV
-- [ ] Verify GitHub/LinkedIn links work
-- [ ] Proofread for typos
-- [ ] Send Monday-Wednesday morning (best response rates)
+- [ ] UN seul destinataire par email
+- [ ] Remplacer [NAME] par le nom du professeur
+- [ ] Remplacer [LAB NAME] par le nom exact du lab
+- [ ] Remplacer [SPECIFIC TOPIC]...[KEYWORD] par référence concrète à leurs travaux
+- [ ] Attacher: 1-page summary PDF + CV PDF
+- [ ] Lien GitHub dans le corps ✓ (déjà inclus)
+- [ ] Relire une dernière fois
+- [ ] Envoyer lundi-mercredi matin (meilleur taux de réponse)
+
+---
+
+## Pourquoi cette version est optimale
+
+| Critère | Status |
+|---------|--------|
+| Proof points mesurables | ✅ "typed UIL JSON + trace per turn", "model-agnostic, pluggable" |
+| Lien GitHub dans le corps | ✅ Inclus |
+| Pas de jargon LoT/AGI | ✅ "intermediate representation", "inspectable", "traceability" |
+| Personnalisation obligatoire | ✅ Template avec exemples |
+| Compact | ✅ ~250 mots |
+| Target professors caché | ✅ Section séparée "pour toi" |
