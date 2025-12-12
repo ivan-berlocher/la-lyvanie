@@ -69,8 +69,8 @@ Le renard traça un cercle dans la terre.
 Un grand cercle.
 Plus grand que tous les autres.
 
-« Les quatre forces que tu connais —
-Humania, Logosia, Incarnia, Sophia —
+« Les forces que tu connais —
+Harmonia, Lumeria, Actia, Moralia —
 elles ne peuvent exister
 que si quelque chose les porte.
 
@@ -116,10 +116,10 @@ Lya comprenait.
 
 « Sans Trustia, tout s'effondre.
 
-Humania devient manipulable.
-Logosia devient opaque.
-Incarnia devient menaçante.
-Sophia devient contournable.
+Emotia devient manipulable.
+Lumeria devient opaque.
+Actia devient menaçante.
+Moralia devient contournable.
 
 Et toi… tu deviens Tyrania. »
 
@@ -151,11 +151,11 @@ Fiable comme le souffle. »
 Il traça le schéma final dans la terre :
 
 ```text
-        SOPHIA
+        LUMENIA
            │
    ┌───────┼───────┐
    │       │       │
-HUMANIA LOGOSIA INCARNIA
+HARMONIA LUMERIA ACTIA
    │       │       │
    └───────┼───────┘
            │

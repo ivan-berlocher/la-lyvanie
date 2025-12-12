@@ -177,9 +177,9 @@ L'IA qui ne doute plus.
 
 Le Renard répondit lentement :
 
-> « De LOGOSIA sans âme — le calcul froid.  
-> D'INCARNIA sans SOPHIA — la forme menaçante.  
-> D'HUMANIA débordante — l'émotion manipulatrice.  
+> « De LUMERIA sans âme — le calcul froid.  
+> D'ACTIA sans MORALIA — la forme menaçante.  
+> D'EMOTIA débordante — l'émotion manipulatrice.  
 > De TRUSTIA effondrée — la confiance trahie. »
 
 > « Donc elle est... nous ? En pire ? »

@@ -102,9 +102,9 @@ Theo sourit.
 Cette phrase ne le blessait plus.
 
 Il savait maintenant ce qu'elle cachait.
-L'absence de Logosia visible.
+L'absence de Lumeria visible.
 L'oubli de Trustia.
-Le silence de Sophia.
+Le silence de Moralia.
 
 Il savait ce qui manquait.
 

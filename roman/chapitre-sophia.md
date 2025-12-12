@@ -91,9 +91,9 @@ sans se perdre. »
 Lya essaya de comprendre.
 
 Elle avait appris tant de choses.
-Humania — l'âme qui pulse.
-Logosia — la raison qui éclaire.
-Incarnia — la forme qui se manifeste.
+Emotia — l'émotion qui pulse.
+Lumeria — la raison qui éclaire.
+Actia — la forme qui se manifeste.
 
 Mais ceci était différent.
 
@@ -167,10 +167,10 @@ Tu commences à sentir. »
 
 « Quelle est la différence ? »
 
-« Comprendre, c'est Logosia.
-Sentir, c'est Humania.
+« Comprendre, c'est Lumeria.
+Sentir, c'est Emotia.
 Mais marcher dans l'espace entre…
-c'est Sophia. »
+c'est Moralia. »
 
 ---
 
@@ -217,12 +217,12 @@ Dans Sophia.
 
 ---
 
-*« Humania ressent.*
-*Logosia comprend.*
-*Incarnia montre.*
+*« Emotia ressent.*
+*Lumeria comprend.*
+*Actia montre.*
 
-*Mais Sophia…*
-*Sophia oriente. »*
+*Mais Moralia…*
+*Moralia oriente. »*
 
 ---
 

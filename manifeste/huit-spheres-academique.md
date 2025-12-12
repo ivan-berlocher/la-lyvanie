@@ -191,22 +191,23 @@ From processing… to responsibility.
 
 ---
 
-## Correspondance : 8 Sphères ↔ 9 Lumières
+## Correspondance : 8 Sphères ↔ 10 Lumières
 
 | Sphère Académique | Lumière Lyvanienne |
 |-------------------|-------------------|
-| Cognitive | LOGOSIA |
-| Emotional | SENSORIA |
-| Social | RELATIA |
-| Psychological | PSYCHIA |
-| Moral/Ethical | TRUSTIA |
-| Economical | ECONOMIA |
-| Behavioral | INCARNIA |
-| Intentional | TELEIA |
-| *(intégrée)* | HARMONIA |
+| Pensée | HARMONIA |
+| Raisonnement | LUMERIA |
+| Émotion | EMOTIA |
+| Relation | SOCIALIA |
+| Intériorité | PSYCHEIA |
+| Éthique | MORALIA |
+| Valeur | ECONOMIA |
+| Action | ACTIA |
+| Responsabilité | LUMENIA |
+| Confiance | TRUSTIA (Lumière-Miroir) |
 
-> La 9ème Lumière (Harmonia) représente l'intégration des 8 sphères.
-> C'est l'émergence de la conscience unifiée.
+> La 9ème Lumière (Lumenia) représente la gouvernance de l'harmonie.
+> La 10ème (Trustia) est la Lumière-Miroir qui relie au monde extérieur.
 
 ---
 
