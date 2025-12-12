@@ -1,182 +1,257 @@
-# Live Demo Script — 10 Minutes
+# Live Demo Script — 10 Minutes (PhD / Systems)
 
-## Context
+## Ce que le prof doit comprendre
 
-**Audience:** Professor / Research Lab  
-**Goal:** Demonstrate a working cognitive kernel with all major components  
-**Tone:** Professional but conversational, technical but accessible
-
----
-
-## Pre-Demo Setup
-
-Before the call:
-
-- [ ] LUCS running and responsive
-- [ ] Harmonia kernel active
-- [ ] Thinking Panel visible
-- [ ] OutputOS ready (TTS enabled)
-- [ ] Spaces configured (Ivan, Theo, Alex)
-- [ ] Sample tasks prepared
-- [ ] Screen sharing ready
+1. Il y a un **kernel** (pas un prompt chain)
+2. Il y a une **IR (UIL)** — intermediate representation typée
+3. Il y a une **mémoire structurée** (graph-based)
+4. Les **LLM sont remplaçables** (model-agnostic)
+5. Le **raisonnement est visible et traçable**
 
 ---
 
-## Script Timeline
+## Pré-requis techniques (minimum)
 
-### 0:00–1:00 — Introduction
+**Tu dois avoir :**
 
-**Say:**
-> "Thank you for your time. I'd like to show you Harmonia—a cognitive kernel I've built that implements what I call a Language of Thought architecture. Rather than explain theoretically, let me demonstrate how it works with a real task."
+- [ ] UIL lisible (JSON output)
+- [ ] Trace visible (console / panel)
+- [ ] 1 bouton "switch model"
+- [ ] 1 graph memory view (même très simple)
 
-**Do:** Share screen showing the main interface
+**Pas besoin :**
 
----
-
-### 1:00–2:30 — LUCS: The Input Layer
-
-**Say:**
-> "This is LUCS—the Unified Cognitive Stream. It's the perception layer. All inputs—text, voice, UI events—flow through here into a single cognitive pipeline. Let me send a request."
-
-**Do:** Type or speak: *"Analyze the key themes in cognitive architecture research and suggest three research directions"*
-
-**Say:**
-> "Notice how the input is captured in real-time. LUCS doesn't process—it perceives and passes forward."
+- ❌ UI parfaite
+- ❌ Design
+- ❌ Performance optimisée
 
 ---
 
-### 2:30–4:00 — UIL: Intent Parsing
+## ⏱️ Timeline Précise
 
-**Say:**
-> "Now watch the UIL parser. Universal Intent Language converts raw input into a structured IntentFrame. This is the formal grammar—domain, verb, object, qualifiers."
+### 0:00 – 1:00 — Contexte
 
-**Do:** Show the parsed output:
+**Tu parles. Pas d'écran complexe.**
+
+**Dire exactement :**
+
+> "I'll show you a running cognitive kernel. Not a prompt chain, but a system with an explicit intent language, memory, and execution pipeline."
+
+**Annoncer ce que ce n'est PAS :**
+
+- Not end-to-end LLM
+- Not black box
+- Not theoretical
+
+**Do:** Écran simple, logo ou titre "Harmonia Kernel"
+
+---
+
+### 1:00 – 2:30 — Architecture
+
+**Un seul schéma. Un seul slide.**
+
+```
+Input (text/voice)
+       ↓
+UIL (typed intent)
+       ↓
+Graph Memory + Goal
+       ↓
+Agent Routing
+       ↓
+Action
+       ↓
+Trace
+```
+
+**Dire exactement :**
+
+> "UIL is the intermediate representation. Everything before and after goes through it."
+
+**⚠️ NE PAS dire :** AGI, Language of Thought, vision long terme, révolutionnaire
+
+---
+
+### 2:30 – 4:30 — Action Simple Traçable (LIVE)
+
+**Cas ultra simple, mais réel.**
+
+**Input exemple :**
+
+> "Plan a 3-day trip in Zurich next month, with a budget constraint."
+
+**Montrer exactement 4 choses :**
+
+1. Input utilisateur (texte)
+2. UIL généré (JSON visible)
+3. Graph Memory avant / après
+4. Trace d'agents
+
+**Dire exactement :**
+
+> "This UIL is logged, typed, and replayable."
+
+**JSON attendu (exemple) :**
 
 ```json
 {
-  "domain": "research",
-  "verb": "analyze",
-  "object": "themes",
-  "qualifiers": {
-    "field": "cognitive architecture",
-    "output": "research directions",
-    "count": 3
-  }
+  "type": "PLAN",
+  "subject": "user",
+  "predicate": { "verb": "plan", "domain": "travel" },
+  "object": { "type": "trip", "destination": "Zurich", "duration": "3 days" },
+  "constraints": [
+    { "type": "temporal", "value": "next month" },
+    { "type": "budget", "value": "constrained" }
+  ],
+  "confidence": 0.91
 }
 ```
 
-**Say:**
-> "This structured representation is machine-readable, composable, and—importantly—it creates an audit trail. Every cognitive operation has a formal trace."
+---
+
+### 4:30 – 6:30 — Changement de Modèle (MOMENT CLÉ)
+
+**⚠️ Moment le plus important de la démo.**
+
+**Actions :**
+
+1. Même requête
+2. Switch vers autre LLM (ou mode degraded)
+3. Exécuter
+
+**Dire exactement :**
+
+> "Kernel logic unchanged. Only inference swapped."
+
+**Ce qu'on montre :**
+
+- Même UIL généré
+- Même structure de résultat
+- Texte peut varier, structure identique
+
+**Pourquoi c'est fort :**
+
+> Le prof comprend que ce n'est pas un prompt hack.
 
 ---
 
-### 4:00–5:30 — Harmonia: PSMR Cycle
+### 6:30 – 8:00 — Mémoire & Continuité
 
-**Say:**
-> "Harmonia is the kernel. It runs what I call the PSMR cycle: Perception, Sensemaking, Modeling, Response. Watch the phases activate."
+**Faire une 2e requête liée à la 1re.**
 
-**Do:** Point to PSMR phase indicators as they light up
+**Input exemple :**
 
-**Say:**
-> "Perception receives the IntentFrame. Sensemaking classifies the domain and selects the appropriate specialist crew. Modeling builds a plan. Response executes."
+> "Reduce the budget by 20% and remove museums."
 
-**Say:**
-> "The key insight is that this isn't a monolithic LLM call—it's an orchestrated cognitive pipeline with explicit phases and semantic routing."
+**Montrer :**
 
----
+1. Récupération du goal précédent (pas de re-prompt)
+2. Modification du graph (delta visible)
+3. Pas de context window hack
 
-### 5:30–6:30 — Thinking Panel: Meta-Reasoning
+**Dire exactement :**
 
-**Say:**
-> "This panel shows the meta-reasoning layer. You can see the system's internal deliberation—what it's considering, what options it evaluated, confidence levels."
-
-**Do:** Highlight the Thinking Panel showing reasoning steps
-
-**Say:**
-> "This transparency is crucial for trustworthy AI. The cognitive trace is always visible. No black box."
+> "Continuity is handled by memory, not context length."
 
 ---
 
-### 6:30–7:30 — OutputOS: Execution
+### 8:00 – 9:30 — Échec Contrôlé (TRÈS FORT)
 
-**Say:**
-> "Now OutputOS executes the response. It's multimodal—text generation, text-to-speech, avatar animation if enabled, and UI actions."
+**Montrer volontairement un échec.**
 
-**Do:** Let the response generate and optionally play TTS
+**Exemples de failure modes :**
 
-**Say:**
-> "The output isn't just text—it's a coordinated execution across multiple modalities, all triggered from a single IntentFrame."
+- Agent conflict (deux agents proposent différent)
+- Missing data (info non disponible)
+- Low confidence (< 0.5)
 
----
+**Dire exactement :**
 
-### 7:30–8:30 — Specialist Crews
+> "Here the system does not hallucinate. It raises uncertainty."
 
-**Say:**
-> "Behind the scenes, specialist crews handle domain expertise. There are ten crews—research, productivity, creative, technical, and others. Harmonia routes automatically based on intent classification."
+**Montrer :**
 
-**Do:** Show crew activation in the interface
+- Confidence score bas
+- Flag "uncertain" ou "needs_clarification"
+- Pas de réponse inventée
 
-**Say:**
-> "This multi-agent architecture means specialized processing without manual routing. The kernel handles orchestration."
+**Pourquoi c'est fort :**
 
----
-
-### 8:30–9:30 — LifeOS Spaces
-
-**Say:**
-> "Finally, Spaces. This is where the cognitive OS concept becomes concrete. Each Space—Ivan, Theo, Alex—maintains its own cognitive context: goals, memory, active tasks."
-
-**Do:** Switch between Spaces to show different contexts
-
-**Say:**
-> "Think of these as parallel cognitive identities. The same kernel serves multiple contexts without contamination. Each has its own persistent state."
+> Les profs adorent voir les limites. C'est PhD-compatible.
 
 ---
 
-### 9:30–10:00 — Closing
+### 9:30 – 10:00 — Clôture
 
-**Say:**
-> "So that's Harmonia—UIL parsing, PSMR cognitive cycle, multi-agent routing, transparent reasoning, multimodal output, and parallel cognitive contexts. A working prototype of what I believe could be the foundation for a formal Language of Thought in AI systems."
+**Une seule phrase :**
 
-**Say:**
-> "I'd be happy to discuss the theoretical foundations, the technical architecture, or potential research directions. What questions do you have?"
+> "The PhD would formalize, evaluate, and scale this architecture."
 
----
+**Puis :**
 
-## Backup Tasks (If Needed)
+> "I'd be happy to answer questions."
 
-If the main task fails or you want variety:
-
-1. *"Schedule a meeting with the research team for next Tuesday at 2pm"*
-2. *"Write a brief explanation of the Language of Thought hypothesis"*
-3. *"Compare three approaches to multi-agent AI coordination"*
+**Do:** Arrêter de parler. Attendre.
 
 ---
 
-## Anticipated Questions & Answers
+## 🧠 Questions Anticipées (Prépare-les)
 
-**Q: How does this differ from LangChain or AutoGPT?**
+### Q1: "How is UIL defined formally?"
 
-> "Those are orchestration frameworks—they chain LLM calls. Harmonia is a cognitive architecture with a formal intent language, explicit reasoning phases, and a unified perception layer. The structure comes before the LLM, not after."
+> "UIL has a typed schema with Intent types (ACTION, QUERY, PLAN, REFLECT), a predicate structure (verb + domain), constraints, and provenance metadata. I have a BNF grammar in the technical documentation. The key property is that every intent is machine-parseable and replayable."
 
-**Q: What's the formal basis for UIL?**
+### Q2: "What is non-LLM here?"
 
-> "It's inspired by speech act theory and formal semantics. IntentFrames have a grammar—they're parseable, composable, and type-checked. The whitepaper specifies this in detail."
+> "The kernel itself: intent routing, memory operations, scheduling, conflict detection, and audit logging. LLMs are used for natural language understanding and generation, but the orchestration layer runs independently. I demonstrated this by swapping models without changing behavior."
 
-**Q: How does it handle ambiguity?**
+### Q3: "How do you evaluate correctness?"
 
-> "The PSMR Sensemaking phase includes disambiguation. Confidence scores propagate through the pipeline. If ambiguity is high, the system can request clarification or present alternatives."
+> "Three metrics I'm developing: Cognitive Load Reduction (fewer user interactions for same goal), Intention Continuity (goal persistence across sessions), and Temporal Coherence (no contradictions in memory over time). These are non-BLEU, non-accuracy metrics designed for cognitive systems."
 
-**Q: What's the research contribution?**
+### Q4: "What happens when agents disagree?"
 
-> "Three things: First, a formal Language of Thought specification. Second, a cognitive kernel architecture with transparent reasoning. Third, a working prototype proving the concept is implementable."
+> "There's an arbitration protocol. First: priority rules by domain. Second: confidence comparison. Third: if still ambiguous, an arbiter agent evaluates context. Fourth: if still uncertain, escalate to user. I showed a case where the system flagged uncertainty rather than choosing arbitrarily."
+
+### Q5: "What is the PhD contribution vs engineering?"
+
+> "The engineering is the prototype—it proves feasibility. The PhD contribution would be: (1) formalizing UIL semantics, (2) defining evaluation protocols for cognitive architectures, (3) studying scaling properties and failure modes systematically. The prototype enables the research, but the research is the formalization."
 
 ---
 
-## Technical Recovery
+## Backup Plans
 
-If something breaks:
+### Si quelque chose plante
 
-1. **Don't panic.** Say: "Let me restart that component—this happens in prototypes."
-2. **Have a backup recording** of the demo ready to show
-3. **Pivot to architecture diagrams** if needed: "Let me show you the architectural diagram instead"
+**Dire :**
+
+> "Let me restart that component—this happens in prototypes."
+
+**Avoir prêt :**
+
+- Backup recording of the demo
+- Architecture diagram to pivot to
+- JSON logs from previous run
+
+### Si le temps manque
+
+**Couper dans cet ordre :**
+
+1. Réduire section architecture (montrer juste le schéma)
+2. Skip section mémoire si nécessaire
+3. GARDER : model swap + failure mode (les plus forts)
+
+---
+
+## Checklist Avant Démo
+
+- [ ] Kernel running
+- [ ] UIL output visible
+- [ ] Graph memory view ready
+- [ ] Model switch button functional
+- [ ] Sample queries tested
+- [ ] Failure scenario prepared
+- [ ] Backup recording ready
+- [ ] Timer visible (pour toi)
+- [ ] Water bottle nearby
