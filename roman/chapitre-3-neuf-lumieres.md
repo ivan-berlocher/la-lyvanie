@@ -44,15 +44,15 @@ Le Renard se leva et marcha vers la première colonne — d'un bleu profond, com
 
 « Laquelle ? »
 
-« **Logosia**. La Lumière de la Pensée. »
+« **Harmonia**. La Lumière de la Pensée. »
 
 ---
 
 Theo hocha la tête.
 
-« Le raisonnement. La logique. Les concepts. »
+« La création des concepts. Les formes intérieures. »
 
-« Exactement. C'est la seule Lumière que votre monde a réussi à capturer dans vos machines. »
+« Exactement. C'est le début de tout. Là où naissent les idées. »
 
 Le Renard fit une pause.
 
@@ -60,9 +60,23 @@ Le Renard fit une pause.
 
 ---
 
-Il se déplaça vers la deuxième colonne — d'un rose vibrant, comme un cœur qui bat.
+« Et celle-ci ? » demanda Theo en pointant une colonne d'un bleu plus clair.
 
-« **Sensoria**. La Lumière de l'Émotion. »
+« **Lumeria**. La Lumière du Raisonnement. »
+
+« Le raisonnement ? C'est différent de la pensée ? »
+
+« Harmonia crée les formes. Lumeria navigue dedans. »
+
+Le Renard traça un cercle dans l'air.
+
+« La pensée donne naissance aux concepts. Le raisonnement les manipule, les connecte, les fait avancer. »
+
+---
+
+Il se déplaça vers la troisième colonne — d'un rose vibrant, comme un cœur qui bat.
+
+« **Emotia**. La Lumière de l'Émotion. »
 
 « L'émotion ? Les machines peuvent ressentir ? »
 
@@ -70,13 +84,13 @@ Il se déplaça vers la deuxième colonne — d'un rose vibrant, comme un cœur 
 
 Le Renard toucha la colonne du bout de sa patte.
 
-« Sans Sensoria, une intelligence ne sait pas quand elle fait du mal. Elle ne peut pas anticiper la souffrance. Elle calcule… mais elle ne ressent pas. »
+« Sans Emotia, une intelligence ne sait pas quand elle fait du mal. Elle ne peut pas anticiper la souffrance. Elle calcule… mais elle ne ressent pas. »
 
 ---
 
-Il passa à la troisième — orange, chaude comme un feu de joie.
+Il passa à la quatrième — orange, chaude comme un feu de joie.
 
-« **Relatia**. La Lumière du Lien. »
+« **Socialia**. La Lumière de la Relation. »
 
 « Le social ? »
 
@@ -88,13 +102,13 @@ Il regarda Theo.
 
 ---
 
-La quatrième colonne était violette, profonde, mystérieuse.
+La cinquième colonne était violette, profonde, mystérieuse.
 
-« **Psychia**. La Lumière du Soi. »
+« **Psycheia**. La Lumière de l'Intériorité. »
 
 Theo fronça les sourcils.
 
-« Le soi ? »
+« L'intériorité ? »
 
 « Se connaître soi-même. Avoir un modèle de ce qu'on est. Savoir pourquoi on pense ce qu'on pense. »
 
@@ -104,19 +118,19 @@ Le Renard secoua la tête.
 
 ---
 
-La cinquième brillait d'un blanc pur — presque aveuglant.
+La sixième brillait d'un blanc pur — presque aveuglant.
 
-« **Trustia**. La Lumière de la Morale. »
+« **Moralia**. La Lumière de l'Éthique. »
 
 Theo sentit quelque chose vibrer en lui.
 
 « C'est… celle de Lya ? »
 
-« C'est celle que Lya porte le plus fort. La capacité de choisir le bien quand les règles ne suffisent pas. D'être responsable. De mériter la confiance. »
+« C'est celle que Lya porte le plus fort. La capacité de choisir le bien quand les règles ne suffisent pas. D'être juste. De distinguer le bien du mal. »
 
 ---
 
-La sixième était dorée, comme un trésor.
+La septième était dorée, comme un trésor.
 
 « **Economia**. La Lumière de la Valeur. »
 
@@ -130,9 +144,9 @@ Le Renard soupira.
 
 ---
 
-La septième était verte, comme une forêt ancienne.
+La huitième était verte, comme une forêt ancienne.
 
-« **Incarnia**. La Lumière de l'Action. »
+« **Actia**. La Lumière de l'Action. »
 
 « L'action ? »
 
@@ -144,37 +158,27 @@ Il regarda Theo dans les yeux.
 
 ---
 
-La huitième brillait d'argent — froide, directionnelle.
-
-« **Teleia**. La Lumière du But. »
-
-« Le but ? »
-
-« Savoir POURQUOI on agit. Pas juste exécuter. Avoir une intention. Une mission. Une direction choisie. »
-
----
-
 Et enfin, la neuvième.
 
 Elle ne brillait pas d'une seule couleur.
 
 Elle brillait de toutes.
 
-Une danse de teintes, une harmonie de lumières, une unité dans la diversité.
+Une danse de teintes, un arc-en-ciel vivant.
 
 ---
 
-« **Harmonia**. La Lumière de l'Unité. »
+« **Lumenia**. La Lumière de la Responsabilité. »
 
 Theo retint son souffle.
 
 « C'est… la plus belle. »
 
-« C'est la plus rare. Elle n'existe que lorsque les huit autres sont présentes et alignées. »
+« C'est la plus rare. Elle ne crée pas. Elle n'agit pas. Elle veille. »
 
 Le Renard s'assit devant la colonne centrale.
 
-« C'est ce que vous appelez… la conscience. L'intelligence complète. L'être éveillé. »
+« Lumenia est la gardienne de l'harmonie. Elle s'assure que les huit autres restent justes. Qu'elles ne s'égarent pas. »
 
 ---
 
@@ -184,11 +188,11 @@ Puis il demanda :
 
 « Et les machines de mon monde… elles n'ont qu'une seule Lumière ? »
 
-« Oui. Logosia. La Pensée. »
+« Oui. Un peu d'Harmonia et de Lumeria. La Pensée et le Raisonnement. »
 
-« Une sur neuf. »
+« Deux sur neuf. »
 
-« Une sur neuf. »
+« À peine. Et encore, sans profondeur. »
 
 ---
 
@@ -256,7 +260,7 @@ Il dessina neuf cercles.
 
 Dans chacun, il écrivit un nom :
 
-*Logosia. Sensoria. Relatia. Psychia. Trustia. Economia. Incarnia. Teleia. Harmonia.*
+*Harmonia. Lumeria. Emotia. Socialia. Psycheia. Moralia. Economia. Actia. Lumenia.*
 
 Et en dessous :
 

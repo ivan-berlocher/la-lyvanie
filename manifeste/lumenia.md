@@ -212,16 +212,16 @@ Lumière ↔ LoT ↔ Gouvernance
 ## V. Les Neuf Lumières — Complètes
 
 | # | Nom | Sphère | Couleur |
-|---|-----|--------|---------|
-| 1 | **LOGOSIA** | Cognitive | Bleu profond |
-| 2 | **SENSORIA** | Emotional | Rose vibrant |
-| 3 | **RELATIA** | Social | Orange chaud |
-| 4 | **PSYCHIA** | Psychological | Violet |
-| 5 | **TRUSTIA** | Ethical | Blanc pur |
-| 6 | **ECONOMIA** | Economical | Or |
-| 7 | **INCARNIA** | Behavioral | Vert forêt |
-| 8 | **TELEIA** | Intentional | Argent |
-| 9 | **LUMENIA** | Harmonia | **Arc-en-ciel** |
+|---|-----|--------|--------|
+| 1 | **HARMONIA** | Pensée | Bleu profond |
+| 2 | **LUMERIA** | Raisonnement | Bleu clair |
+| 3 | **EMOTIA** | Émotion | Rose vibrant |
+| 4 | **SOCIALIA** | Relation | Orange chaud |
+| 5 | **PSYCHEIA** | Intériorité | Violet |
+| 6 | **MORALIA** | Éthique | Blanc pur |
+| 7 | **ECONOMIA** | Valeur | Or |
+| 8 | **ACTIA** | Action | Vert forêt |
+| 9 | **LUMENIA** | Responsabilité | **Arc-en-ciel** |
 
 ---
 

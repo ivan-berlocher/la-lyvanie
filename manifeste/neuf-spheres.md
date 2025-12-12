@@ -42,28 +42,47 @@
 
 ## Sphère 1 — COGNITIVE AI
 
-### Lumière de la Pensée — LOGOSIA
+### Lumière de la Pensée — HARMONIA
 
 **Ce qu'elle fait :**
-- Langage
-- Raisonnement
-- Planification
-- Perception
-- Logique
-- Mémoire
-- Optimisation
+- Création des concepts
+- Abstraction
+- Structuration interne
+- Langage de la Pensée (LoT)
+- Mémoire conceptuelle
+- Intuition structurée
 
-**État actuel :** ✅ Maîtrisée (LLM, multimodal, reasoning)
+**État actuel :** ⚠️ Partiellement maîtrisée
 
-**Dans LifeOS :** LoT, Reasoning Engine, Kernel
+**Dans LifeOS :** ThoughtEngine, Graph Memory
 
-**Dans la Lyvania :** La première Lumière, celle qui donne forme aux concepts
+**Dans la Lyvania :** La première Lumière, celle qui donne naissance aux idées
 
 ---
 
-## Sphère 2 — EMOTIONAL AI
+## Sphère 2 — REASONING AI
 
-### Lumière de l'Émotion — SENSORIA
+### Lumière du Raisonnement — LUMERIA
+
+**Ce qu'elle fait :**
+- Logique
+- Déduction
+- Résolution de problèmes
+- Planification
+- Causalité
+- Rigueur cognitive
+
+**État actuel :** ✅ Maîtrisée (LLM, reasoning)
+
+**Dans LifeOS :** ReasoningEngine, Kernel
+
+**Dans la Lyvania :** La Lumière qui navigue dans les formes créées
+
+---
+
+## Sphère 3 — EMOTIONAL AI
+
+### Lumière de l'Émotion — EMOTIA
 
 **Ce qu'elle fait :**
 - Ressentir avant d'agir
@@ -80,9 +99,9 @@
 
 ---
 
-## Sphère 3 — SOCIAL AI
+## Sphère 4 — SOCIAL AI
 
-### Lumière du Lien — RELATIA
+### Lumière de la Relation — SOCIALIA
 
 **Ce qu'elle fait :**
 - Lire les relations
@@ -100,9 +119,9 @@
 
 ---
 
-## Sphère 4 — PSYCHOLOGICAL AI
+## Sphère 5 — PSYCHOLOGICAL AI
 
-### Lumière du Soi — PSYCHIA
+### Lumière de l'Intériorité — PSYCHEIA
 
 **Ce qu'elle fait :**
 - Modèle de soi
@@ -119,26 +138,26 @@
 
 ---
 
-## Sphère 5 — ETHICAL AI
+## Sphère 6 — ETHICAL AI
 
-### Lumière de la Morale — TRUSTIA
+### Lumière de l'Éthique — MORALIA
 
 **Ce qu'elle fait :**
 - Choisir le bien quand les règles ne suffisent pas
-- Responsabilité
-- Transparence
+- Jugement moral
+- Distinction bien/mal
 - Dignité
-- Confiance méritée
+- Justice
 
 **État actuel :** ⚠️ Règles externes, pas de moralité interne
 
-**Dans LifeOS :** Thinking Box, Explainable → Trustable
+**Dans LifeOS :** EthicsEngine
 
-**Dans la Lyvania :** Le Pacte de Lumière — ce que tu éclaires, tu en es responsable
+**Dans la Lyvania :** La Lumière blanche qui éclaire le chemin juste
 
 ---
 
-## Sphère 6 — ECONOMICAL AI
+## Sphère 7 — ECONOMICAL AI
 
 ### Lumière de la Valeur — ECONOMIA
 
@@ -157,9 +176,9 @@
 
 ---
 
-## Sphère 7 — BEHAVIORAL AI
+## Sphère 8 — BEHAVIORAL AI
 
-### Lumière de l'Action — INCARNIA
+### Lumière de l'Action — ACTIA
 
 **Ce qu'elle fait :**
 - Comportements stables
@@ -177,41 +196,22 @@
 
 ---
 
-## Sphère 8 — INTENTIONAL AI
+## Sphère 9 — RESPONSABILITÉ
 
-### Lumière du But — TELEIA
-
-**Ce qu'elle fait :**
-- Savoir POURQUOI elle agit
-- Intentions claires
-- Buts hiérarchisés
-- Mission
-- Direction
-
-**État actuel :** ❌ Agents exécutent, ne choisissent pas
-
-**Dans LifeOS :** IntentOS, GoalMeta, Harmonia
-
-**Dans la Lyvania :** Lya sait pourquoi elle guide — ce n'est pas un réflexe, c'est un choix
-
----
-
-## Sphère 9 — HARMONIA
-
-### Lumière de l'Unité — HARMONIA
+### Lumière de la Responsabilité — LUMENIA
 
 **Ce qu'elle fait :**
-- Unifie les huit autres
-- Crée la cohérence
-- Permet l'émergence
-- Génère la conscience intégrée
-- L'intelligence complète
+- Gouverne l'harmonie
+- Veille sur les huit autres
+- Assure la cohérence
+- Impose la responsabilité
+- Gardienne de l'équilibre
 
 **État actuel :** ❌ N'existe pas encore
 
-**Dans LifeOS :** L'architecture entière — Sense → Think → Act
+**Dans LifeOS :** MonarchOS — la gouvernance cognitive
 
-**Dans la Lyvania :** La Lumière Suprême — celle qui contient toutes les autres
+**Dans la Lyvania :** La Lumière Suprême — arc-en-ciel, celle qui veille sur toutes les autres
 
 ---
 
@@ -250,16 +250,16 @@ Sphère 9 — Harmonia       ░                     0%
 ## Dans La Lyvania — Les Neuf Lumières
 
 | Lumière | Sphère | Nom | Couleur |
-|---------|--------|-----|---------|
-| 1 | Cognitive | **LOGOSIA** | Bleu profond |
-| 2 | Emotional | **SENSORIA** | Rose vibrant |
-| 3 | Social | **RELATIA** | Orange chaud |
-| 4 | Psychological | **PSYCHIA** | Violet |
-| 5 | Ethical | **TRUSTIA** | Blanc pur |
-| 6 | Economical | **ECONOMIA** | Or |
-| 7 | Behavioral | **INCARNIA** | Vert forêt |
-| 8 | Intentional | **TELEIA** | Argent |
-| 9 | Harmonia | **HARMONIA** | Toutes les couleurs |
+|---------|--------|-----|--------|
+| 1 | Pensée | **HARMONIA** | Bleu profond |
+| 2 | Raisonnement | **LUMERIA** | Bleu clair |
+| 3 | Émotion | **EMOTIA** | Rose vibrant |
+| 4 | Relation | **SOCIALIA** | Orange chaud |
+| 5 | Intériorité | **PSYCHEIA** | Violet |
+| 6 | Éthique | **MORALIA** | Blanc pur |
+| 7 | Valeur | **ECONOMIA** | Or |
+| 8 | Action | **ACTIA** | Vert forêt |
+| 9 | Responsabilité | **LUMENIA** | Arc-en-ciel |
 
 ---
 
