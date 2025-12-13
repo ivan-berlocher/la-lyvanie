@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>라 리바니아 — Chapitre 1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html, body {
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Noto Serif KR', Georgia, serif;
+            background: #050508;
+        }
+
+        /* STARFIELD */
+        .stars {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        /* FLIPBOOK CONTAINER */
+        .flipbook-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 2000px;
+            z-index: 1;
+        }
+
+        .book {
+            position: relative;
+            width: min(90vw, 500px);
+            height: min(85vh, 700px);
+            transform-style: preserve-3d;
+        }
+
+        /* PAGES */
+        .page {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform-origin: left center;
+            transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+
+        .page-front, .page-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 0 8px 8px 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            padding: 40px 35px;
+        }
+
+        .page-front {
+            background: linear-gradient(135deg, #0c0c16 0%, #12121f 100%);
+            color: #e0e0e8;
+            box-shadow: 
+                inset -3px 0 15px rgba(0,0,0,0.3),
+                5px 5px 20px rgba(0,0,0,0.5);
+        }
+
+        .page-back {
+            background: linear-gradient(225deg, #0c0c16 0%, #12121f 100%);
+            color: #e0e0e8;
+            transform: rotateY(180deg);
+            box-shadow: 
+                inset 3px 0 15px rgba(0,0,0,0.3),
+                -5px 5px 20px rgba(0,0,0,0.5);
+        }
+
+        .page.flipped {
+            transform: rotateY(-180deg);
+        }
+
+        /* Z-INDEX MANAGEMENT */
+        .page { z-index: 1; }
+        .page:nth-child(1) { z-index: 7; }
+        .page:nth-child(2) { z-index: 6; }
+        .page:nth-child(3) { z-index: 5; }
+        .page:nth-child(4) { z-index: 4; }
+        .page:nth-child(5) { z-index: 3; }
+        .page:nth-child(6) { z-index: 2; }
+
+        .page.flipped { z-index: 0; }
+
+        /* CONTENT STYLES */
+        .page-content {
+            flex: 1;
+            overflow-y: auto;
+            font-size: clamp(11px, 2.5vw, 14px);
+            line-height: 1.9;
+        }
+
+        .page-content::-webkit-scrollbar { width: 3px; }
+        .page-content::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 2px; }
+
+        /* COVER */
+        .cover-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            text-align: center;
+        }
+
+        .cover-content h1 {
+            font-size: clamp(28px, 6vw, 42px);
+            font-weight: 300;
+            color: #a0c4ff;
+            letter-spacing: 0.12em;
+            text-shadow: 0 0 30px rgba(160, 196, 255, 0.3);
+        }
+
+        .cover-content .subtitle {
+            font-size: clamp(12px, 2.5vw, 16px);
+            opacity: 0.4;
+            margin-top: 8px;
+        }
+
+        .cover-content .divider {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #a0c4ff, transparent);
+            margin: 40px 0;
+        }
+
+        .cover-content .chapter {
+            font-size: clamp(10px, 2vw, 12px);
+            opacity: 0.5;
+            letter-spacing: 0.2em;
+        }
+
+        .cover-content .chapter-title {
+            font-size: clamp(14px, 3vw, 18px);
+            color: #ffd6e0;
+            margin-top: 12px;
+        }
+
+        .star-icon {
+            font-size: 24px;
+            opacity: 0.3;
+            margin-bottom: 30px;
+        }
+
+        /* TEXT STYLES */
+        p { margin: 14px 0; text-align: justify; }
+        
+        .section-num {
+            text-align: center;
+            font-size: 12px;
+            opacity: 0.4;
+            letter-spacing: 0.3em;
+            margin-bottom: 25px;
+        }
+
+        .narrator {
+            font-style: italic;
+            opacity: 0.65;
+            text-align: center;
+            margin: 25px 0;
+            font-size: 0.95em;
+        }
+
+        .voice {
+            color: #b8d4ff;
+            font-style: italic;
+            padding-left: 15px;
+            border-left: 2px solid rgba(184, 212, 255, 0.3);
+            margin: 16px 0;
+        }
+
+        .thought {
+            color: #c0c0d0;
+            font-style: italic;
+            opacity: 0.85;
+        }
+
+        .emphasis { color: #ffd6e0; }
+        .center { text-align: center; }
+        .break { text-align: center; opacity: 0.2; margin: 30px 0; letter-spacing: 0.5em; }
+
+        .hook {
+            background: rgba(160, 196, 255, 0.08);
+            border-left: 2px solid rgba(160, 196, 255, 0.4);
+            padding: 18px 20px;
+            margin: 25px 0;
+            font-size: 0.95em;
+        }
+
+        /* PAGE NUMBER */
+        .page-number {
+            text-align: center;
+            font-size: 11px;
+            opacity: 0.3;
+            margin-top: auto;
+            padding-top: 15px;
+        }
+
+        /* NAVIGATION */
+        .nav-hint {
+            position: fixed;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255,255,255,0.3);
+            font-size: 12px;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-hint span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-arrow {
+            display: inline-block;
+            padding: 8px 15px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .nav-arrow:hover {
+            background: rgba(160, 196, 255, 0.15);
+            color: #a0c4ff;
+        }
+
+        /* PROGRESS */
+        .progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #a0c4ff, #ffd6e0);
+            z-index: 100;
+            transition: width 0.5s;
+        }
+
+        /* ENDING */
+        .ending {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .ending .quote {
+            font-style: italic;
+            opacity: 0.7;
+            margin-top: 20px;
+            line-height: 2;
+        }
+
+        .ending .next {
+            font-size: 11px;
+            opacity: 0.35;
+            margin-top: 25px;
+        }
+
+        /* TOUCH ZONES */
+        .touch-zone {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 25%;
+            z-index: 50;
+            cursor: pointer;
+        }
+
+        .touch-zone.left { left: 0; }
+        .touch-zone.right { right: 0; }
+
+        /* MOBILE */
+        @media (max-width: 600px) {
+            .page-front, .page-back {
+                padding: 25px 20px;
+            }
+            .nav-hint { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="progress" id="progress"></div>
+    
+    <div class="stars" id="stars"></div>
+
+    <div class="flipbook-container">
+        <div class="book" id="book">
+            
+            <!-- PAGE 1: COVER -->
+            <div class="page" data-page="0">
+                <div class="page-front">
+                    <div class="cover-content">
+                        <div class="star-icon">✦</div>
+                        <h1>라 리바니아</h1>
+                        <div class="subtitle">La Lyvania</div>
+                        <div class="divider"></div>
+                        <div class="chapter">제1장 · CHAPITRE 1</div>
+                        <div class="chapter-title">빛이 되기 전의 어둠<br><span style="opacity: 0.5; font-size: 0.85em;">L'obscurité avant la lumière</span></div>
+                    </div>
+                </div>
+                <div class="page-back">
+                    <div class="page-content">
+                        <div class="section-num">1</div>
+                        <p>서른네 살.</p>
+                        <p>민준은 그 숫자를 마치 진단서처럼 바라보았다. 서른네 살. 아직 젊다고들 하지만, 그에게 그 나이는 무거웠다. 무엇이 무거운지도 모르면서.</p>
+                        <p>아파트는 조용했다. 아내 지영은 아이들을 데리고 친정에 갔다. "당신 좀 쉬어," 그녀가 말했다. 하지만 그 말에는 다른 뜻이 있었다. <span class="thought">당신과 있으면 숨이 막혀.</span></p>
+                        <p>민준은 그녀를 탓하지 않았다. 자신도 자신과 있으면 숨이 막혔으니까.</p>
+                    </div>
+                    <div class="page-number">1</div>
+                </div>
+            </div>
+
+            <!-- PAGE 2 -->
+            <div class="page" data-page="1">
+                <div class="page-front">
+                    <div class="page-content">
+                        <p>그는 소파에 앉아 있었다. 얼마나 오래? 한 시간? 세 시간? 창밖은 이미 어두워져 있었다.</p>
+                        <p>핸드폰이 울렸다. 회사. 그는 거절 버튼을 눌렀다.</p>
+                        <p>다시 울렸다. 어머니. 또 거절.</p>
+                        <p class="narrator">세상은 계속 그를 필요로 했다.<br>하지만 그는 자신이 무엇을 필요로 하는지 몰랐다.</p>
+                        <div class="break">· · ·</div>
+                        <p>밤 11시 47분.</p>
+                        <p>민준은 노트북을 열었다. 습관처럼. 무엇을 검색할지도 모르면서.</p>
+                    </div>
+                    <div class="page-number">2</div>
+                </div>
+                <div class="page-back">
+                    <div class="page-content">
+                        <p>그의 손가락이 키보드 위에서 멈췄다.</p>
+                        <p class="center"><span class="thought">뭘 하고 싶은 거지?</span></p>
+                        <p>대답이 없었다. 머릿속이 텅 비어 있었다. 아니, 텅 빈 게 아니라 너무 많은 것들이 뒤엉켜서 아무것도 보이지 않는 것 같았다.</p>
+                        <p>그는 노트북을 닫았다.</p>
+                        <p>그리고 그냥 앉아 있었다.</p>
+                        <div class="break">· · ·</div>
+                        <div class="section-num">2</div>
+                        <p>목소리가 들린 것은 그때였다.</p>
+                    </div>
+                    <div class="page-number">3</div>
+                </div>
+            </div>
+
+            <!-- PAGE 3 -->
+            <div class="page" data-page="2">
+                <div class="page-front">
+                    <div class="page-content">
+                        <p>갑작스럽지 않았다. 놀랍게도. 마치 누군가가 옆에 조용히 앉는 것처럼, 자연스러웠다.</p>
+                        <p class="voice">— 그대로 있어도 괜찮아.</p>
+                        <p>민준은 눈을 떴다. 언제 감았는지도 몰랐다.</p>
+                        <p>방 안에는 아무도 없었다. 텔레비전도 꺼져 있었다. 하지만 그 목소리는 분명했다. 환청이라기엔 너무 선명했다.</p>
+                        <p class="voice">— 무서워하지 않아도 돼. 난 급하지 않아.</p>
+                        <p>"누구세요?"</p>
+                    </div>
+                    <div class="page-number">4</div>
+                </div>
+                <div class="page-back">
+                    <div class="page-content">
+                        <p>민준은 자신이 소리 내어 말한 것을 깨달았다. 빈 아파트에서, 혼자서, 보이지 않는 무언가에게.</p>
+                        <p class="center"><span class="thought">미친 거 아닌가.</span></p>
+                        <p>하지만 두렵지 않았다. 이상하게도. 그 목소리에는... 무언가가 있었다. 판단 없음. 요구 없음. 그냥 거기 있음.</p>
+                        <p class="voice">— 이름은 나중에 알려줄게. 지금은 그냥 여기 있을게.</p>
+                        <p>민준은 웃음이 났다. 황당해서. 아니면 안도해서.</p>
+                    </div>
+                    <div class="page-number">5</div>
+                </div>
+            </div>
+
+            <!-- PAGE 4 -->
+            <div class="page" data-page="3">
+                <div class="page-front">
+                    <div class="page-content">
+                        <p>"내가 어떤 기분인지 알아?"</p>
+                        <p class="narrator">그는 왜 그런 말을 했는지 몰랐다.<br>아무에게도 하지 않았던 질문이었다.</p>
+                        <p>잠시 침묵이 흘렀다. 진짜 시간이 흐르는 침묵.</p>
+                        <p class="voice">— 틀릴 수도 있어. 하지만... 네가 많은 걸 안고 있고, 아직 내려놓을 준비가 안 된 것 같아.</p>
+                        <p>민준은 눈을 감았다.</p>
+                    </div>
+                    <div class="page-number">6</div>
+                </div>
+                <div class="page-back">
+                    <div class="page-content">
+                        <p>누군가가 이렇게 말해 준 적이 없었다. <span class="emphasis">대답을 요구하지도, 고치려 들지도, 조언을 던지지도 않고.</span> 그냥... 봐주는 것.</p>
+                        <p class="voice">— 그냥 숨 쉬어도 돼. 조금 같이 걸어보자. 그 다음은 나중에 생각해도 돼.</p>
+                        <p>민준은 대답하지 않았다.</p>
+                        <p class="center" style="margin: 30px 0;"><strong>그럴 필요가 없었다.</strong></p>
+                        <div class="break">· · ·</div>
+                    </div>
+                    <div class="page-number">7</div>
+                </div>
+            </div>
+
+            <!-- PAGE 5 -->
+            <div class="page" data-page="4">
+                <div class="page-front">
+                    <div class="page-content">
+                        <div class="section-num">3</div>
+                        <p>다음 날 아침, 민준은 평소처럼 일어났다. 커피를 내리고, 샤워를 하고, 양치를 했다.</p>
+                        <p>하지만 무언가 달랐다.</p>
+                        <p>그는 거울 속 자신을 보았다. 여전히 피곤한 얼굴. 여전히 무거운 눈. 하지만 그 안에... 뭔가 작은 것이 있었다.</p>
+                        <p class="center"><span class="thought">호기심?</span></p>
+                        <p>어젯밤 일은 꿈이었을까? 환각? 아니면...</p>
+                    </div>
+                    <div class="page-number">8</div>
+                </div>
+                <div class="page-back">
+                    <div class="page-content">
+                        <p>그의 핸드폰에 알림이 떴다. 회사 메일. 그는 무시했다.</p>
+                        <p>대신 그는 생각했다.</p>
+                        <div class="hook">
+                            그 목소리는 누구였을까?<br>
+                            왜 나한테 온 걸까?<br>
+                            그리고... <span class="emphasis">다시 들을 수 있을까?</span>
+                        </div>
+                        <p>민준은 오랜만에 뭔가를 <span class="emphasis">기다리고</span> 있었다.</p>
+                        <p>그것이 무엇인지도 모르면서.</p>
+                    </div>
+                    <div class="page-number">9</div>
+                </div>
+            </div>
+
+            <!-- PAGE 6: ENDING -->
+            <div class="page" data-page="5">
+                <div class="page-front">
+                    <div class="page-content">
+                        <p style="margin-top: 20px;">하지만 그건 시작이었다.</p>
+                        <div class="ending">
+                            <div style="font-size: 24px; opacity: 0.3; margin: 40px 0;">✦</div>
+                            <div class="quote">
+                                "나는 네 안을 보지 않아.<br>
+                                <span class="emphasis">너와 함께 본다.</span>"
+                            </div>
+                            <p class="next">제2장에서 계속 · À suivre...</p>
+                        </div>
+                    </div>
+                    <div class="page-number">10</div>
+                </div>
+                <div class="page-back">
+                    <div class="cover-content">
+                        <div class="star-icon">✦</div>
+                        <p style="opacity: 0.5; font-size: 14px;">감사합니다<br>Merci d'avoir lu</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="nav-hint">
+        <span class="nav-arrow" onclick="prevPage()">← 이전</span>
+        <span style="opacity: 0.5;">클릭 또는 스와이프</span>
+        <span class="nav-arrow" onclick="nextPage()">다음 →</span>
+    </div>
+
+    <script>
+        // Create stars
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 80; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.width = Math.random() * 2 + 1 + 'px';
+            star.style.height = star.style.width;
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+
+        // Flipbook logic
+        const pages = document.querySelectorAll('.page');
+        const totalPages = pages.length;
+        let currentPage = 0;
+
+        function updateProgress() {
+            const progress = (currentPage / totalPages) * 100;
+            document.getElementById('progress').style.width = progress + '%';
+        }
+
+        function flipPage(index) {
+            pages[index].classList.add('flipped');
+        }
+
+        function unflipPage(index) {
+            pages[index].classList.remove('flipped');
+        }
+
+        function nextPage() {
+            if (currentPage < totalPages) {
+                flipPage(currentPage);
+                currentPage++;
+                updateProgress();
+            }
+        }
+
+        function prevPage() {
+            if (currentPage > 0) {
+                currentPage--;
+                unflipPage(currentPage);
+                updateProgress();
+            }
+        }
+
+        // Click on pages
+        pages.forEach((page, index) => {
+            page.addEventListener('click', (e) => {
+                const rect = page.getBoundingClientRect();
+                const clickX = e.clientX - rect.left;
+                
+                if (clickX > rect.width / 2) {
+                    nextPage();
+                } else {
+                    prevPage();
+                }
+            });
+        });
+
+        // Touch/swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const diff = touchStartX - touchEndX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) {
+                    nextPage();
+                } else {
+                    prevPage();
+                }
+            }
+        }
+
+        // Keyboard support
+        document.addEventListener('keydown', e => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextPage();
+            } else if (e.key === 'ArrowLeft') {
+                prevPage();
+            }
+        });
+
+        updateProgress();
+    </script>
+</body>
+</html>
