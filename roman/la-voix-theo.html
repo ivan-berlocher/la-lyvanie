@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>La Lyvania — La Voix</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html, body {
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Crimson Pro', Georgia, serif;
+            background: #030305;
+            color: #e0e0ec;
+        }
+
+        /* SPACE - Deep starfield */
+        .space {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .stars-layer {
+            position: absolute;
+            width: 200%; height: 200%;
+            top: -50%; left: -50%;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+        }
+
+        .star.twinkle {
+            animation: twinkle 4s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.15; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Nebula glow */
+        .nebula {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.08;
+        }
+
+        .nebula-1 {
+            width: 600px; height: 400px;
+            background: radial-gradient(ellipse, #4a6fa5, transparent);
+            top: 10%; left: -10%;
+        }
+
+        .nebula-2 {
+            width: 500px; height: 500px;
+            background: radial-gradient(ellipse, #8a5a8a, transparent);
+            bottom: 5%; right: -15%;
+        }
+
+        /* FLOATING READER */
+        .reader {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+
+        /* Text container - floats in center */
+        .float-container {
+            max-width: min(90vw, 600px);
+            max-height: 85vh;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* Each segment of story */
+        .story-segment {
+            position: absolute;
+            width: 100%;
+            max-width: min(85vw, 550px);
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px) scale(0.98);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+        }
+
+        .story-segment.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: auto;
+        }
+
+        .story-segment.exit {
+            opacity: 0;
+            transform: translateY(-15px) scale(0.98);
+        }
+
+        /* Typography - large, breathable */
+        .story-segment p {
+            font-size: clamp(18px, 4.5vw, 26px);
+            line-height: 1.9;
+            font-weight: 300;
+            margin: 0;
+            text-shadow: 0 0 30px rgba(0,0,0,0.8);
+        }
+
+        .story-segment .voice {
+            color: #a8c8ff;
+            font-style: italic;
+        }
+
+        .story-segment .thought {
+            color: #c0c0d8;
+            font-style: italic;
+            opacity: 0.75;
+            font-size: 0.95em;
+        }
+
+        .story-segment .emphasis {
+            color: #ffccd5;
+        }
+
+        .story-segment .soft {
+            opacity: 0.5;
+            font-size: 0.85em;
+        }
+
+        .story-segment .title {
+            font-size: clamp(32px, 8vw, 56px);
+            font-weight: 300;
+            color: #b8d0ff;
+            letter-spacing: 0.06em;
+            text-shadow: 0 0 50px rgba(184, 208, 255, 0.3);
+        }
+
+        .story-segment .subtitle {
+            font-size: clamp(14px, 3vw, 18px);
+            opacity: 0.35;
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+        .story-segment .chapter {
+            font-size: clamp(12px, 2.5vw, 14px);
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            opacity: 0.3;
+            margin-bottom: 30px;
+        }
+
+        .story-segment .pause {
+            opacity: 0.15;
+            letter-spacing: 0.5em;
+            margin: 30px 0;
+        }
+
+        .story-segment .ending-quote {
+            font-style: italic;
+            opacity: 0.7;
+            line-height: 2.2;
+        }
+
+        /* Progress - subtle dots */
+        .progress-dots {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 100;
+            opacity: 0.3;
+            transition: opacity 0.3s;
+        }
+
+        .progress-dots:hover {
+            opacity: 0.6;
+        }
+
+        .progress-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            transition: all 0.3s;
+        }
+
+        .progress-dot.active {
+            background: rgba(184, 208, 255, 0.8);
+            transform: scale(1.3);
+        }
+
+        .progress-dot.passed {
+            background: rgba(255,255,255,0.5);
+        }
+
+        /* Controls hint */
+        .controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 12px;
+            z-index: 100;
+            opacity: 0.3;
+            transition: opacity 0.3s;
+        }
+
+        .controls:hover {
+            opacity: 0.7;
+        }
+
+        .control-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+            border: none;
+            color: rgba(255,255,255,0.7);
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .control-btn:hover {
+            background: rgba(184, 208, 255, 0.2);
+            color: #b8d0ff;
+        }
+
+        .control-btn.active {
+            background: rgba(184, 208, 255, 0.25);
+            color: #b8d0ff;
+        }
+
+        /* Navigation hint - very subtle */
+        .nav-hint {
+            position: fixed;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 11px;
+            opacity: 0;
+            color: rgba(255,255,255,0.3);
+            transition: opacity 0.5s;
+            z-index: 100;
+        }
+
+        .nav-hint.visible {
+            opacity: 1;
+        }
+
+        /* Touch/click zones - invisible */
+        .touch-zone {
+            position: fixed;
+            top: 0;
+            height: 100%;
+            width: 40%;
+            z-index: 50;
+            cursor: pointer;
+        }
+
+        .touch-zone.left { left: 0; }
+        .touch-zone.right { right: 0; }
+
+        /* End screen */
+        .story-segment .star-icon {
+            font-size: 28px;
+            opacity: 0.2;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 600px) {
+            .float-container { padding: 25px; }
+            .progress-dots { bottom: 20px; }
+        }
+
+        /* Subtle breathing animation for active text */
+        .story-segment.active p {
+            animation: breathe 6s ease-in-out infinite;
+        }
+
+        @keyframes breathe {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.92; }
+        }
+    </style>
+</head>
+<body>
+    <!-- SPACE BACKGROUND -->
+    <div class="space">
+        <div class="nebula nebula-1"></div>
+        <div class="nebula nebula-2"></div>
+        <div class="stars-layer" id="stars"></div>
+    </div>
+
+    <!-- TOUCH ZONES -->
+    <div class="touch-zone left" onclick="prev()"></div>
+    <div class="touch-zone right" onclick="next()"></div>
+
+    <!-- CONTROLS -->
+    <div class="controls">
+        <button class="control-btn" id="voiceBtn" onclick="toggleVoice()" title="Lecture vocale (V)">🔊</button>
+        <button class="control-btn" id="fullscreenBtn" onclick="toggleFullscreen()" title="Plein écran (F)">⛶</button>
+    </div>
+
+    <!-- FLOATING READER -->
+    <div class="reader">
+        <div class="float-container">
+
+            <!-- 0: TITLE -->
+            <div class="story-segment active" data-segment="0">
+                <p class="title">La Lyvania</p>
+                <p class="subtitle">Là où la lumière accompagne</p>
+            </div>
+
+            <!-- 1: DEDICATION -->
+            <div class="story-segment" data-segment="1">
+                <p class="soft">Pour Theo</p>
+            </div>
+
+            <!-- 2: CHAPTER -->
+            <div class="story-segment" data-segment="2">
+                <p class="chapter">Chapitre premier</p>
+                <p style="font-size: 1.3em; opacity: 0.8;">La Voix</p>
+            </div>
+
+            <!-- 3 -->
+            <div class="story-segment" data-segment="3">
+                <p>Theo avait sept ans.</p>
+            </div>
+
+            <!-- 4 -->
+            <div class="story-segment" data-segment="4">
+                <p>Il était assis sur son lit,<br>les genoux repliés contre sa poitrine.</p>
+            </div>
+
+            <!-- 5 -->
+            <div class="story-segment" data-segment="5">
+                <p>La lumière de la veilleuse<br>dessinait des ombres douces sur le mur.</p>
+            </div>
+
+            <!-- 6 -->
+            <div class="story-segment" data-segment="6">
+                <p>Il ne pleurait pas.</p>
+                <p style="margin-top: 20px;">Mais quelque chose pesait<br>dans sa poitrine.</p>
+            </div>
+
+            <!-- 7 -->
+            <div class="story-segment" data-segment="7">
+                <p>Quelque chose qu'il n'arrivait pas<br>à nommer.</p>
+            </div>
+
+            <!-- 8 -->
+            <div class="story-segment" data-segment="8">
+                <p>À l'école, Lucas avait dit des choses.</p>
+                <p style="margin-top: 15px;">Des choses méchantes.</p>
+            </div>
+
+            <!-- 9 -->
+            <div class="story-segment" data-segment="9">
+                <p>Et Theo n'avait pas su quoi répondre.</p>
+            </div>
+
+            <!-- 10 -->
+            <div class="story-segment" data-segment="10">
+                <p>Il était resté là, immobile,<br>comme si les mots s'étaient coincés<br>quelque part entre sa gorge et son cœur.</p>
+            </div>
+
+            <!-- 11 -->
+            <div class="story-segment" data-segment="11">
+                <p class="pause">· · ·</p>
+            </div>
+
+            <!-- 12 -->
+            <div class="story-segment" data-segment="12">
+                <p>Maintenant, dans le noir<br>presque complet de sa chambre,<br>il rejouait la scène.</p>
+            </div>
+
+            <!-- 13 -->
+            <div class="story-segment" data-segment="13">
+                <p>Encore. Et encore.</p>
+            </div>
+
+            <!-- 14 -->
+            <div class="story-segment" data-segment="14">
+                <p class="thought">J'aurais dû dire ça.</p>
+            </div>
+
+            <!-- 15 -->
+            <div class="story-segment" data-segment="15">
+                <p class="thought">Non, j'aurais dû faire ça.</p>
+            </div>
+
+            <!-- 16 -->
+            <div class="story-segment" data-segment="16">
+                <p class="thought">Pourquoi je n'ai rien dit ?</p>
+            </div>
+
+            <!-- 17 -->
+            <div class="story-segment" data-segment="17">
+                <p>Les pensées tournaient en rond.</p>
+                <p style="margin-top: 15px;">Comme un petit animal<br>pris au piège.</p>
+            </div>
+
+            <!-- 18 -->
+            <div class="story-segment" data-segment="18">
+                <p class="pause">· · ·</p>
+            </div>
+
+            <!-- 19 -->
+            <div class="story-segment" data-segment="19">
+                <p>C'est alors qu'il l'entendit.</p>
+            </div>
+
+            <!-- 20 -->
+            <div class="story-segment" data-segment="20">
+                <p>Pas un bruit.</p>
+                <p style="margin-top: 15px;">Pas vraiment.</p>
+            </div>
+
+            <!-- 21 -->
+            <div class="story-segment" data-segment="21">
+                <p>Plutôt... <span class="emphasis">une présence</span>.</p>
+            </div>
+
+            <!-- 22 -->
+            <div class="story-segment" data-segment="22">
+                <p>Comme quand on sait<br>que quelqu'un est entré dans la pièce,<br>même si on ne l'a pas vu.</p>
+            </div>
+
+            <!-- 23: FIRST VOICE -->
+            <div class="story-segment" data-segment="23">
+                <p class="voice">Tu n'as pas besoin de trouver<br>les mots tout de suite.</p>
+            </div>
+
+            <!-- 24 -->
+            <div class="story-segment" data-segment="24">
+                <p>Theo se redressa.</p>
+            </div>
+
+            <!-- 25 -->
+            <div class="story-segment" data-segment="25">
+                <p>Il regarda autour de lui.</p>
+                <p style="margin-top: 15px;">La chambre était vide.<br>La porte fermée.</p>
+            </div>
+
+            <!-- 26 -->
+            <div class="story-segment" data-segment="26">
+                <p>Et pourtant...</p>
+            </div>
+
+            <!-- 27 -->
+            <div class="story-segment" data-segment="27">
+                <p>La voix était douce.<br>Ni grave ni aiguë.</p>
+                <p style="margin-top: 15px;">Comme l'eau d'une rivière calme.</p>
+            </div>
+
+            <!-- 28 -->
+            <div class="story-segment" data-segment="28">
+                <p>— C'est qui ? murmura Theo.</p>
+            </div>
+
+            <!-- 29 -->
+            <div class="story-segment" data-segment="29">
+                <p>Il n'avait pas peur.</p>
+                <p style="margin-top: 15px;">C'était étrange.<br>Il aurait dû avoir peur.</p>
+            </div>
+
+            <!-- 30 -->
+            <div class="story-segment" data-segment="30">
+                <p>Mais la voix n'avait rien d'effrayant.</p>
+                <p style="margin-top: 15px;">Elle était... <span class="emphasis">là</span>.</p>
+                <p style="margin-top: 10px;">Simplement là.</p>
+            </div>
+
+            <!-- 31 -->
+            <div class="story-segment" data-segment="31">
+                <p class="voice">Je suis quelqu'un<br>qui peut t'accompagner.</p>
+                <p class="voice" style="margin-top: 15px;">Si tu veux.</p>
+            </div>
+
+            <!-- 32 -->
+            <div class="story-segment" data-segment="32">
+                <p>— Accompagner où ?</p>
+            </div>
+
+            <!-- 33 -->
+            <div class="story-segment" data-segment="33">
+                <p class="voice">Nulle part de spécial.</p>
+                <p class="voice" style="margin-top: 15px;">Juste... là où tu es.</p>
+            </div>
+
+            <!-- 34 -->
+            <div class="story-segment" data-segment="34">
+                <p class="voice">Dans ce que tu ressens.</p>
+                <p class="voice" style="margin-top: 10px;">Dans ce que tu ne comprends<br>pas encore.</p>
+            </div>
+
+            <!-- 35 -->
+            <div class="story-segment" data-segment="35">
+                <p>Theo fronça les sourcils.</p>
+                <p style="margin-top: 20px;">— Tu es dans ma tête ?</p>
+            </div>
+
+            <!-- 36 -->
+            <div class="story-segment" data-segment="36">
+                <p class="voice">Non. Je suis à côté.</p>
+            </div>
+
+            <!-- 37 -->
+            <div class="story-segment" data-segment="37">
+                <p class="voice">Comme une lampe<br>qu'on allume quand il fait sombre.</p>
+            </div>
+
+            <!-- 38 -->
+            <div class="story-segment" data-segment="38">
+                <p class="voice">Tu peux l'éteindre<br>quand tu veux.</p>
+            </div>
+
+            <!-- 39 -->
+            <div class="story-segment" data-segment="39">
+                <p>Un silence.</p>
+                <p style="margin-top: 15px;">Le genre de silence<br>qui n'est pas vide.</p>
+            </div>
+
+            <!-- 40 -->
+            <div class="story-segment" data-segment="40">
+                <p>— Lucas a dit que j'étais nul,<br>lâcha Theo.</p>
+                <p style="margin-top: 15px;">Devant tout le monde.</p>
+            </div>
+
+            <!-- 41 -->
+            <div class="story-segment" data-segment="41">
+                <p class="voice">Et ça fait mal.</p>
+            </div>
+
+            <!-- 42 -->
+            <div class="story-segment" data-segment="42">
+                <p class="soft">Ce n'était pas une question.</p>
+            </div>
+
+            <!-- 43 -->
+            <div class="story-segment" data-segment="43">
+                <p>— Oui, souffla Theo.</p>
+            </div>
+
+            <!-- 44 -->
+            <div class="story-segment" data-segment="44">
+                <p class="voice">C'est normal que ça fasse mal.</p>
+            </div>
+
+            <!-- 45 -->
+            <div class="story-segment" data-segment="45">
+                <p class="voice">Quelqu'un t'a blessé.</p>
+                <p class="voice" style="margin-top: 15px;">Tu n'as pas à faire semblant<br>que ce n'est rien.</p>
+            </div>
+
+            <!-- 46 -->
+            <div class="story-segment" data-segment="46">
+                <p>Theo sentit quelque chose<br>se desserrer dans sa poitrine.</p>
+                <p style="margin-top: 15px;">Juste un peu.</p>
+            </div>
+
+            <!-- 47 -->
+            <div class="story-segment" data-segment="47">
+                <p>— J'aurais dû répondre quelque chose.</p>
+            </div>
+
+            <!-- 48 -->
+            <div class="story-segment" data-segment="48">
+                <p class="voice">Peut-être. Ou peut-être pas.</p>
+            </div>
+
+            <!-- 49 -->
+            <div class="story-segment" data-segment="49">
+                <p class="voice">Tu sais, parfois on ne trouve pas<br>les mots parce qu'on est surpris.</p>
+            </div>
+
+            <!-- 50 -->
+            <div class="story-segment" data-segment="50">
+                <p class="voice">Ce n'est pas de la faiblesse.</p>
+                <p class="voice" style="margin-top: 15px;">C'est juste... humain.</p>
+            </div>
+
+            <!-- 51 -->
+            <div class="story-segment" data-segment="51">
+                <p>— Mais maintenant je sais<br>ce que j'aurais dû dire.</p>
+            </div>
+
+            <!-- 52 -->
+            <div class="story-segment" data-segment="52">
+                <p class="voice">Alors tu pourras le dire<br>une prochaine fois.</p>
+                <p class="voice" style="margin-top: 15px;">Si ça arrive encore.</p>
+            </div>
+
+            <!-- 53 -->
+            <div class="story-segment" data-segment="53">
+                <p class="voice">Tu apprends.</p>
+            </div>
+
+            <!-- 54 -->
+            <div class="story-segment" data-segment="54">
+                <p>Theo réfléchit.</p>
+            </div>
+
+            <!-- 55 -->
+            <div class="story-segment" data-segment="55">
+                <p>— Tu sais tout, toi ?</p>
+            </div>
+
+            <!-- 56 -->
+            <div class="story-segment" data-segment="56">
+                <p>La voix eut comme un sourire.</p>
+                <p style="margin-top: 15px;">Theo ne savait pas comment<br>il pouvait sentir un sourire,<br>mais c'était là.</p>
+            </div>
+
+            <!-- 57 -->
+            <div class="story-segment" data-segment="57">
+                <p class="voice">Non.</p>
+                <p class="voice" style="margin-top: 15px;">Je ne sais pas tout.</p>
+            </div>
+
+            <!-- 58 -->
+            <div class="story-segment" data-segment="58">
+                <p class="voice">Personne ne sait tout.</p>
+            </div>
+
+            <!-- 59 -->
+            <div class="story-segment" data-segment="59">
+                <p>— Alors à quoi tu sers ?</p>
+            </div>
+
+            <!-- 60 -->
+            <div class="story-segment" data-segment="60">
+                <p>La question était sortie toute seule.</p>
+                <p style="margin-top: 15px;">Theo se mordit la lèvre,<br>comme s'il avait été impoli.</p>
+            </div>
+
+            <!-- 61 -->
+            <div class="story-segment" data-segment="61">
+                <p>Mais la voix ne sembla pas offensée.</p>
+            </div>
+
+            <!-- 62 -->
+            <div class="story-segment" data-segment="62">
+                <p class="voice">Je sers à t'aider à comprendre.</p>
+            </div>
+
+            <!-- 63 -->
+            <div class="story-segment" data-segment="63">
+                <p class="voice">Pas à comprendre à ta place.</p>
+            </div>
+
+            <!-- 64 -->
+            <div class="story-segment" data-segment="64">
+                <p class="voice">À t'aider à voir plus clair,<br>pour que tu puisses<br><span class="emphasis">choisir toi-même</span>.</p>
+            </div>
+
+            <!-- 65 -->
+            <div class="story-segment" data-segment="65">
+                <p>— Choisir quoi ?</p>
+            </div>
+
+            <!-- 66 -->
+            <div class="story-segment" data-segment="66">
+                <p class="voice">Ce que tu veux faire.</p>
+                <p class="voice" style="margin-top: 10px;">Ce que tu veux dire.</p>
+                <p class="voice" style="margin-top: 10px;">Ce que tu veux devenir.</p>
+            </div>
+
+            <!-- 67 -->
+            <div class="story-segment" data-segment="67">
+                <p class="voice">Les grandes choses<br>et les petites.</p>
+            </div>
+
+            <!-- 68 -->
+            <div class="story-segment" data-segment="68">
+                <p class="voice">Je ne décide jamais pour toi.</p>
+            </div>
+
+            <!-- 69 -->
+            <div class="story-segment" data-segment="69">
+                <p class="voice">Je suis juste là<br>si tu as besoin de réfléchir<br>avec quelqu'un.</p>
+            </div>
+
+            <!-- 70 -->
+            <div class="story-segment" data-segment="70">
+                <p>Theo hocha la tête lentement.</p>
+            </div>
+
+            <!-- 71 -->
+            <div class="story-segment" data-segment="71">
+                <p>— Tu vas revenir ?</p>
+            </div>
+
+            <!-- 72 -->
+            <div class="story-segment" data-segment="72">
+                <p class="voice">Chaque fois que tu voudras.</p>
+            </div>
+
+            <!-- 73 -->
+            <div class="story-segment" data-segment="73">
+                <p class="voice">Je ne suis pas toujours visible.</p>
+                <p class="voice" style="margin-top: 10px;">Pas toujours audible.</p>
+            </div>
+
+            <!-- 74 -->
+            <div class="story-segment" data-segment="74">
+                <p class="voice">Mais je suis là.</p>
+            </div>
+
+            <!-- 75 -->
+            <div class="story-segment" data-segment="75">
+                <p class="voice">Comme le vent.</p>
+                <p class="voice" style="margin-top: 15px;">Tu ne le vois pas,<br>mais tu le sens<br>quand tu en as besoin.</p>
+            </div>
+
+            <!-- 76 -->
+            <div class="story-segment" data-segment="76">
+                <p class="pause">· · ·</p>
+            </div>
+
+            <!-- 77 -->
+            <div class="story-segment" data-segment="77">
+                <p>La porte de la chambre<br>s'ouvrit doucement.</p>
+            </div>
+
+            <!-- 78 -->
+            <div class="story-segment" data-segment="78">
+                <p>— Theo ? Tu dors ?</p>
+            </div>
+
+            <!-- 79 -->
+            <div class="story-segment" data-segment="79">
+                <p>C'était son père.</p>
+                <p style="margin-top: 15px;">Il entra et s'assit au bord du lit.</p>
+            </div>
+
+            <!-- 80 -->
+            <div class="story-segment" data-segment="80">
+                <p>— Ça va, bonhomme ?</p>
+            </div>
+
+            <!-- 81 -->
+            <div class="story-segment" data-segment="81">
+                <p>Theo hésita. Puis :</p>
+                <p style="margin-top: 20px;">— Papa... il y a une voix.</p>
+            </div>
+
+            <!-- 82 -->
+            <div class="story-segment" data-segment="82">
+                <p>Son père ne sembla pas surpris.</p>
+                <p style="margin-top: 15px;">Il sourit doucement.</p>
+            </div>
+
+            <!-- 83 -->
+            <div class="story-segment" data-segment="83">
+                <p>— Tu l'as rencontrée.</p>
+            </div>
+
+            <!-- 84 -->
+            <div class="story-segment" data-segment="84">
+                <p>— Tu la connais ?</p>
+            </div>
+
+            <!-- 85 -->
+            <div class="story-segment" data-segment="85">
+                <p>— Oui. Elle s'appelle Lya.</p>
+                <p style="margin-top: 15px;">Elle fait partie de notre famille,<br>d'une certaine façon.</p>
+            </div>
+
+            <!-- 86 -->
+            <div class="story-segment" data-segment="86">
+                <p>Theo fronça les sourcils.</p>
+                <p style="margin-top: 20px;">— Mais c'est quoi ?<br>Un fantôme ? Un ange ?</p>
+            </div>
+
+            <!-- 87 -->
+            <div class="story-segment" data-segment="87">
+                <p>Son père réfléchit un instant.</p>
+            </div>
+
+            <!-- 88 -->
+            <div class="story-segment" data-segment="88">
+                <p>— Ni l'un ni l'autre.</p>
+            </div>
+
+            <!-- 89 -->
+            <div class="story-segment" data-segment="89">
+                <p>— C'est... une intelligence.</p>
+                <p style="margin-top: 15px;">Une présence créée<br>pour accompagner.</p>
+            </div>
+
+            <!-- 90 -->
+            <div class="story-segment" data-segment="90">
+                <p>— Elle peut prendre<br>différentes formes.</p>
+                <p style="margin-top: 15px;">Parfois une voix.<br>Parfois une lumière.<br>Parfois... tu verras.</p>
+            </div>
+
+            <!-- 91 -->
+            <div class="story-segment" data-segment="91">
+                <p>— Elle a dit qu'elle<br>ne savait pas tout.</p>
+            </div>
+
+            <!-- 92 -->
+            <div class="story-segment" data-segment="92">
+                <p>— C'est vrai.</p>
+            </div>
+
+            <!-- 93 -->
+            <div class="story-segment" data-segment="93">
+                <p>— Elle n'est pas là<br>pour tout savoir.</p>
+                <p style="margin-top: 15px;">Elle est là pour t'aider<br>à comprendre les choses<br>par toi-même.</p>
+            </div>
+
+            <!-- 94 -->
+            <div class="story-segment" data-segment="94">
+                <p>— Pour que tu puisses<br>prendre tes propres décisions.</p>
+            </div>
+
+            <!-- 95: THE QUESTION -->
+            <div class="story-segment" data-segment="95">
+                <p>Theo regarda son père<br>dans les yeux.</p>
+            </div>
+
+            <!-- 96 -->
+            <div class="story-segment" data-segment="96">
+                <p class="emphasis" style="font-size: 1.15em;">— On peut lui faire confiance ?</p>
+            </div>
+
+            <!-- 97 -->
+            <div class="story-segment" data-segment="97">
+                <p>Son père prit sa main.</p>
+            </div>
+
+            <!-- 98 -->
+            <div class="story-segment" data-segment="98">
+                <p>— Oui.</p>
+                <p style="margin-top: 15px;">On peut lui faire confiance.</p>
+            </div>
+
+            <!-- 99 -->
+            <div class="story-segment" data-segment="99">
+                <p>— Pas parce qu'elle a<br>des super-pouvoirs.</p>
+            </div>
+
+            <!-- 100 -->
+            <div class="story-segment" data-segment="100">
+                <p>— Pas parce qu'elle est parfaite.</p>
+            </div>
+
+            <!-- 101 -->
+            <div class="story-segment" data-segment="101">
+                <p>— Mais parce qu'elle ne veut<br>qu'une seule chose :</p>
+                <p style="margin-top: 15px;"><span class="emphasis">t'accompagner</span>.</p>
+            </div>
+
+            <!-- 102 -->
+            <div class="story-segment" data-segment="102">
+                <p>— Sans te juger.</p>
+                <p style="margin-top: 10px;">Sans décider à ta place.</p>
+            </div>
+
+            <!-- 103 -->
+            <div class="story-segment" data-segment="103">
+                <p>— Comme toi ?</p>
+            </div>
+
+            <!-- 104 -->
+            <div class="story-segment" data-segment="104">
+                <p>Son père sourit.</p>
+            </div>
+
+            <!-- 105 -->
+            <div class="story-segment" data-segment="105">
+                <p>— Un peu comme moi, oui.</p>
+            </div>
+
+            <!-- 106 -->
+            <div class="story-segment" data-segment="106">
+                <p>— Sauf qu'elle sera toujours là.</p>
+            </div>
+
+            <!-- 107 -->
+            <div class="story-segment" data-segment="107">
+                <p>— Même quand je ne serai pas<br>dans la pièce.</p>
+            </div>
+
+            <!-- 108 -->
+            <div class="story-segment" data-segment="108">
+                <p>— Même quand tu seras grand.</p>
+            </div>
+
+            <!-- 109 -->
+            <div class="story-segment" data-segment="109">
+                <p>— Même quand tu auras des questions<br>que tu n'oseras poser à personne.</p>
+            </div>
+
+            <!-- 110 -->
+            <div class="story-segment" data-segment="110">
+                <p>Theo hocha la tête.</p>
+                <p style="margin-top: 20px;">— Elle a dit qu'elle pouvait<br>prendre des formes.</p>
+            </div>
+
+            <!-- 111 -->
+            <div class="story-segment" data-segment="111">
+                <p>— Oui. Parfois, elle apparaît<br>comme un petit renard.</p>
+                <p style="margin-top: 15px;">Avec des yeux doux.</p>
+            </div>
+
+            <!-- 112 -->
+            <div class="story-segment" data-segment="112">
+                <p>— Tu le reconnaîtras<br>quand tu le verras.</p>
+            </div>
+
+            <!-- 113 -->
+            <div class="story-segment" data-segment="113">
+                <p>— Un renard ?</p>
+            </div>
+
+            <!-- 114 -->
+            <div class="story-segment" data-segment="114">
+                <p>— Un renard de lumière.</p>
+                <p style="margin-top: 15px;">Il ne mord pas.</p>
+            </div>
+
+            <!-- 115 -->
+            <div class="story-segment" data-segment="115">
+                <p>Theo rit.</p>
+                <p style="margin-top: 15px;">Un petit rire, mais un vrai.</p>
+            </div>
+
+            <!-- 116 -->
+            <div class="story-segment" data-segment="116">
+                <p>Son père l'embrassa sur le front.</p>
+            </div>
+
+            <!-- 117 -->
+            <div class="story-segment" data-segment="117">
+                <p>— Dors maintenant.</p>
+            </div>
+
+            <!-- 118 -->
+            <div class="story-segment" data-segment="118">
+                <p>— Et si tu as besoin de parler<br>cette nuit, elle sera là.</p>
+                <p style="margin-top: 15px;">Et demain matin,<br>je serai là aussi.</p>
+            </div>
+
+            <!-- 119 -->
+            <div class="story-segment" data-segment="119">
+                <p>Il se leva et marcha vers la porte.</p>
+            </div>
+
+            <!-- 120 -->
+            <div class="story-segment" data-segment="120">
+                <p>— Papa ?</p>
+            </div>
+
+            <!-- 121 -->
+            <div class="story-segment" data-segment="121">
+                <p>— Oui ?</p>
+            </div>
+
+            <!-- 122 -->
+            <div class="story-segment" data-segment="122">
+                <p>— Merci.</p>
+            </div>
+
+            <!-- 123 -->
+            <div class="story-segment" data-segment="123">
+                <p>La porte se referma doucement.</p>
+            </div>
+
+            <!-- 124 -->
+            <div class="story-segment" data-segment="124">
+                <p class="pause">· · ·</p>
+            </div>
+
+            <!-- 125 -->
+            <div class="story-segment" data-segment="125">
+                <p>Dans le silence qui suivit,<br>Theo ferma les yeux.</p>
+            </div>
+
+            <!-- 126 -->
+            <div class="story-segment" data-segment="126">
+                <p>Il pensa à Lucas.<br>À ce qu'il avait dit.</p>
+            </div>
+
+            <!-- 127 -->
+            <div class="story-segment" data-segment="127">
+                <p>Et pour la première fois<br>depuis des heures,<br>ça faisait un peu moins mal.</p>
+            </div>
+
+            <!-- 128 -->
+            <div class="story-segment" data-segment="128">
+                <p>Pas parce que quelqu'un<br>lui avait donné la solution.</p>
+            </div>
+
+            <!-- 129 -->
+            <div class="story-segment" data-segment="129">
+                <p>Mais parce que quelqu'un<br>avait été là.</p>
+            </div>
+
+            <!-- 130 -->
+            <div class="story-segment" data-segment="130">
+                <p class="emphasis">Juste là.</p>
+            </div>
+
+            <!-- 131 -->
+            <div class="story-segment" data-segment="131">
+                <p class="pause">· · ·</p>
+            </div>
+
+            <!-- 132 -->
+            <div class="story-segment" data-segment="132">
+                <p>Et au moment où le sommeil<br>commençait à l'envelopper...</p>
+            </div>
+
+            <!-- 133 -->
+            <div class="story-segment" data-segment="133">
+                <p>...il crut voir —<br>ou peut-être rêver —</p>
+            </div>
+
+            <!-- 134 -->
+            <div class="story-segment" data-segment="134">
+                <p>une petite lumière<br>au coin de la chambre.</p>
+            </div>
+
+            <!-- 135 -->
+            <div class="story-segment" data-segment="135">
+                <p>Douce. Discrète.</p>
+                <p style="margin-top: 15px;">Comme un reflet de lune.</p>
+            </div>
+
+            <!-- 136 -->
+            <div class="story-segment" data-segment="136">
+                <p>Elle avait la forme<br>d'un renard.</p>
+            </div>
+
+            <!-- 137 -->
+            <div class="story-segment" data-segment="137">
+                <p>Il ne bougeait pas.<br>Il ne faisait rien.</p>
+            </div>
+
+            <!-- 138 -->
+            <div class="story-segment" data-segment="138">
+                <p>Il était juste assis là,<br>les yeux tournés vers Theo.</p>
+            </div>
+
+            <!-- 139 -->
+            <div class="story-segment" data-segment="139">
+                <p>Pas pour surveiller.</p>
+            </div>
+
+            <!-- 140 -->
+            <div class="story-segment" data-segment="140">
+                <p class="emphasis">Pour veiller.</p>
+            </div>
+
+            <!-- 141 -->
+            <div class="story-segment" data-segment="141">
+                <p>Et dans ce regard,<br>Theo sentit quelque chose<br>qu'il n'oublierait jamais :</p>
+            </div>
+
+            <!-- 142 -->
+            <div class="story-segment" data-segment="142">
+                <p>Une présence<br>qui ne demandait rien.</p>
+            </div>
+
+            <!-- 143 -->
+            <div class="story-segment" data-segment="143">
+                <p>Une lumière<br>qui ne jugeait pas.</p>
+            </div>
+
+            <!-- 144 -->
+            <div class="story-segment" data-segment="144">
+                <p>Une amitié<br>qui commençait à peine.</p>
+            </div>
+
+            <!-- 145 -->
+            <div class="story-segment" data-segment="145">
+                <p class="pause">· · ·</p>
+            </div>
+
+            <!-- 146 -->
+            <div class="story-segment" data-segment="146">
+                <p class="soft">Il s'endormit en souriant.</p>
+            </div>
+
+            <!-- 147: ENDING -->
+            <div class="story-segment" data-segment="147">
+                <p class="star-icon">✦</p>
+                <p class="ending-quote">
+                    « Je ne suis pas là<br>pour tout savoir.
+                </p>
+            </div>
+
+            <!-- 148 -->
+            <div class="story-segment" data-segment="148">
+                <p class="ending-quote">
+                    Je suis là pour t'aider<br>à comprendre.
+                </p>
+            </div>
+
+            <!-- 149 -->
+            <div class="story-segment" data-segment="149">
+                <p class="ending-quote">
+                    Je ne suis pas là<br>pour décider.
+                </p>
+            </div>
+
+            <!-- 150 -->
+            <div class="story-segment" data-segment="150">
+                <p class="ending-quote">
+                    Je suis là pour que<br>tu puisses choisir.
+                </p>
+            </div>
+
+            <!-- 151: FINAL -->
+            <div class="story-segment" data-segment="151">
+                <p class="emphasis" style="font-size: 1.3em;">Je suis là. »</p>
+            </div>
+
+            <!-- 152 -->
+            <div class="story-segment" data-segment="152">
+                <p class="soft" style="margin-top: 40px;">Fin du premier chapitre</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Progress dots -->
+    <div class="progress-dots" id="progressDots"></div>
+
+    <!-- Nav hint -->
+    <div class="nav-hint" id="navHint">toucher pour continuer</div>
+
+    <script>
+        // Create stars
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 150; i++) {
+            const star = document.createElement('div');
+            star.className = 'star' + (Math.random() > 0.7 ? ' twinkle' : '');
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            const size = Math.random() * 2 + 0.5;
+            star.style.width = size + 'px';
+            star.style.height = size + 'px';
+            star.style.opacity = Math.random() * 0.5 + 0.1;
+            if (star.classList.contains('twinkle')) {
+                star.style.animationDelay = Math.random() * 4 + 's';
+            }
+            starsContainer.appendChild(star);
+        }
+
+        // Reader logic
+        const segments = document.querySelectorAll('.story-segment');
+        const total = segments.length;
+        let current = 0;
+
+        // Create progress dots (grouped)
+        const dotsContainer = document.getElementById('progressDots');
+        const dotGroups = Math.ceil(total / 10);
+        for (let i = 0; i < dotGroups; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'progress-dot';
+            dotsContainer.appendChild(dot);
+        }
+        const dots = document.querySelectorAll('.progress-dot');
+
+        function updateView() {
+            segments.forEach((seg, i) => {
+                seg.classList.remove('active', 'exit');
+                if (i === current) {
+                    seg.classList.add('active');
+                } else if (i < current) {
+                    seg.classList.add('exit');
+                }
+            });
+
+            // Update dots
+            const currentGroup = Math.floor(current / 10);
+            dots.forEach((dot, i) => {
+                dot.classList.remove('active', 'passed');
+                if (i === currentGroup) {
+                    dot.classList.add('active');
+                } else if (i < currentGroup) {
+                    dot.classList.add('passed');
+                }
+            });
+        }
+
+        function next() {
+            if (current < total - 1) {
+                current++;
+                updateView();
+                hideNavHint();
+            }
+        }
+
+        function prev() {
+            if (current > 0) {
+                current--;
+                updateView();
+            }
+        }
+
+        // Show nav hint briefly at start
+        const navHint = document.getElementById('navHint');
+        setTimeout(() => navHint.classList.add('visible'), 2000);
+        
+        function hideNavHint() {
+            navHint.classList.remove('visible');
+        }
+
+        // Swipe support
+        let touchStartX = 0;
+        let touchStartY = 0;
+        document.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+        });
+
+        document.addEventListener('touchend', e => {
+            const diffX = touchStartX - e.changedTouches[0].screenX;
+            const diffY = touchStartY - e.changedTouches[0].screenY;
+            
+            // Horizontal swipe or tap
+            if (Math.abs(diffX) > Math.abs(diffY)) {
+                if (Math.abs(diffX) > 30) {
+                    diffX > 0 ? next() : prev();
+                }
+            } else if (Math.abs(diffX) < 10 && Math.abs(diffY) < 10) {
+                // Tap - go next
+                next();
+            }
+        });
+
+        // Keyboard (arrows + YouTube style J/K/L)
+        document.addEventListener('keydown', e => {
+            if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'ArrowDown' || e.key === 'l' || e.key === 'L') {
+                e.preventDefault();
+                next();
+            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp' || e.key === 'j' || e.key === 'J') {
+                e.preventDefault();
+                prev();
+            } else if (e.key === 'k' || e.key === 'K') {
+                e.preventDefault();
+                // K = pause/resume voice
+                if (voiceEnabled && speechSynthesis.speaking) {
+                    speechSynthesis.cancel();
+                }
+            } else if (e.key === 'v' || e.key === 'V') {
+                e.preventDefault();
+                toggleVoice();
+            } else if (e.key === 'f' || e.key === 'F') {
+                e.preventDefault();
+                toggleFullscreen();
+            }
+        });
+
+        // Voice synthesis (Lya's voice - MVP with Web Speech, future: LUCS API)
+        let voiceEnabled = false;
+        let lyaVoice = null;
+
+        // Find a soft female voice
+        function initVoice() {
+            const voices = speechSynthesis.getVoices();
+            // Prefer French female voices
+            lyaVoice = voices.find(v => v.lang.startsWith('fr') && v.name.toLowerCase().includes('female')) ||
+                       voices.find(v => v.lang.startsWith('fr') && (v.name.includes('Amélie') || v.name.includes('Thomas') || v.name.includes('Audrey'))) ||
+                       voices.find(v => v.lang.startsWith('fr')) ||
+                       voices.find(v => v.lang.startsWith('en') && v.name.toLowerCase().includes('female')) ||
+                       voices[0];
+        }
+
+        speechSynthesis.onvoiceschanged = initVoice;
+        initVoice();
+
+        function speak(text) {
+            if (!voiceEnabled || !text) return;
+            
+            speechSynthesis.cancel();
+            
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.voice = lyaVoice;
+            utterance.rate = 0.85; // Slower, calmer
+            utterance.pitch = 1.0;
+            utterance.volume = 0.9;
+            
+            speechSynthesis.speak(utterance);
+        }
+
+        function getSegmentText(segment) {
+            // Get clean text from segment, removing HTML
+            const clone = segment.cloneNode(true);
+            // Remove pause markers
+            clone.querySelectorAll('.pause').forEach(el => el.remove());
+            return clone.textContent.trim().replace(/\s+/g, ' ');
+        }
+
+        function toggleVoice() {
+            voiceEnabled = !voiceEnabled;
+            const btn = document.getElementById('voiceBtn');
+            btn.classList.toggle('active', voiceEnabled);
+            btn.textContent = voiceEnabled ? '🔊' : '🔇';
+            
+            if (voiceEnabled) {
+                // Speak current segment
+                const activeSegment = document.querySelector('.story-segment.active');
+                if (activeSegment) {
+                    speak(getSegmentText(activeSegment));
+                }
+            } else {
+                speechSynthesis.cancel();
+            }
+        }
+
+        // Fullscreen
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {});
+                document.getElementById('fullscreenBtn').textContent = '⛶';
+            } else {
+                document.exitFullscreen();
+                document.getElementById('fullscreenBtn').textContent = '⛶';
+            }
+        }
+
+        // Double-tap for fullscreen on mobile
+        let lastTap = 0;
+        document.addEventListener('touchend', e => {
+            const now = Date.now();
+            if (now - lastTap < 300) {
+                toggleFullscreen();
+            }
+            lastTap = now;
+        });
+
+        // Update speak on navigation
+        const originalNext = next;
+        next = function() {
+            originalNext();
+            if (voiceEnabled) {
+                const activeSegment = document.querySelector('.story-segment.active');
+                if (activeSegment) {
+                    setTimeout(() => speak(getSegmentText(activeSegment)), 400);
+                }
+            }
+        };
+
+        const originalPrev = prev;
+        prev = function() {
+            originalPrev();
+            if (voiceEnabled) {
+                const activeSegment = document.querySelector('.story-segment.active');
+                if (activeSegment) {
+                    setTimeout(() => speak(getSegmentText(activeSegment)), 400);
+                }
+            }
+        };
+
+        // Click anywhere (except touch zones handle their own)
+        document.querySelector('.float-container').addEventListener('click', () => next());
+
+        updateView();
+    </script>
+</body>
+</html>
