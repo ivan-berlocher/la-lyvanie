@@ -1,4 +1,4 @@
-# Harmonia Kernel (PSMVR) — Reference Implementation (v0.1.0)
+# Harmonia Kernel (PSMVR) — Reference Implementation (v1.0.0)
 
 This repository provides a minimal, reproducible implementation of the Harmonia cognitive kernel described in the white paper:
 
