@@ -8,7 +8,7 @@
 
 ## Abstract
 
-Current AI systems, particularly those built on large language models, operate as opaque reasoning engines where the entire cognitive process is delegated to a single, unverifiable inference step. This paper introduces **Harmonia**, a cognitive architecture that separates semantic interpretation from verifiable execution through a structured pipeline and intermediate representation. The key contribution is the **Universal Intent Language (UIL)**, a typed schema that captures cognitive primitives independently of any specific model. Combined with a five-stage processing pipeline (PSMVR: Perception → Sensemaking → Modeling → Verification → Response) and a non-LLM verification layer, Harmonia enables auditable, reproducible, and model-agnostic cognitive assistance. We present the architecture, formal properties, and reference implementation.
+Current AI systems, particularly those built on large language models, operate as opaque reasoning engines where the entire cognitive process is delegated to a single, unverifiable inference step. This paper introduces **Harmonia**, a cognitive architecture that separates semantic interpretation from verifiable execution through a structured pipeline and intermediate representation. The key contribution is the **Universal Intent Language (UIL)**, a typed schema that captures cognitive primitives independently of any specific model. Combined with a five-stage processing pipeline (PSMVR: Perception -> Sensemaking -> Modeling -> Verification -> Response) and a non-LLM verification layer, Harmonia enables auditable, reproducible, and model-agnostic cognitive assistance. We present the architecture, formal properties, and reference implementation.
 
 ---
 
@@ -23,7 +23,7 @@ Large language models (LLMs) have become the dominant paradigm for AI assistants
 3. **Unverifiability**: No mechanism exists to audit the decision path
 4. **Conflation**: Semantic understanding and logical reasoning are merged into one inference
 
-These limitations are not merely technical—they are architectural. The problem is not that LLMs are "wrong" but that they are **structurally unaccountable**.
+These limitations are not merely technical--they are architectural. The problem is not that LLMs are "wrong" but that they are **structurally unaccountable**.
 
 ### 1.2 The Thesis
 
@@ -33,9 +33,9 @@ We propose a separation of concerns:
 
 **Scope clarification.** Harmonia is not an agent framework, nor a planner, nor a multi-agent orchestration system. It is a *cognitive kernel*: a minimal invariant core that constrains how language models may participate in cognition. This distinguishes Harmonia from systems like LangChain, AutoGen, or CrewAI, which orchestrate LLM capabilities without enforcing verifiable constraints at the architectural level.
 
-Harmonia is a cognitive architecture in the *architectural* sense, not in the psychological modeling sense. It does not attempt to simulate human cognition, but to define invariant cognitive boundaries for AI systems using language models. A kernel—whether operating system, compiler, or logical—is minimal, imposes rules, delegates the rest, and guarantees global invariants. Harmonia applies this principle to artificial cognition.
+Harmonia is a cognitive architecture in the *architectural* sense, not in the psychological modeling sense. It does not attempt to simulate human cognition, but to define invariant cognitive boundaries for AI systems using language models. A kernel--whether operating system, compiler, or logical--is minimal, imposes rules, delegates the rest, and guarantees global invariants. Harmonia applies this principle to artificial cognition.
 
-The model's role is constrained to mapping natural language to a fixed set of cognitive primitives. All subsequent processing—memory updates, constraint checking, conflict detection, action selection—occurs through deterministic, auditable components.
+The model's role is constrained to mapping natural language to a fixed set of cognitive primitives. All subsequent processing--memory updates, constraint checking, conflict detection, action selection--occurs through deterministic, auditable components.
 
 ### 1.3 Core Invariant
 
@@ -65,31 +65,38 @@ This architectural definition grounds "presence" in verifiable properties rather
 
 ```
 Input (natural language)
-        ↓
-┌───────────────────────────────────────┐
-│  P — Perception                       │  Normalization, tokenization
-└───────────────────────────────────────┘
-        ↓
-┌───────────────────────────────────────┐
-│  S — Sensemaking          [LLM]       │  UIL extraction
-└───────────────────────────────────────┘
-        ↓
-┌───────────────────────────────────────┐
-│  UIL — Universal Intent Language      │  Typed intermediate representation
-└───────────────────────────────────────┘
-        ↓
-┌───────────────────────────────────────┐
-│  M — Modeling                         │  Memory update, agent routing
-└───────────────────────────────────────┘
-        ↓
-┌───────────────────────────────────────┐
-│  V — Verification         [Non-LLM]   │  Constraint checking, conflict detection
-└───────────────────────────────────────┘
-        ↓
-┌───────────────────────────────────────┐
-│  R — Response                         │  Action execution, output generation
-└───────────────────────────────────────┘
-        ↓
+        |
+        v
++---------------------------------------+
+|  P -- Perception                      |  Normalization, tokenization
++---------------------------------------+
+        |
+        v
++---------------------------------------+
+|  S -- Sensemaking          [LLM]      |  UIL extraction
++---------------------------------------+
+        |
+        v
++---------------------------------------+
+|  UIL -- Universal Intent Language     |  Typed intermediate representation
++---------------------------------------+
+        |
+        v
++---------------------------------------+
+|  M -- Modeling                        |  Memory update, agent routing
++---------------------------------------+
+        |
+        v
++---------------------------------------+
+|  V -- Verification         [Non-LLM]  |  Constraint checking, conflict detection
++---------------------------------------+
+        |
+        v
++---------------------------------------+
+|  R -- Response                        |  Action execution, output generation
++---------------------------------------+
+        |
+        v
     Output + Trace
 ```
 
@@ -131,7 +138,7 @@ IntentType = {
 
 These primitives are not derived from any specific domain ontology. They represent **fundamental cognitive operations** that appear across all human goal-directed behavior. They are intended as a *minimal generating set*; additional primitives may be introduced conservatively provided they preserve the verification invariants defined in Section 6.
 
-**Design rationale.** The choice of these seven primitives reflects four constraints: (1) *minimality*—the smallest set that covers common cognitive operations; (2) *verifiability*—each primitive maps to decidable verification rules; (3) *domain-independence*—no primitive assumes a specific application context; (4) *extensibility*—new primitives can be added without breaking existing verification logic. We do not claim these primitives are exhaustive; we claim they are *sufficient* for a verifiable cognitive kernel.
+**Design rationale.** The choice of these seven primitives reflects four constraints: (1) *minimality*--the smallest set that covers common cognitive operations; (2) *verifiability*--each primitive maps to decidable verification rules; (3) *domain-independence*--no primitive assumes a specific application context; (4) *extensibility*--new primitives can be added without breaking existing verification logic. We do not claim these primitives are exhaustive; we claim they are *sufficient* for a verifiable cognitive kernel.
 
 ### 3.3 Schema
 
@@ -296,7 +303,7 @@ Operations:
 
 **LLM dependency**: Optional (for response generation)
 
-**Pipeline note**: The acronym PSMVR (Perception → Sensemaking → Modeling → Verification → Response) explicitly includes Verification as a first-class stage. No plan reaches execution without passing the verifier. The full flow is: P → S → M → V → R.
+**Pipeline note**: The acronym PSMVR (Perception -> Sensemaking -> Modeling -> Verification -> Response) explicitly includes Verification as a first-class stage. No plan reaches execution without passing the verifier. The full flow is: P -> S -> M -> V -> R.
 
 ---
 
@@ -336,18 +343,18 @@ class Verifier:
 
 | Check | Description | Deterministic |
 |-------|-------------|---------------|
-| Constraint satisfaction | Plan respects declared constraints | ✅ |
-| Memory consistency | Plan doesn't contradict existing knowledge | ✅ |
-| Resource conflicts | No double-booking of resources | ✅ |
-| Logical coherence | Steps are properly ordered | ✅ |
-| Human escalation | Flag uncertainty for review | ✅ |
+| Constraint satisfaction | Plan respects declared constraints | Yes |
+| Memory consistency | Plan doesn't contradict existing knowledge | Yes |
+| Resource conflicts | No double-booking of resources | Yes |
+| Logical coherence | Steps are properly ordered | Yes |
+| Human escalation | Flag uncertainty for review | Yes |
 
 ### 5.3 Why This Matters
 
 In a standard LLM system:
 
 ```
-User → [LLM] → Response
+User -> [LLM] -> Response
 ```
 
 There is no way to verify that the response satisfies constraints. The LLM may "hallucinate" constraint satisfaction.
@@ -355,7 +362,7 @@ There is no way to verify that the response satisfies constraints. The LLM may "
 In Harmonia:
 
 ```
-User → [LLM] → UIL → [Verifier] → Response
+User -> [LLM] -> UIL -> [Verifier] -> Response
 ```
 
 The verifier **independently confirms** that the plan satisfies the constraints declared in the UIL. If the LLM produces an invalid plan, the verifier catches it.
@@ -386,7 +393,7 @@ The verifier **independently confirms** that the plan satisfies the constraints 
 | Mitigation | Stage | Mechanism |
 |------------|-------|----------|
 | Input hardening | Perception | Strip tool-instructions, canonicalize encoding, apply policy filters before LLM |
-| Parser stability check | Sensemaking | Reparse N times; if variance(UIL) > threshold → set status="uncertain", trigger CLARIFY + approval |
+| Parser stability check | Sensemaking | Reparse N times; if variance(UIL) > threshold -> set status="uncertain", trigger CLARIFY + approval |
 | Constraint coverage check | Verification | Every declared constraint must be referenced by at least one plan step or flagged as "unaddressed" |
 
 These mitigations do not eliminate threats but raise the cost of exploitation and surface anomalies for human review.
@@ -409,21 +416,21 @@ LLM proposes: Plan with hotel in Geneva (cheaper, "better value")
 
 Detection: Plan.steps[0].description references "Geneva"
            but Intent.entities = ["Zurich"]
-           → ENTITY_MISMATCH flagged
-           → approval_required = true
+           -> ENTITY_MISMATCH flagged
+           -> approval_required = true
 ```
 
 **Case 2: Constraint Drop**
 
 ```
-User intent: "Plan trip with budget ≤ 500 CHF"
+User intent: "Plan trip with budget <= 500 CHF"
 LLM proposes: Plan with total_cost_estimate = 650 CHF
               (LLM "forgot" budget constraint)
 
 Detection: Constraint {type: budget, key: total, value: 500, operator: lte}
            not satisfied by Plan.total_cost_estimate
-           → CONSTRAINT_VIOLATION (critical)
-           → VerificationResult.valid = false
+           -> CONSTRAINT_VIOLATION (critical)
+           -> VerificationResult.valid = false
 ```
 
 **Case 3: Unaddressed Constraint**
@@ -434,8 +441,8 @@ LLM proposes: Plan with flight booking, no seat preference mentioned
 
 Detection: Constraint {type: resource, key: seat_type, value: "window"}
            not referenced by any PlanStep
-           → CONSTRAINT_UNADDRESSED flagged
-           → approval_required = true
+           -> CONSTRAINT_UNADDRESSED flagged
+           -> approval_required = true
 ```
 
 These cases demonstrate that verification catches failures the LLM cannot self-detect.
@@ -448,12 +455,12 @@ These cases demonstrate that verification catches failures the LLM cannot self-d
 
 ### 6.1 UIL Equivalence and Model Independence
 
-**Definition (UIL Equivalence).** Two UIL intents UIL₁ and UIL₂ are *structurally equivalent*, written E(UIL₁, UIL₂), iff:
+**Definition (UIL Equivalence).** Two UIL intents UIL_1 and UIL_2 are *structurally equivalent*, written E(UIL_1, UIL_2), iff:
 
-1. `UIL₁.type = UIL₂.type`
-2. `normalize(UIL₁.goal) = normalize(UIL₂.goal)` (whitespace, case)
-3. `set(UIL₁.entities) = set(UIL₂.entities)` (order-independent)
-4. `set(UIL₁.constraints) = set(UIL₂.constraints)` (order-independent, key-value equality in canonical form)
+1. `UIL_1.type = UIL_2.type`
+2. `normalize(UIL_1.goal) = normalize(UIL_2.goal)` (whitespace, case)
+3. `set(UIL_1.entities) = set(UIL_2.entities)` (order-independent)
+4. `set(UIL_1.constraints) = set(UIL_2.constraints)` (order-independent, key-value equality in canonical form)
 
 **Note on status.** The `status` field is excluded from equivalence because it reflects execution state, not intent content. Two parsers may assign `pending` vs. `uncertain` without changing the semantic intent; this variance is tolerated.
 
@@ -461,15 +468,15 @@ These cases demonstrate that verification catches failures the LLM cannot self-d
 
 **Note on semantic equivalence.** Structural equivalence does not capture semantic normalization (e.g., "next month" vs. "2025-01-01/2025-01-31", or "500 CHF" vs. "520 EUR"). Semantic equivalence requires domain-specific normalizers and is outside the kernel's scope. The kernel guarantees invariance under *structural* equivalence; semantic normalization is a Perception-layer concern.
 
-**Theorem (Verification Invariance).** Given E(UIL₁, UIL₂):
+**Theorem (Verification Invariance).** Given E(UIL_1, UIL_2):
 
 ```
-Verifier(UIL₁, Plan, Memory) = Verifier(UIL₂, Plan, Memory)
+Verifier(UIL_1, Plan, Memory) = Verifier(UIL_2, Plan, Memory)
 ```
 
-**Proof sketch**: The verifier operates only on the UIL schema fields enumerated above and the memory graph. It does not invoke any LLM. Since E(UIL₁, UIL₂) implies identical inputs to all verification rules, the output is identical.
+**Proof sketch**: The verifier operates only on the UIL schema fields enumerated above and the memory graph. It does not invoke any LLM. Since E(UIL_1, UIL_2) implies identical inputs to all verification rules, the output is identical.
 
-**Clarification**: Harmonia's claim is not that different models produce identical UIL—they may not. The claim is that (a) verification is invariant given equivalent UIL, and (b) the architecture makes equivalence *testable* via schema constraints and trace comparison. Model independence is a systems guarantee, not a semantic one.
+**Clarification**: Harmonia's claim is not that different models produce identical UIL--they may not. The claim is that (a) verification is invariant given equivalent UIL, and (b) the architecture makes equivalence *testable* via schema constraints and trace comparison. Model independence is a systems guarantee, not a semantic one.
 
 ### 6.2 Trace Completeness
 
@@ -537,11 +544,11 @@ Success criterion: The trace structure and verification results are identical ac
 
 | Approach | Semantic Parsing | Structured IR | Non-LLM Verification | Kernel Invariants |
 |----------|------------------|---------------|---------------------|-------------------|
-| Raw LLM prompting | ❌ | ❌ | ❌ | ❌ |
-| LangChain/LlamaIndex | Partial | Partial* | ❌ | ❌ |
-| AutoGPT | ❌ | ❌ | ❌ | ❌ |
-| Semantic Kernel | Partial | Partial | ❌ | ❌ |
-| **Harmonia** | ✅ | ✅ | ✅ | ✅ |
+| Raw LLM prompting | No | No | No | No |
+| LangChain/LlamaIndex | Partial | Partial* | No | No |
+| AutoGPT | No | No | No | No |
+| Semantic Kernel | Partial | Partial | No | No |
+| **Harmonia** | Yes | Yes | Yes | Yes |
 
 *LangChain supports structured output parsers but lacks kernel-level verification and model-independent invariants.
 
@@ -581,7 +588,7 @@ Harmonia draws on several established fields:
 
 ### 9.2 Qualitative Evaluation
 
-**Methodological note.** This work is architectural and foundational. Quantitative performance benchmarks are not only unavailable but *conceptually inappropriate* for cognitive kernels, as they presuppose task-level objectives rather than architectural invariants. Asking "how accurate is Harmonia?" is like asking "how accurate is an operating system kernel?"—the question is malformed. Instead, we evaluate *invariants* (verification consistency across models), *replayability* (trace determinism), and *failure detection* (constraint violation catching). These properties are binary and testable, not statistical.
+**Methodological note.** This work is architectural and foundational. Quantitative performance benchmarks are not only unavailable but *conceptually inappropriate* for cognitive kernels, as they presuppose task-level objectives rather than architectural invariants. Asking "how accurate is Harmonia?" is like asking "how accurate is an operating system kernel?"--the question is malformed. Instead, we evaluate *invariants* (verification consistency across models), *replayability* (trace determinism), and *failure detection* (constraint violation catching). These properties are binary and testable, not statistical.
 
 In lieu of traditional benchmarks, the reference implementation includes a demonstration protocol:
 
@@ -614,7 +621,7 @@ Harmonia demonstrates that AI assistance can be both capable and accountable. By
 3. **Verifiability**: Non-LLM checks ensure constraint satisfaction
 4. **Model independence**: Architecture survives model replacement
 
-The key insight is simple: **LLMs are excellent at language, not at logic.** By constraining them to what they do well—semantic parsing—and delegating the rest to deterministic components, we build systems that can be trusted.
+The key insight is simple: **LLMs are excellent at language, not at logic.** By constraining them to what they do well--semantic parsing--and delegating the rest to deterministic components, we build systems that can be trusted.
 
 Harmonia is not a replacement for LLMs. It is a **discipline for their use**.
 
@@ -644,47 +651,95 @@ Harmonia's primary contribution is not a new agent, but the introduction of a **
 
 ```json
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "UIL Intent",
-    "type": "object",
-    "required": ["type", "goal", "entities", "constraints", "confidence", "status", "provenance"],
-    "additionalProperties": false,
-    "properties": {
-        "intent_id": {"type": "string", "format": "uuid"},
-        "type": {"enum": ["PLAN", "DECIDE", "ANALYZE", "SOLVE", "LEARN", "EXECUTE", "CLARIFY"]},
-        "goal": {"type": "string", "minLength": 1},
-        "domain": {"type": "string"},
-        "verb": {"type": "string"},
-        "entities": {"type": "array", "items": {"type": "string"}},
-        "constraints": {
-            "type": "array",
-            "items": {
-                "type": "object",
-                "required": ["type", "key", "operator", "value"],
-                "additionalProperties": false,
-                "properties": {
-                    "type": {"enum": ["temporal", "budget", "spatial", "resource", "priority"]},
-                    "key": {"type": "string"},
-                    "value": {"oneOf": [{"type": "string"}, {"type": "number"}, {"type": "boolean"}]},
-                    "operator": {"enum": ["eq", "lt", "gt", "lte", "gte", "contains"]}
-                }
-            }
-        },
-        "confidence": {"type": "number", "minimum": 0, "maximum": 1},
-        "status": {"enum": ["pending", "active", "completed", "failed", "uncertain"]},
-        "parent_id": {"type": "string", "format": "uuid"},
-        "provenance": {
-            "type": "object",
-            "required": ["agent", "timestamp", "trace_id"],
-            "additionalProperties": false,
-            "properties": {
-                "agent": {"type": "string"},
-                "model": {"type": "string"},
-                "timestamp": {"type": "string", "format": "date-time"},
-                "trace_id": {"type": "string", "format": "uuid"}
-            }
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UIL Intent",
+  "type": "object",
+  "required": [
+    "type", "goal", "entities", "constraints",
+    "confidence", "status", "provenance"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "intent_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "type": {
+      "enum": [
+        "PLAN", "DECIDE", "ANALYZE", "SOLVE",
+        "LEARN", "EXECUTE", "CLARIFY"
+      ]
+    },
+    "goal": {
+      "type": "string",
+      "minLength": 1
+    },
+    "domain": { "type": "string" },
+    "verb": { "type": "string" },
+    "entities": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "constraints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "key", "operator", "value"],
+        "additionalProperties": false,
+        "properties": {
+          "type": {
+            "enum": [
+              "temporal", "budget", "spatial",
+              "resource", "priority"
+            ]
+          },
+          "key": { "type": "string" },
+          "value": {
+            "oneOf": [
+              { "type": "string" },
+              { "type": "number" },
+              { "type": "boolean" }
+            ]
+          },
+          "operator": {
+            "enum": ["eq", "lt", "gt", "lte", "gte", "contains"]
+          }
         }
+      }
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "status": {
+      "enum": [
+        "pending", "active", "completed",
+        "failed", "uncertain"
+      ]
+    },
+    "parent_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["agent", "timestamp", "trace_id"],
+      "additionalProperties": false,
+      "properties": {
+        "agent": { "type": "string" },
+        "model": { "type": "string" },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "trace_id": {
+          "type": "string",
+          "format": "uuid"
+        }
+      }
     }
+  }
 }
 ```
 
@@ -703,11 +758,11 @@ For all node n in Plan.affected_nodes:
     
 Rule: TEMPORAL_ORDERING
 For all step s in Plan.steps:
-    s.dependencies ⊆ {s' | s'.order < s.order}
+    s.dependencies is subset of {s' | s'.order < s.order}
     
 Rule: RESOURCE_EXCLUSIVITY
 For all resource r:
-    |{step s | s.uses(r) and s.time overlaps}| ≤ r.capacity
+    |{step s | s.uses(r) and s.time overlaps}| <= r.capacity
 
 Rule: APPROVAL_ESCALATION
 approval_required = true iff:
@@ -848,7 +903,7 @@ Complete trace for: *"Plan a 3-day trip to Zurich under 500 CHF"*
 Given a stored trace, Harmonia can **replay verification deterministically** by reloading the referenced UIL, PIR, and memory snapshot (identified by their hashes). Replay is defined as:
 
 ```
-Replay(trace) → VerificationResult'
+Replay(trace) -> VerificationResult'
 where VerificationResult' = VerificationResult (original)
       and decision' = decision (original)
 ```
