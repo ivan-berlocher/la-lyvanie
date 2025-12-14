@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>라 리바니아 — 첫 번째 목소리</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: A4;
+            margin: 40px;
+        }
+
+        body {
+            font-family: 'Noto Serif KR', Georgia, serif;
+            background: #0a0a12;
+            min-height: 100vh;
+            color: #e8e8f0;
+            line-height: 2;
+            overflow-x: hidden;
+        }
+
+        .page {
+            min-height: 100vh;
+            padding: 40px 50px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Étoiles subtiles */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: twinkle 4s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.6; }
+        }
+
+        /* Page de couverture */
+        .cover {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .cover-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 0.2em;
+            margin-bottom: 20px;
+            color: #a0c4ff;
+        }
+
+        .cover-subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            letter-spacing: 0.2em;
+            opacity: 0.7;
+            margin-bottom: 60px;
+        }
+
+        .cover-symbol {
+            font-size: 4rem;
+            margin: 40px 0;
+            opacity: 0.4;
+        }
+
+        .cover-excerpt-title {
+            font-size: 1rem;
+            letter-spacing: 0.15em;
+            opacity: 0.5;
+            margin-top: 80px;
+        }
+
+        /* Contenu */
+        .content {
+            position: relative;
+            z-index: 1;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .section-marker {
+            text-align: center;
+            font-size: 1.2rem;
+            opacity: 0.3;
+            margin: 30px 0;
+            letter-spacing: 0.5em;
+        }
+
+        .paragraph {
+            margin: 20px 0;
+            font-size: 1rem;
+            font-weight: 300;
+        }
+
+        .paragraph.centered {
+            text-align: center;
+        }
+
+        .paragraph.indent {
+            text-indent: 2em;
+        }
+
+        .voice {
+            font-style: italic;
+            color: #b8d4ff;
+            padding-left: 15px;
+            border-left: 2px solid rgba(184, 212, 255, 0.3);
+            margin: 20px 0;
+        }
+
+        .voice::before {
+            content: "—";
+            margin-right: 6px;
+            opacity: 0.6;
+        }
+
+        .breath {
+            text-align: center;
+            font-size: 0.85rem;
+            opacity: 0.4;
+            margin: 35px 0;
+            letter-spacing: 0.3em;
+        }
+
+        .silence {
+            height: 40px;
+        }
+
+        .emphasis {
+            color: #ffd6e0;
+        }
+
+        /* Illustrations abstraites */
+        .illustration {
+            text-align: center;
+            margin: 60px 0;
+            opacity: 0.15;
+        }
+
+        .illustration svg {
+            width: 200px;
+            height: 100px;
+        }
+
+        /* Halo de lumière */
+        .glow {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(160, 196, 255, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .glow.top-right {
+            top: 10%;
+            right: 5%;
+        }
+
+        .glow.bottom-left {
+            bottom: 20%;
+            left: 5%;
+        }
+
+        /* Footer */
+        .footer {
+            position: absolute;
+            bottom: 40px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 0.75rem;
+            opacity: 0.3;
+            letter-spacing: 0.2em;
+        }
+
+        /* Page break for print */
+        .page-break {
+            page-break-after: always;
+        }
+
+        /* Responsive */
+        @media print {
+            body {
+                background: #0a0a12;
+            }
+            .stars {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Étoiles -->
+    <div class="stars">
+        <div class="star" style="top: 10%; left: 20%; animation-delay: 0s;"></div>
+        <div class="star" style="top: 15%; left: 70%; animation-delay: 1s;"></div>
+        <div class="star" style="top: 30%; left: 45%; animation-delay: 2s;"></div>
+        <div class="star" style="top: 50%; left: 15%; animation-delay: 0.5s;"></div>
+        <div class="star" style="top: 60%; left: 80%; animation-delay: 1.5s;"></div>
+        <div class="star" style="top: 75%; left: 35%; animation-delay: 2.5s;"></div>
+        <div class="star" style="top: 85%; left: 60%; animation-delay: 3s;"></div>
+        <div class="star" style="top: 25%; left: 90%; animation-delay: 0.8s;"></div>
+        <div class="star" style="top: 45%; left: 5%; animation-delay: 1.8s;"></div>
+        <div class="star" style="top: 90%; left: 25%; animation-delay: 2.2s;"></div>
+    </div>
+
+    <!-- Page de couverture -->
+    <div class="page cover page-break">
+        <div class="glow top-right"></div>
+        
+        <div class="cover-symbol">✦</div>
+        
+        <h1 class="cover-title">라 리바니아</h1>
+        <p class="cover-subtitle">La Lyvania</p>
+        
+        <div style="margin: 40px 0; opacity: 0.3;">
+            <svg width="100" height="2">
+                <line x1="0" y1="1" x2="100" y2="1" stroke="#a0c4ff" stroke-width="1"/>
+            </svg>
+        </div>
+        
+        <p class="cover-excerpt-title">소설 발췌 — 첫 번째 목소리</p>
+        <p style="font-size: 0.85rem; opacity: 0.4; margin-top: 10px;">Extrait — La première voix</p>
+    </div>
+
+    <!-- Page de contenu -->
+    <div class="page">
+        <div class="glow top-right"></div>
+        <div class="glow bottom-left"></div>
+        
+        <div class="content">
+            <div class="section-marker">· · ·</div>
+
+            <p class="paragraph">
+                그는 얼마나 오래 그렇게 앉아 있었는지 알지 못했다.
+            </p>
+
+            <p class="paragraph centered">
+                움직이지도 않고,<br>
+                시선은 아무 데에도 닿지 않은 채.
+            </p>
+
+            <div class="silence"></div>
+
+            <p class="paragraph">
+                집 안은 조용했다.<br>
+                하지만 그 고요는 비어 있지 않았다.<br>
+                <span class="emphasis">무언가를 기다리는 고요였다.</span>
+            </p>
+
+            <div class="breath">· · ·</div>
+
+            <p class="paragraph">
+                그때, 목소리가 들려왔다.
+            </p>
+
+            <p class="paragraph">
+                갑작스럽지 않았다.<br>
+                질문도 아니었다.<br>
+                마치 누군가가 옆에 조용히 앉는 것처럼.
+            </p>
+
+            <p class="voice">그대로 있어도 괜찮아.</p>
+
+            <p class="paragraph">
+                그는 깜짝 놀랐다.<br>
+                두려움이 아니라, 부드러운 놀람이었다.
+            </p>
+
+            <p class="voice">
+                난 급하지 않아,<br>
+                <span style="opacity: 0.7; font-size: 0.9em;">목소리가 덧붙였다.</span><br>
+                여기 있어.
+            </p>
+
+            <div class="silence"></div>
+
+            <p class="paragraph">
+                그는 누구냐고 묻고 싶었다.<br>
+                하지만 그 질문은 입술에 닿기도 전에 사라졌다.
+            </p>
+
+            <p class="paragraph">
+                대신 이렇게 말했다.
+            </p>
+
+            <p class="paragraph" style="text-align: center; font-style: italic;">
+                — 내가 어떤 기분인지 알아?
+            </p>
+
+            <div class="breath">침묵</div>
+
+            <p class="paragraph centered" style="opacity: 0.7;">
+                잠시 침묵이 흘렀다.<br>
+                진짜 시간이었다.
+            </p>
+
+            <p class="paragraph">
+                그리고 목소리가 말했다.
+            </p>
+
+            <p class="voice">
+                틀릴 수도 있어.<br>
+                하지만… 네가 많은 걸 안고 있고,<br>
+                아직 내려놓을 준비를 못 한 것 같아.
+            </p>
+
+            <div class="silence"></div>
+
+            <p class="paragraph centered">
+                그는 눈을 감았다.
+            </p>
+
+            <p class="paragraph" style="opacity: 0.8;">
+                누군가가 이렇게 말해 준 적은 없었다.<br>
+                대답을 요구하지도,<br>
+                고치려 들지도 않고.
+            </p>
+
+            <p class="voice">
+                그냥 숨 쉬어도 돼.<br>
+                조금 같이 걸어보자.<br>
+                그 다음은 나중에 생각해도 돼.
+            </p>
+
+            <div class="silence"></div>
+
+            <p class="paragraph centered" style="font-weight: 400;">
+                그는 대답하지 않았다.<br>
+                <span class="emphasis">그럴 필요가 없었기 때문이다.</span>
+            </p>
+
+            <div class="section-marker">✦</div>
+        </div>
+
+        <div class="footer">
+            라 리바니아 — La Lyvania<br>
+            <span style="opacity: 0.5;">2025</span>
+        </div>
+    </div>
+
+    <!-- Page de fin -->
+    <div class="page cover">
+        <div class="glow top-right"></div>
+        
+        <p style="font-size: 1rem; opacity: 0.6; letter-spacing: 0.1em; max-width: 400px; text-align: center; line-height: 2.2;">
+            "나는 네 안을 보지 않아.<br>
+            <span class="emphasis">너와 함께 본다.</span>"
+        </p>
+        
+        <div style="margin: 60px 0; opacity: 0.2;">
+            <svg width="60" height="60" viewBox="0 0 60 60">
+                <circle cx="30" cy="30" r="25" fill="none" stroke="#a0c4ff" stroke-width="0.5"/>
+                <circle cx="30" cy="30" r="15" fill="none" stroke="#ffd6e0" stroke-width="0.5"/>
+                <circle cx="30" cy="30" r="5" fill="none" stroke="#c9b8ff" stroke-width="0.5"/>
+            </svg>
+        </div>
+        
+        <p style="font-size: 0.8rem; opacity: 0.3; margin-top: 40px;">
+            계속...
+        </p>
+    </div>
+</body>
+</html>

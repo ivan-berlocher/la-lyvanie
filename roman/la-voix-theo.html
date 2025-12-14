@@ -16,13 +16,121 @@
             color: #e0e0ec;
         }
 
-        /* SPACE - Deep starfield */
+
+
+        /* LIVING PRESENCE - The space breathes */
         .space {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
             z-index: 0;
             overflow: hidden;
+            transition: all 2s ease;
+        }
+
+        /* Global breathing rhythm */
+        .space::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.3) 100%);
+            animation: space-breathe 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes space-breathe {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Living aura - responds to content */
+        .living-aura {
+            position: fixed;
+            top: 50%; left: 50%;
+            width: 150vmax; height: 150vmax;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0;
+            transition: all 2s ease;
+            filter: blur(100px);
+        }
+
+        .living-aura.voice {
+            background: radial-gradient(circle, rgba(168, 200, 255, 0.15) 0%, transparent 60%);
+            opacity: 1;
+            animation: aura-pulse-voice 4s ease-in-out infinite;
+        }
+
+        .living-aura.fox {
+            background: radial-gradient(circle, rgba(255, 200, 120, 0.2) 0%, rgba(255, 160, 80, 0.1) 30%, transparent 60%);
+            opacity: 1;
+            animation: aura-pulse-fox 3s ease-in-out infinite;
+        }
+
+        .living-aura.sad {
+            background: radial-gradient(circle, rgba(100, 120, 180, 0.1) 0%, transparent 60%);
+            opacity: 1;
+            animation: aura-pulse-sad 6s ease-in-out infinite;
+        }
+
+        .living-aura.magic {
+            background: radial-gradient(circle, rgba(200, 180, 255, 0.2) 0%, rgba(255, 200, 255, 0.1) 40%, transparent 60%);
+            opacity: 1;
+            animation: aura-pulse-magic 2.5s ease-in-out infinite;
+        }
+
+        .living-aura.trust {
+            background: radial-gradient(circle, rgba(180, 255, 200, 0.15) 0%, rgba(150, 230, 180, 0.08) 40%, transparent 60%);
+            opacity: 1;
+            animation: aura-pulse-trust 5s ease-in-out infinite;
+        }
+
+        @keyframes aura-pulse-voice {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+            50% { transform: translate(-50%, -50%) scale(1.05); opacity: 1; }
+        }
+
+        @keyframes aura-pulse-fox {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+            50% { transform: translate(-50%, -50%) scale(1.08); opacity: 1; }
+        }
+
+        @keyframes aura-pulse-sad {
+            0%, 100% { transform: translate(-50%, -50%) scale(0.95); opacity: 0.5; }
+            50% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+        }
+
+        @keyframes aura-pulse-magic {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.9; }
+            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+        }
+
+        @keyframes aura-pulse-trust {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+            50% { transform: translate(-50%, -50%) scale(1.03); opacity: 0.9; }
+        }
+
+        /* Presence heartbeat - subtle background pulse */
+        .presence-heartbeat {
+            position: fixed;
+            top: 50%; left: 50%;
+            width: 50vmin; height: 50vmin;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.02) 0%, transparent 70%);
+            animation: heartbeat 4s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+            25% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.5; }
+            50% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+            75% { transform: translate(-50%, -50%) scale(1.05); opacity: 0.4; }
         }
 
         .stars-layer {
@@ -64,6 +172,67 @@
             width: 500px; height: 500px;
             background: radial-gradient(ellipse, #8a5a8a, transparent);
             bottom: 5%; right: -15%;
+        }
+
+        /* FAIRY DUST */
+        .fairy-dust {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 2;
+            overflow: hidden;
+        }
+
+        .dust-particle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: dust-float linear infinite;
+        }
+
+        .dust-particle.gold {
+            background: radial-gradient(circle, #ffeaa7 0%, #f9ca24 40%, transparent 70%);
+            box-shadow: 0 0 6px #ffeaa7, 0 0 12px rgba(249, 202, 36, 0.5);
+        }
+
+        .dust-particle.silver {
+            background: radial-gradient(circle, #ffffff 0%, #dfe6e9 40%, transparent 70%);
+            box-shadow: 0 0 6px #ffffff, 0 0 10px rgba(255, 255, 255, 0.4);
+        }
+
+        .dust-particle.blue {
+            background: radial-gradient(circle, #a8c8ff 0%, #74b9ff 40%, transparent 70%);
+            box-shadow: 0 0 6px #a8c8ff, 0 0 10px rgba(116, 185, 255, 0.4);
+        }
+
+        .dust-particle.pink {
+            background: radial-gradient(circle, #ffb8d0 0%, #fd79a8 40%, transparent 70%);
+            box-shadow: 0 0 5px #ffb8d0, 0 0 8px rgba(253, 121, 168, 0.3);
+        }
+
+        @keyframes dust-float {
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+                transform: translateY(90vh) rotate(36deg) scale(1);
+            }
+            90% {
+                opacity: 0.8;
+                transform: translateY(10vh) rotate(324deg) scale(0.8);
+            }
+            100% {
+                transform: translateY(-10vh) rotate(360deg) scale(0);
+                opacity: 0;
+            }
+        }
+
+        @keyframes dust-twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
         }
 
         /* FLOATING READER */
@@ -313,14 +482,21 @@
 <body>
     <!-- SPACE BACKGROUND -->
     <div class="space">
+        <div class="presence-heartbeat"></div>
         <div class="nebula nebula-1"></div>
         <div class="nebula nebula-2"></div>
         <div class="stars-layer" id="stars"></div>
     </div>
 
+    <!-- LIVING AURA - responds to emotional content -->
+    <div class="living-aura" id="livingAura"></div>
+
     <!-- TOUCH ZONES -->
     <div class="touch-zone left" onclick="prev()"></div>
     <div class="touch-zone right" onclick="next()"></div>
+
+    <!-- FAIRY DUST -->
+    <div class="fairy-dust" id="fairyDust"></div>
 
     <!-- CONTROLS -->
     <div class="controls">
@@ -329,7 +505,7 @@
     </div>
 
     <!-- FLOATING READER -->
-    <div class="reader">
+    <div class="reader" id="mainReader">
         <div class="float-container">
 
             <!-- 0: TITLE -->
@@ -1178,6 +1354,127 @@
             starsContainer.appendChild(star);
         }
 
+        // Create fairy dust particles
+        const fairyDust = document.getElementById('fairyDust');
+        const dustColors = ['gold', 'silver', 'blue', 'pink'];
+        
+        function createDustParticle() {
+            const particle = document.createElement('div');
+            const color = dustColors[Math.floor(Math.random() * dustColors.length)];
+            particle.className = `dust-particle ${color}`;
+            
+            // Random position
+            particle.style.left = Math.random() * 100 + '%';
+            
+            // Random size (2-6px)
+            const size = Math.random() * 4 + 2;
+            particle.style.width = size + 'px';
+            particle.style.height = size + 'px';
+            
+            // Random duration (8-15s)
+            const duration = Math.random() * 7 + 8;
+            particle.style.animationDuration = duration + 's';
+            
+            // Random horizontal drift
+            const drift = (Math.random() - 0.5) * 200;
+            particle.style.setProperty('--drift', drift + 'px');
+            
+            fairyDust.appendChild(particle);
+            
+            // Remove after animation
+            setTimeout(() => {
+                particle.remove();
+            }, duration * 1000);
+        }
+
+        // Initial burst of particles
+        for (let i = 0; i < 15; i++) {
+            setTimeout(() => createDustParticle(), i * 200);
+        }
+
+        // Continuous gentle creation - intensity varies with mood
+        setInterval(() => {
+            const threshold = 0.7 - (dustIntensity * 0.15);
+            if (Math.random() > threshold) {
+                createDustParticle();
+            }
+        }, 600);
+
+        // LIVING PRESENCE SYSTEM
+        const livingAura = document.getElementById('livingAura');
+        let currentMood = null;
+        let dustIntensity = 1;
+
+        // Emotional markers - segments that trigger presence reactions
+        const emotionalMarkers = {
+            voice: [], // La Voix speaks
+            fox: [],   // Le Renard appears
+            sad: [],   // Sad/hurt moments
+            magic: [], // Magical moments
+            trust: []  // Trust/connection moments
+        };
+
+        // Scan segments for emotional content
+        document.querySelectorAll('.story-segment').forEach((seg, i) => {
+            const text = seg.textContent.toLowerCase();
+            const html = seg.innerHTML.toLowerCase();
+            
+            if (html.includes('class="voice"') || text.includes('la voix')) {
+                emotionalMarkers.voice.push(i);
+            }
+            if (text.includes('renard') || text.includes('pelage') || text.includes('queue')) {
+                emotionalMarkers.fox.push(i);
+            }
+            if (text.includes('pleur') || text.includes('larme') || text.includes('mal') || 
+                text.includes('triste') || text.includes('seul') || text.includes('lucas')) {
+                emotionalMarkers.sad.push(i);
+            }
+            if (text.includes('lumière') || text.includes('étoile') || text.includes('brille') ||
+                text.includes('magie') || text.includes('lueur')) {
+                emotionalMarkers.magic.push(i);
+            }
+            if (text.includes('confiance') || text.includes('comprendre') || text.includes('accompagne') ||
+                text.includes('avec toi') || text.includes('je suis là')) {
+                emotionalMarkers.trust.push(i);
+            }
+        });
+
+        function setMood(mood) {
+            if (mood === currentMood) return;
+            currentMood = mood;
+            
+            livingAura.className = 'living-aura';
+            if (mood) {
+                livingAura.classList.add(mood);
+            }
+            
+            // Adjust dust intensity based on mood
+            if (mood === 'magic' || mood === 'fox') {
+                dustIntensity = 3;
+            } else if (mood === 'voice' || mood === 'trust') {
+                dustIntensity = 2;
+            } else {
+                dustIntensity = 1;
+            }
+        }
+
+        function detectMood(segmentIndex) {
+            // Priority: fox > voice > magic > trust > sad > none
+            if (emotionalMarkers.fox.includes(segmentIndex)) return 'fox';
+            if (emotionalMarkers.voice.includes(segmentIndex)) return 'voice';
+            if (emotionalMarkers.magic.includes(segmentIndex)) return 'magic';
+            if (emotionalMarkers.trust.includes(segmentIndex)) return 'trust';
+            if (emotionalMarkers.sad.includes(segmentIndex)) return 'sad';
+            return null;
+        }
+
+        // Burst of fairy dust on mood change
+        function burstDust(count = 10) {
+            for (let i = 0; i < count; i++) {
+                setTimeout(() => createDustParticle(), i * 50);
+            }
+        }
+
         // Reader logic
         const segments = document.querySelectorAll('.story-segment');
         const total = segments.length;
@@ -1213,6 +1510,13 @@
                     dot.classList.add('passed');
                 }
             });
+
+            // LIVING PRESENCE: Detect and respond to emotion
+            const newMood = detectMood(current);
+            if (newMood !== currentMood) {
+                setMood(newMood);
+                if (newMood) burstDust(15);
+            }
         }
 
         function next() {
