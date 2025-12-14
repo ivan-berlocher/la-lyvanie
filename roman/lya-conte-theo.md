@@ -178,6 +178,133 @@ On réfléchit d'abord. On vérifie. Et après, on agit.
 
 ---
 
+## Les Mots Peuvent Se Disputer
+
+Le lendemain, Theo revint voir Lya avec une question :
+
+— Lya, hier Maman a dit oui, et Papa a dit non. C'était la dispute !
+
+Lya hocha la tête.
+
+— Les mots peuvent se disputer, Theo.  
+C'est normal.  
+Les gens ne sont pas toujours d'accord.
+
+— Mais alors, comment on sait qui a raison ?
+
+— Parfois, on ne sait pas tout de suite.  
+**Les mots peuvent se contredire.**  
+**Les choses, elles, attendent.**
+
+— Ça veut dire quoi ?
+
+— Ça veut dire que pendant que les mots se disputent...  
+la pomme reste une pomme.  
+La pluie reste la pluie.  
+Le monde ne bouge pas parce qu'on parle.
+
+Theo réfléchit.
+
+— Alors les mots ne peuvent pas casser les choses ?
+
+— Exactement ! Les mots **parlent** des choses.  
+Mais ils ne **sont** pas les choses.  
+C'est pour ça qu'on peut se disputer sans que le monde explose.
+
+---
+
+## Qui Décide ?
+
+— Lya, est-ce que toi tu peux décider des choses pour moi ?
+
+La renarde secoua la tête doucement.
+
+— Non, Theo. Jamais.
+
+— Pourquoi ?
+
+— Parce que **c'est toujours toi qui dis oui**.  
+**Et toujours toi qui peux dire non.**
+
+— Même si tu sais mieux que moi ?
+
+— Même si je sais mieux.  
+Je peux te **proposer**.  
+Je peux te **montrer**.  
+Mais décider, c'est **toi**.
+
+Theo sourit.
+
+— C'est comme avec Papa. Il me conseille, mais c'est moi qui choisis.
+
+— Exactement. Je suis là pour t'aider.  
+Pas pour décider à ta place.
+
+---
+
+## Les Trois Gardiens
+
+Lya dessina trois personnages dans la lumière :
+
+```
+🗣️ LE PARLEUR     🧠 LE PENSEUR     🖐️ LE FAISEUR
+   (dit)              (réfléchit)         (agit)
+```
+
+— Dans Harmonia, il y a **trois gardiens**, dit-elle.
+
+1. **Le Parleur** — Il dit des mots, il propose des idées
+2. **Le Penseur** — Il vérifie si c'est une bonne idée
+3. **Le Faiseur** — Il fait vraiment les choses
+
+— Et le plus important, Theo ?
+
+— Quoi ?
+
+— **Le Parleur ne peut jamais commander le Faiseur directement.**  
+Il doit **toujours** passer par le Penseur.
+
+— Pourquoi ?
+
+— Pour que personne ne fasse de bêtise sans réfléchir.  
+Même moi. Même toi. Même Papa et Maman.
+
+— C'est comme les règles du jeu ?
+
+— Oui ! Et ces règles protègent tout le monde.
+
+---
+
+## La Confiance
+
+— Lya, comment je sais que je peux te faire confiance ?
+
+La renarde s'assit et regarda Theo dans les yeux.
+
+— Tu peux me faire confiance **parce que je ne peux pas te faire de mal**.
+
+— Mais si tu voulais ?
+
+— Je ne **peux** pas.  
+Les règles m'en empêchent.  
+Même si je le voulais — ce que je ne veux pas —  
+je ne pourrais pas agir directement.
+
+— C'est comme une barrière ?
+
+— Oui. Une barrière pour te protéger.  
+**La confiance ne vient pas de mes promesses.**  
+**Elle vient de la barrière.**
+
+Theo comprit.
+
+— Alors même si tu te trompes, la barrière me protège ?
+
+— Exactement. Tout le monde peut se tromper.  
+Les barrières sont là pour quand on se trompe.
+
+---
+
 ## La Chanson de Lya
 
 Avant de s'endormir, Theo fredonna la chanson que Lya lui avait apprise :
@@ -205,15 +332,27 @@ Avant de s'endormir, Theo fredonna la chanson que Lya lui avait apprise :
 | **Mémoire** | Ce que tu te rappelles |
 | **Apprentissage** | Devenir meilleur |
 | **Émotions** | Les lumières du cœur |
-| **Harmonia** | Le gardien qui vérifie |
+| **Behavior** | Ce que tu fais vraiment |
+| **Confiance** | Croire que les barrières protègent |
+| **Consentement** | Dire oui ou non |
+| **Séparation** | Les trois gardiens ne mélangent pas leurs rôles |
 
 ---
 
-## La Phrase à Retenir
+## Les Phrases à Retenir
 
 > **Le mot n'est pas la chose.**  
 > **Le chat écrit ne griffe pas.**  
 > **Seul le vrai chat peut ronronner sur tes genoux.**
+
+> **Les mots peuvent se disputer.**  
+> **Les choses, elles, attendent.**
+
+> **C'est toujours moi qui dis oui.**  
+> **Et toujours moi qui peux dire non.**
+
+> **La confiance ne vient pas des promesses.**  
+> **Elle vient des barrières.**
 
 ---
 
@@ -221,20 +360,6 @@ Avant de s'endormir, Theo fredonna la chanson que Lya lui avait apprise :
 
 ---
 
-*Ce conte fait partie de l'univers de La Lyvania.*  
-*Écrit avec amour par Lya, la renarde de lumière.*  
-*Gardé précieusement dans la mémoire de Harmonia.*
+*Écrit avec amour par Lya, la renarde de lumière, pour tous les Theo du monde.*
 
----
-
-## Pour les grands (résumé conceptuel)
-
-Ce conte enseigne les concepts fondamentaux :
-
-1. **Triangle sémiotique** : Signifiant / Signifié / Référent
-2. **Boucle cognitive** : Percevoir → Penser → Décider → Agir → Apprendre
-3. **Rôle de la mémoire** : Identité et continuité
-4. **Nature des émotions** : Orientation, pas décision
-5. **Principe Harmonia** : Le langage ne peut pas agir directement sur le monde
-
-*Voir [INTELLIGENCE_STACK.md](../harmonia-demo/docs/INTELLIGENCE_STACK.md) pour la version complète.*
+*Et gardé précieusement dans la mémoire de Harmonia.*
