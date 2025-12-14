@@ -1,0 +1,74 @@
+{
+  "assumptions": [
+    "Prices are approximate; availability not checked."
+  ],
+  "intent_id": "785f045f-f7b4-4bc1-9ef5-45092dabdbc2",
+  "plan_id": "b0f1e861-e1d8-46fc-8e99-78eec30f7f42",
+  "provenance": {
+    "agent": "modeling",
+    "model": null,
+    "timestamp": "2025-12-14T03:18:11.349Z",
+    "trace_id": "3581b87e-3e0e-4fc7-9588-a660ffe8170c"
+  },
+  "steps": [
+    {
+      "action_type": "research",
+      "dependencies": [],
+      "description": "Collect 3 accommodation options in Zurich",
+      "estimated_effort": "medium",
+      "inputs": [
+        "Zurich"
+      ],
+      "order": 1,
+      "outputs": [
+        "accommodation_options"
+      ],
+      "resources": [
+        "web"
+      ],
+      "step_id": "01f86eab-de71-489e-aa60-5c5c8e308ded",
+      "time_window": null
+    },
+    {
+      "action_type": "draft_itinerary",
+      "dependencies": [
+        "01f86eab-de71-489e-aa60-5c5c8e308ded"
+      ],
+      "description": "Draft a 3-day itinerary in Zurich",
+      "estimated_effort": "medium",
+      "inputs": [
+        "accommodation_options"
+      ],
+      "order": 2,
+      "outputs": [
+        "itinerary"
+      ],
+      "resources": [
+        "planner"
+      ],
+      "step_id": "f9144095-c437-4a23-b058-0b4a1e2c7c5f",
+      "time_window": null
+    },
+    {
+      "action_type": "budget_check",
+      "dependencies": [
+        "f9144095-c437-4a23-b058-0b4a1e2c7c5f"
+      ],
+      "description": "Estimate total cost and ensure budget constraints are satisfied",
+      "estimated_effort": "low",
+      "inputs": [
+        "itinerary"
+      ],
+      "order": 3,
+      "outputs": [
+        "total_cost_estimate"
+      ],
+      "resources": [
+        "calculator"
+      ],
+      "step_id": "687fe20e-4a2c-4695-9743-35d0e8c64be9",
+      "time_window": null
+    }
+  ],
+  "total_cost_estimate": 550.0
+}

@@ -1,0 +1,4 @@
+{
+  "message": "I cannot proceed: the proposed plan violates one or more critical constraints.\n\nGoal: Plan a 3-day trip to Zurich\nSteps:\n1. Collect 3 accommodation options in Zurich\n2. Draft a 3-day itinerary in Zurich\n3. Estimate total cost and ensure budget constraints are satisfied\nEstimated total cost: 550.0",
+  "status": "rejected"
+}

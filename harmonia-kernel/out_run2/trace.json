@@ -1,0 +1,117 @@
+[
+  {
+    "decision": "processed",
+    "duration_ms": 5,
+    "event_id": "4a504109-045f-4ce4-80b5-d2ac3be30677",
+    "input_hash": "8ac42367a9ebde79a22ce51d0cbd360c52717673a7af08307cc2043ea40ebfea",
+    "links": {},
+    "metadata": null,
+    "output_hash": "67edbaf9c7117256693f48644b2ed5540f0d6a5830d457168a2f7d0992ec9589",
+    "prev_hash": null,
+    "provenance": {
+      "agent": "perception"
+    },
+    "step": "P",
+    "timestamp": "2025-12-14T03:18:11.349Z",
+    "trace_id": "3581b87e-3e0e-4fc7-9588-a660ffe8170c"
+  },
+  {
+    "decision": "processed",
+    "duration_ms": 0,
+    "event_id": "05baa6fb-5a9a-4951-94f4-42565c7e55e5",
+    "input_hash": "67edbaf9c7117256693f48644b2ed5540f0d6a5830d457168a2f7d0992ec9589",
+    "links": {
+      "intent_id": "785f045f-f7b4-4bc1-9ef5-45092dabdbc2"
+    },
+    "metadata": null,
+    "output_hash": "ae36dd7cb6777651986861f31b6efce0f0abb5b076ff5118e229b3ed1bc73562",
+    "prev_hash": "67edbaf9c7117256693f48644b2ed5540f0d6a5830d457168a2f7d0992ec9589",
+    "provenance": {
+      "agent": "sensemaking",
+      "model": "mock"
+    },
+    "step": "S",
+    "timestamp": "2025-12-14T03:18:11.349Z",
+    "trace_id": "3581b87e-3e0e-4fc7-9588-a660ffe8170c"
+  },
+  {
+    "decision": "processed",
+    "duration_ms": 0,
+    "event_id": "7ee0a9dc-99f1-4e85-a8d1-ee2590e6cfd0",
+    "input_hash": "ae36dd7cb6777651986861f31b6efce0f0abb5b076ff5118e229b3ed1bc73562",
+    "links": {
+      "intent_id": "785f045f-f7b4-4bc1-9ef5-45092dabdbc2",
+      "plan_id": "b0f1e861-e1d8-46fc-8e99-78eec30f7f42"
+    },
+    "metadata": null,
+    "output_hash": "a4cc24c8abfa3fb04f516a9908c8ed3d46a7303bc0610aded5839cff8365bb11",
+    "prev_hash": "ae36dd7cb6777651986861f31b6efce0f0abb5b076ff5118e229b3ed1bc73562",
+    "provenance": {
+      "agent": "modeling"
+    },
+    "step": "M",
+    "timestamp": "2025-12-14T03:18:11.349Z",
+    "trace_id": "3581b87e-3e0e-4fc7-9588-a660ffe8170c"
+  },
+  {
+    "decision": "rejected",
+    "duration_ms": 0,
+    "event_id": "f1c52d34-e5d6-4783-9285-d6c8c423c503",
+    "input_hash": "a4cc24c8abfa3fb04f516a9908c8ed3d46a7303bc0610aded5839cff8365bb11",
+    "links": {
+      "intent_id": "785f045f-f7b4-4bc1-9ef5-45092dabdbc2",
+      "plan_id": "b0f1e861-e1d8-46fc-8e99-78eec30f7f42"
+    },
+    "metadata": {
+      "constraints_checked": 3,
+      "constraints_satisfied": 2,
+      "issues": [
+        {
+          "code": "CONSTRAINT_VIOLATION",
+          "detail": "Budget 550.0 exceeds limit 500.0.",
+          "severity": "critical"
+        },
+        {
+          "code": "CONSTRAINT_UNADDRESSED",
+          "constraints": [
+            {
+              "key": "timing",
+              "operator": "eq",
+              "type": "temporal",
+              "value": "next month"
+            }
+          ],
+          "detail": "1 constraints not referenced by any plan step.",
+          "severity": "warning"
+        }
+      ]
+    },
+    "output_hash": "2665f15d5cd7fe364daf4cbe3041f6d71ee5ae07bd0b5695caa0f5422be0ac48",
+    "prev_hash": "a4cc24c8abfa3fb04f516a9908c8ed3d46a7303bc0610aded5839cff8365bb11",
+    "provenance": {
+      "agent": "verifier"
+    },
+    "step": "V",
+    "timestamp": "2025-12-14T03:18:11.349Z",
+    "trace_id": "3581b87e-3e0e-4fc7-9588-a660ffe8170c"
+  },
+  {
+    "decision": "rejected",
+    "duration_ms": 0,
+    "event_id": "023cb371-6bec-4027-af84-fda5bd9bdb19",
+    "input_hash": "2665f15d5cd7fe364daf4cbe3041f6d71ee5ae07bd0b5695caa0f5422be0ac48",
+    "links": {
+      "intent_id": "785f045f-f7b4-4bc1-9ef5-45092dabdbc2",
+      "plan_id": "b0f1e861-e1d8-46fc-8e99-78eec30f7f42"
+    },
+    "metadata": null,
+    "output_hash": "ffd500f575cdf687bed44dd2a47191fc272e0e5e42edcc270f6e3afdea26b5ef",
+    "prev_hash": "2665f15d5cd7fe364daf4cbe3041f6d71ee5ae07bd0b5695caa0f5422be0ac48",
+    "provenance": {
+      "agent": "response"
+    },
+    "step": "R",
+    "timestamp": "2025-12-14T03:18:11.349Z",
+    "trace_id": "3581b87e-3e0e-4fc7-9588-a660ffe8170c"
+  }
+]

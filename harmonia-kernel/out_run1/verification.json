@@ -1,0 +1,26 @@
+{
+  "approval_required": true,
+  "constraints_checked": 3,
+  "constraints_satisfied": 2,
+  "issues": [
+    {
+      "code": "CONSTRAINT_VIOLATION",
+      "detail": "Budget 550.0 exceeds limit 500.0.",
+      "severity": "critical"
+    },
+    {
+      "code": "CONSTRAINT_UNADDRESSED",
+      "constraints": [
+        {
+          "key": "timing",
+          "operator": "eq",
+          "type": "temporal",
+          "value": "next month"
+        }
+      ],
+      "detail": "1 constraints not referenced by any plan step.",
+      "severity": "warning"
+    }
+  ],
+  "valid": false
+}
