@@ -1,6 +1,13 @@
 # Foundations of Intelligent Systems
 
-**Subtitle**: *A Theoretical and Practical Introduction to Cognitive Architectures*
+*An infrastructure-level exploration of language, cognition, and trust in agentic systems.*
+
+---
+
+**Entry points:**
+- [Preface](preface.md) — Why this book, and for whom
+- [Chapter 13](chapter-13-representation-execution.md) — From Representation to Execution (Web → Agents)
+- [Chapter 14](chapter-14-conclusion.md) — Toward Open Trust (ICT proposal)
 
 ---
 
