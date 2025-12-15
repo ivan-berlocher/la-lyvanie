@@ -75,7 +75,9 @@ The book is organized in four parts:
 
 **Part III: Integration** (Chapters 8-10) extends the architecture to address the full scope of intelligence: memory systems, social cognition, and the multiple dimensions of intelligent behavior.
 
-**Part IV: Implementation** (Chapters 11-12) bridges theory and practice with system design patterns, case studies, and analysis of open problems.
+**Part IV: Execution** (Chapter 13) bridges representation and action: from compilation to operating systems to the Web. We trace how the Web evolved from documents to semantics to agents, and propose infrastructure for trustworthy coordination.
+
+**Part V: Synthesis** (Chapters 12, 14) addresses open problems and the path forward, concluding with a proposal for international standards—extending the logic of the W3C into the agentic era.
 
 ---
 
