@@ -6,7 +6,9 @@
 
 ### 14.1 The Journey
 
-This book began with a crisis: modern AI systems are powerful but opaque, capable but unaccountable, fluent but fundamentally confused about what they are doing.
+This book began with a crisis: our computational systems are powerful but opaque, capable but unaccountable. They manipulate language without understanding meaning. They coordinate actions without establishing trust.
+
+This is not primarily a book about AI. It is a book about **language**, **coordination**, and **infrastructure**—the same concerns that shaped the Web thirty years ago, now extended into an era where software acts autonomously.
 
 We traced a path through:
 
@@ -24,7 +26,9 @@ We traced a path through:
 12. **Open Problems** (Chapter 12): What remains unsolved
 13. **Execution** (Chapter 13): From representation to action in the world
 
-The thread connecting all chapters: **intelligence requires structure, and structure enables trust**.
+The thread connecting all chapters: **coordination requires shared meaning, and shared meaning requires structure**.
+
+This is the logic that built the Web. It is the logic we must now extend.
 
 ---
 
@@ -65,21 +69,21 @@ But none of these addressed the fundamental question: **Can you trust what the s
 
 ### 14.3 The Trust Crisis
 
-We now face a trust crisis unlike any before:
+We face an infrastructure crisis:
 
 **The Problem**:
-- AI systems make consequential decisions
-- Humans cannot inspect the reasoning
-- Systems cannot explain themselves faithfully
-- Errors are plausible-looking and hard to detect
-- Accountability is diffuse and unclear
+- Autonomous systems make consequential decisions
+- The reasoning is opaque to all parties
+- Systems cannot explain themselves in verifiable terms
+- Errors propagate across networks undetected
+- Accountability dissolves in distributed computation
 
 **The Symptoms**:
-- "The AI said so" becomes an excuse
-- Humans defer to systems they don't understand
-- Errors propagate because no one checks
-- Bad actors exploit opacity
-- Society loses agency to algorithms
+- "The system decided" becomes an excuse
+- Humans defer to processes they cannot inspect
+- Errors compound across interconnected services
+- Opacity becomes a competitive advantage
+- Coordination breaks down when trust cannot be verified
 
 **The Core Issue**:
 
@@ -329,7 +333,9 @@ Achieving Open Trust requires the technical foundations developed throughout thi
 
 ### 14.9 Toward an International Consortium of Trust (ICT)
 
-Just as the **W3C** (World Wide Web Consortium) standardized the Web—HTML, CSS, HTTP, URIs—we now need an equivalent body for the age of intelligent agents.
+This work extends the architectural logic of the Web into the agentic era.
+
+The **W3C** (World Wide Web Consortium) standardized the infrastructure for document exchange—HTML, CSS, HTTP, URIs. We now require equivalent infrastructure for autonomous coordination.
 
 **The W3C Model**:
 
@@ -347,9 +353,9 @@ The W3C didn't just standardize syntax—it created the *governance infrastructu
 
 **Why We Need an ICT**:
 
-The agentic era faces the same challenge at a deeper level:
-- W3C standardized **documents** (static, passive)
-- ICT must standardize **behavior** (dynamic, active)
+The challenge deepens as we move from documents to agents:
+- W3C standardized **exchange** of static information
+- ICT must standardize **coordination** of dynamic behavior
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
@@ -426,14 +432,14 @@ The same visionary who gave us the Web may need to give us the Trust layer. Just
 
 **A Call to Action**: Perhaps the founder of W3C should found ICT. The Web was his first gift to humanity. Open Trust could be the second.
 
-For agents, we face a harder problem:
-- **Individual intelligence** is being privatized (OpenAI, Anthropic, Google)
-- **Collective intelligence** (agent collaboration) has no governance
-- **Trust** cannot be proprietary—it must be a public good
+For autonomous coordination, we face a harder problem:
+- **Capability** is being developed in closed systems
+- **Coordination** has no shared governance infrastructure  
+- **Trust** cannot be proprietary—it must be a commons
 
 **The ICT Mission**:
 
-> *To develop open standards for trustworthy agent behavior, enabling a global ecosystem where intelligent agents can interact with humans and each other in ways that are verifiable, accountable, and aligned with human values.*
+> *To develop open standards for trustworthy autonomous coordination, enabling a global infrastructure where computational agents can interact with humans and each other in ways that are verifiable, accountable, and aligned with shared values.*
 
 This is not optional. Without governance, we get:
 - Agent spam (fake agents flooding systems)
