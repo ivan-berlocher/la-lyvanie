@@ -240,12 +240,77 @@
             .nav { bottom: calc(1.5rem + env(safe-area-inset-bottom)); }
             .reader-content { padding-bottom: calc(22vh + env(safe-area-inset-bottom)); }
         }
+
+        /* Transitions douces entre chapitres */
+        .reader-content {
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reader-content.fade-out {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .reader-content.fade-in {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        /* Indicateur de reprise de lecture */
+        .resume-banner {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            padding: 1rem 2rem;
+            background: linear-gradient(180deg, rgba(10, 22, 40, 0.98) 0%, transparent 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            z-index: 200;
+            opacity: 0;
+            transform: translateY(-100%);
+            transition: all 0.8s ease;
+        }
+        .resume-banner.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .resume-banner span {
+            font-size: 0.9rem;
+            color: var(--white-dim);
+            letter-spacing: 0.05em;
+        }
+        .resume-banner button {
+            padding: 0.5rem 1.2rem;
+            background: var(--cyan-soft);
+            border: 1px solid var(--cyan-glow);
+            border-radius: 30px;
+            color: var(--white-soft);
+            font-family: inherit;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .resume-banner button:hover {
+            background: rgba(120, 220, 232, 0.25);
+        }
+        .resume-banner .dismiss {
+            background: none;
+            border: none;
+            color: var(--white-dim);
+            padding: 0.5rem;
+        }
     </style>
 </head>
 <body>
     <div class="ocean"></div>
     <div class="particles" id="particles"></div>
     <div class="loading" id="loading">chargement...</div>
+    
+    <!-- Bannière de reprise de lecture -->
+    <div class="resume-banner" id="resume-banner">
+        <span id="resume-text">Reprendre la lecture</span>
+        <button id="resume-btn" onclick="resumeReading()">Continuer</button>
+        <button class="dismiss" onclick="dismissResume()">✕</button>
+    </div>
 
     <div class="container" id="home">
         <div class="orb" onclick="showToc()"></div>
@@ -397,6 +462,60 @@
 
         let currentChapter = 0;
         let currentView = 'home';
+        
+        // 📚 Sauvegarde de la progression
+        const STORAGE_KEY = 'lyvania_progress';
+        
+        function saveProgress() {
+            const progress = {
+                chapter: currentChapter,
+                scroll: window.scrollY,
+                title: chapters[currentChapter]?.title || '',
+                timestamp: Date.now()
+            };
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+        }
+        
+        function loadProgress() {
+            try {
+                const data = localStorage.getItem(STORAGE_KEY);
+                return data ? JSON.parse(data) : null;
+            } catch { return null; }
+        }
+        
+        function checkResume() {
+            const progress = loadProgress();
+            if (progress && progress.chapter > 0) {
+                const banner = document.getElementById('resume-banner');
+                const text = document.getElementById('resume-text');
+                text.textContent = `Reprendre « ${progress.title} »`;
+                setTimeout(() => banner.classList.add('visible'), 1000);
+            }
+        }
+        
+        function resumeReading() {
+            const progress = loadProgress();
+            if (progress) {
+                loadChapter(progress.chapter).then(() => {
+                    setTimeout(() => window.scrollTo({ top: progress.scroll, behavior: 'smooth' }), 500);
+                });
+            }
+            dismissResume();
+        }
+        
+        function dismissResume() {
+            document.getElementById('resume-banner').classList.remove('visible');
+        }
+        
+        // Sauvegarde périodique pendant la lecture
+        let saveTimeout = null;
+        function scheduleSave() {
+            clearTimeout(saveTimeout);
+            saveTimeout = setTimeout(() => {
+                if (currentView === 'reader') saveProgress();
+            }, 1000);
+        }
+        window.addEventListener('scroll', scheduleSave, { passive: true });
 
         function showHome() {
             hideAll();
@@ -456,10 +575,19 @@
             });
         }
 
-        async function loadChapter(index) {
+        async function loadChapter(index, withTransition = true) {
             if (index < 0 || index >= chapters.length) return;
             const chapter = chapters[index];
             if (!chapter.file || chapter.section) return; // Skip sections
+            
+            const content = document.getElementById('reader-content');
+            const isAlreadyReading = currentView === 'reader';
+            
+            // ✨ Transition de sortie douce
+            if (withTransition && isAlreadyReading) {
+                content.classList.add('fade-out');
+                await new Promise(r => setTimeout(r, 400));
+            }
             
             currentChapter = index;
             document.getElementById('loading').classList.add('visible');
@@ -487,11 +615,24 @@
                 }
                 
                 window.scrollTo({ top: 0 });
-
                 currentView = 'reader';
+                
+                // ✨ Transition d'entrée douce
+                if (withTransition) {
+                    content.classList.remove('fade-out');
+                    content.classList.add('fade-in');
+                    await new Promise(r => setTimeout(r, 50));
+                    content.classList.remove('fade-in');
+                }
+                
+                // 📚 Sauvegarde automatique
+                saveProgress();
+                dismissResume();
+                
             } catch (e) {
                 console.error('Erreur:', e);
                 showToast('Chapitre non disponible');
+                content.classList.remove('fade-out', 'fade-in');
             }
             document.getElementById('loading').classList.remove('visible');
         }
@@ -636,6 +777,7 @@
         }, { passive: false });
 
         createParticles();
+        checkResume(); // 📚 Vérifier si on peut reprendre la lecture
         
         // 🦊 PWA Service Worker
         if ('serviceWorker' in navigator) {
