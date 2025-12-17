@@ -1,5 +1,0 @@
-.venv/
-__pycache__/
-*.egg-info/
-out_run*/
-.DS_Store
