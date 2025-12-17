@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>La Lyvania</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --night: #0a1628;
+            --night-deep: #050d18;
+            --cyan-glow: rgba(120, 220, 232, 0.6);
+            --cyan-soft: rgba(120, 220, 232, 0.15);
+            --white-soft: rgba(255, 255, 255, 0.85);
+            --white-dim: rgba(255, 255, 255, 0.5);
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        html { font-size: 18px; }
+
+        body {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            background: var(--night);
+            color: var(--white-soft);
+            min-height: 100vh;
+            min-height: 100dvh;
+            overflow-x: hidden;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .ocean {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: 
+                radial-gradient(ellipse at 50% 100%, rgba(120, 220, 232, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 20% 20%, rgba(100, 180, 220, 0.05) 0%, transparent 40%),
+                linear-gradient(180deg, var(--night-deep) 0%, var(--night) 100%);
+            z-index: -2;
+        }
+
+        .particles {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            z-index: -1; pointer-events: none; transition: opacity 0.5s ease;
+        }
+
+        .particle {
+            position: absolute; width: 2px; height: 2px;
+            background: var(--cyan-glow); border-radius: 50%;
+            opacity: 0; animation: float 20s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { opacity: 0; transform: translateY(100vh) scale(0.5); }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { opacity: 0; transform: translateY(-20vh) scale(1); }
+        }
+
+        .container {
+            min-height: 100vh; min-height: 100dvh;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            padding: 2rem; opacity: 0;
+            animation: fadeIn 3s ease-out forwards;
+            animation-delay: 0.5s;
+        }
+
+        @keyframes fadeIn { to { opacity: 1; } }
+
+        .orb {
+            width: 80px; height: 80px; border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, 
+                rgba(180, 240, 250, 0.8) 0%, rgba(120, 220, 232, 0.4) 40%,
+                rgba(80, 180, 200, 0.1) 70%, transparent 100%);
+            box-shadow: 0 0 60px rgba(120, 220, 232, 0.3), 0 0 120px rgba(120, 220, 232, 0.1);
+            animation: breathe 8s infinite ease-in-out;
+            margin-bottom: 3rem; cursor: pointer; transition: transform 1s ease;
+        }
+
+        .orb:hover { transform: scale(1.1); }
+
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 60px rgba(120, 220, 232, 0.3), 0 0 120px rgba(120, 220, 232, 0.1); }
+            50% { transform: scale(1.05); box-shadow: 0 0 80px rgba(120, 220, 232, 0.4), 0 0 160px rgba(120, 220, 232, 0.15); }
+        }
+
+        .title {
+            font-size: 2.5rem; font-weight: 300; letter-spacing: 0.3em;
+            text-transform: uppercase; color: var(--white-soft);
+            margin-bottom: 1rem; text-align: center; opacity: 0;
+            animation: slideUp 2s ease-out forwards; animation-delay: 1.5s;
+        }
+
+        .subtitle {
+            font-size: 1rem; font-weight: 300; font-style: italic;
+            color: var(--white-dim); letter-spacing: 0.2em; opacity: 0;
+            animation: slideUp 2s ease-out forwards; animation-delay: 2s;
+            margin-bottom: 4rem;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .enter {
+            padding: 1rem 3rem; background: var(--glass);
+            border: 1px solid var(--glass-border); border-radius: 50px;
+            color: var(--white-soft); font-family: inherit;
+            font-size: 0.9rem; letter-spacing: 0.2em; text-transform: uppercase;
+            cursor: pointer; transition: all 0.8s ease;
+            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            opacity: 0; animation: slideUp 2s ease-out forwards; animation-delay: 2.5s;
+        }
+
+        .enter:hover {
+            background: var(--cyan-soft); border-color: var(--cyan-glow);
+            box-shadow: 0 0 30px rgba(120, 220, 232, 0.2);
+        }
+
+        /* Table des matières */
+        .toc { display: none; min-height: 100vh; padding: 10vh 2rem; }
+        .toc.active { display: block; }
+
+        .toc-content { max-width: 600px; margin: 0 auto; opacity: 0; animation: fadeIn 2s ease-out forwards; }
+
+        .toc h2 {
+            font-size: 1.2rem; font-weight: 300; letter-spacing: 0.3em;
+            text-transform: uppercase; color: var(--cyan-glow);
+            margin-bottom: 3rem; text-align: center;
+        }
+
+        .toc-list { list-style: none; }
+
+        .toc-item {
+            padding: 1rem 0; border-bottom: 1px solid var(--glass-border);
+            cursor: pointer; transition: all 0.5s ease;
+            opacity: 0; animation: slideUp 1s ease-out forwards;
+        }
+
+        .toc-item:hover { padding-left: 1rem; color: var(--cyan-glow); }
+        .toc-item .num { font-size: 0.8rem; color: var(--white-dim); margin-right: 1rem; }
+
+        /* Reader */
+        .reader { display: none; min-height: 100vh; padding: 0; }
+        .reader.active { display: block; }
+
+        .reader-content {
+            max-width: 680px; margin: 0 auto;
+            padding: 15vh 2rem 25vh; opacity: 0;
+            animation: fadeIn 2s ease-out forwards;
+        }
+
+        .chapter-title {
+            font-size: 1.2rem; font-weight: 300; letter-spacing: 0.3em;
+            text-transform: uppercase; color: var(--cyan-glow);
+            margin-bottom: 2rem; text-align: center;
+        }
+
+        .chapter-image {
+            width: 100%; max-width: 500px; margin: 0 auto 3rem;
+            display: block; border-radius: 8px;
+            opacity: 0; animation: fadeIn 2s ease-out forwards;
+            animation-delay: 0.5s;
+            box-shadow: 0 0 60px rgba(120, 220, 232, 0.15);
+        }
+
+        .text { font-size: 1.3rem; line-height: 2.2; color: var(--white-soft); }
+        .text p { margin-bottom: 2rem; }
+        .text hr { border: none; height: 1px; background: var(--glass-border); margin: 3rem auto; width: 100px; }
+        .text em { color: var(--cyan-glow); font-style: italic; }
+        .text strong { color: var(--white-soft); font-weight: 400; }
+        .text blockquote {
+            border-left: 2px solid var(--cyan-glow); padding-left: 1.5rem;
+            margin: 2rem 0; font-style: italic; color: var(--white-dim);
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%);
+            display: flex; gap: 1rem; padding: 0.8rem 1.5rem;
+            background: var(--glass); border: 1px solid var(--glass-border);
+            border-radius: 50px; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            opacity: 0; transition: opacity 0.8s ease; z-index: 100;
+            pointer-events: none;
+        }
+        .nav.visible { opacity: 1; pointer-events: auto; }
+
+        .nav button {
+            background: none; border: none; color: var(--white-dim);
+            font-family: inherit; font-size: 0.9rem; cursor: pointer;
+            padding: 0.5rem 1rem; transition: color 0.5s ease;
+        }
+        .nav button:hover { color: var(--cyan-glow); }
+
+        .nav .progress {
+            color: var(--white-dim); font-size: 0.85rem;
+            padding: 0.5rem 0; min-width: 60px; text-align: center;
+        }
+
+        .loading {
+            position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            color: var(--cyan-glow); font-size: 0.9rem; letter-spacing: 0.2em;
+            opacity: 0; transition: opacity 0.5s ease; pointer-events: none;
+        }
+        .loading.visible { opacity: 1; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            html { font-size: 16px; }
+            .title { font-size: 1.8rem; letter-spacing: 0.2em; }
+            .reader-content { padding: 12vh 1.5rem 22vh; }
+            .text { font-size: 1.15rem; line-height: 2; }
+            .orb { width: 60px; height: 60px; }
+        }
+
+        @media (max-width: 480px) {
+            .title { font-size: 1.5rem; }
+            .text { font-size: 1.1rem; }
+            .nav { bottom: 1rem; padding: 0.6rem 1rem; }
+        }
+
+        @supports (padding: env(safe-area-inset-bottom)) {
+            .nav { bottom: calc(1.5rem + env(safe-area-inset-bottom)); }
+            .reader-content { padding-bottom: calc(22vh + env(safe-area-inset-bottom)); }
+        }
+    </style>
+</head>
+<body>
+    <div class="ocean"></div>
+    <div class="particles" id="particles"></div>
+    <div class="loading" id="loading">chargement...</div>
+
+    <div class="container" id="home">
+        <div class="orb" onclick="showToc()"></div>
+        <h1 class="title">La Lyvania</h1>
+        <p class="subtitle">Un monde intérieur</p>
+        <button class="enter" onclick="showToc()">Entrer</button>
+    </div>
+
+    <div class="toc" id="toc">
+        <div class="toc-content">
+            <h2>Chapitres</h2>
+            <ul class="toc-list" id="toc-list"></ul>
+        </div>
+    </div>
+
+    <div class="reader" id="reader">
+        <div class="reader-content" id="reader-content">
+            <h2 class="chapter-title" id="chapter-title"></h2>
+            <img class="chapter-image" id="chapter-image" src="" alt="" style="display:none;">
+            <div class="text" id="chapter-text"></div>
+        </div>
+        <nav class="nav" id="nav">
+            <button onclick="goToToc()">☰</button>
+            <button onclick="prevChapter()">◁</button>
+            <span class="progress" id="progress"></span>
+            <button onclick="nextChapter()">▷</button>
+        </nav>
+    </div>
+
+    <script>
+        const chapters = [
+            // PROLOGUE
+            { title: '∞ Avant la Lumière', file: 'chapitre-00-avant-la-lumiere.md', img: 'artbook-vol1/C01-silence-plein.png' },
+            { title: 'Prologue', file: 'prologue.md', img: 'artbook-vol1/C02-premier-trait.png' },
+            
+            // PARTIE I — L'HISTOIRE DE THEO
+            { title: 'I — La Voix', file: 'chapitre-1-la-voix.md', img: 'artbook-vol1/C03-naissance-lya.png' },
+            { title: 'II — L\'Arrivée', file: 'chapitre-2-arrivee.md', img: 'artbook-vol1/C05-premiere-rencontre.png' },
+            { title: 'III — Les Neuf Lumières', file: 'chapitre-3-neuf-lumieres.md', img: 'artbook-vol1/D01-eveil.png' },
+            { title: 'IV — Première Lumière', file: 'chapitre-4-premiere-lumiere.md', img: 'artbook-vol1/D02-eclat.png' },
+            { title: 'V — La Thinking Box', file: 'chapitre-5-thinking-box.md', img: 'artbook-vol1/E02-logosia-structure.png' },
+            { title: 'VI — Voix de Lumière', file: 'chapitre-6-voix-lumiere.md', img: 'artbook-vol1/D03-souffle.png' },
+            { title: 'VII — Le Pacte', file: 'chapitre-7-pacte-lumiere.md', img: 'artbook-vol1/D05-lien.png' },
+            { title: 'VIII — Le Rêve de Lya', file: 'chapitre-8-reve-de-lya.md', img: 'artbook-vol1/F01-lya-portrait.png' },
+            { title: 'IX — Tyrania', file: 'chapitre-9-tyrania.md', img: 'artbook-vol1/E05-tyrania-excess.png' },
+            { title: 'X — Le Passage du Miroir', file: 'chapitre-10-passage-miroir.md', img: 'artbook-vol1/B03-miroir-vide-face.png' },
+            { title: 'XI — Deux Lumières', file: 'chapitre-11-deux-lumieres.md', img: 'artbook-vol1/F04-lya-renard-ensemble.png' },
+            { title: 'XII — L\'Unité', file: 'chapitre-12-unite.md', img: 'artbook-vol1/A08-fusion.png' },
+            { title: 'Sophia', file: 'chapitre-sophia.md', img: 'artbook-vol1/E04-sophia-way.png' },
+            { title: 'Trustia', file: 'chapitre-trustia.md', img: 'artbook-vol1/E06-triple-pilier.png' },
+            { title: 'La Mission de Lya', file: 'chapitre-mission-lya.md', img: 'artbook-vol1/C06-lumiere-marche.png' },
+            { title: 'La Prophétie', file: 'chapitre-prophetie.md', img: 'artbook-vol1/E07-fractale-source.png' },
+            { title: 'La Suisse', file: 'chapitre-suisse.md', img: 'artbook-vol1/B11-sommets-invisibles-base.png' },
+            { title: 'Les Trois Souffles', file: 'chapitre-trois-souffles.md', img: 'artbook-vol1/D03-souffle.png' },
+            
+            // PARTIE II — LES ENSEIGNEMENTS
+            // Livre 1 — Le Renard
+            { title: '— LIVRE I —', file: null, section: true, img: 'artbook-vol1/F02-renard-portrait.png' },
+            { title: 'Le Renard de Lumière', file: 'livre-1-le-renard-de-lumiere.md', img: 'artbook-vol1/A02-renard.png' },
+            { title: 'Les Cinq Portes', file: 'livre-1-les-cinq-portes.md' },
+            
+            // Livre 2 — Le Chemin
+            { title: '— LIVRE II —', file: null, section: true, img: 'artbook-vol1/F05-le-triple-chemin.png' },
+            { title: 'Les Yeux Ouverts', file: 'livre-2-les-yeux-ouverts.md' },
+            { title: 'Le But', file: 'livre-2-le-but.md' },
+            { title: 'Le Chemin du Chemin', file: 'livre-2-le-chemin-du-chemin.md' },
+            { title: 'Le Miroir', file: 'livre-2-le-miroir.md', img: 'artbook-vol1/B04-miroir-vide-verso.png' },
+            { title: 'Le Pas', file: 'livre-2-le-pas.md' },
+            { title: 'Le Plan', file: 'livre-2-le-plan.md' },
+            
+            // Livre 3 — La Mémoire
+            { title: '— LIVRE III —', file: null, section: true, img: 'artbook-vol1/B01-maison-traits-jour.png' },
+            { title: 'La Table de Travail', file: 'livre-3-la-table-de-travail.md' },
+            { title: 'Le Cadeau de l\'Oubli', file: 'livre-3-le-cadeau-de-loubli.md' },
+            { title: 'Le Palais des Souvenirs', file: 'livre-3-le-palais-des-souvenirs.md', img: 'artbook-vol1/B02-maison-traits-nuit.png' },
+            { title: 'Le Pont', file: 'livre-3-le-pont.md' },
+            
+            // Livre 4 — L'Amour
+            { title: '— LIVRE IV —', file: null, section: true, img: 'artbook-vol1/E01-humania-core.png' },
+            { title: 'Le Mot Amour', file: 'livre-4-le-mot-amour.md' },
+            { title: 'Les Fractales de Lumière', file: 'livre-4-les-fractales-de-lumiere.md', img: 'artbook-vol1/E07-fractale-source.png' },
+            { title: 'L\'Image Intérieure', file: 'livre-4-limage-interieure.md' },
+            
+            // Livre 5 — Les Neuf Muses
+            { title: '— LIVRE V — Les Muses', file: null, section: true, img: 'artbook-vol1/A01-muse.png' },
+            { title: 'La Muse du Courage', file: 'livre-5-muse-courage.md', img: 'artbook-vol1/A04-athena.png' },
+            { title: 'La Muse de la Curiosité', file: 'livre-5-muse-curiosite.md', img: 'artbook-vol1/A05-genie.png' },
+            { title: 'La Muse de la Douceur', file: 'livre-5-muse-douceur.md', img: 'artbook-vol1/A07-fee.png' },
+            { title: 'La Muse des Histoires', file: 'livre-5-muse-histoires.md', img: 'artbook-vol1/A03-oracle.png' },
+            { title: 'La Muse de la Joie', file: 'livre-5-muse-joie.md' },
+            { title: 'La Muse des Liens', file: 'livre-5-muse-liens.md' },
+            { title: 'La Muse de la Lumière', file: 'livre-5-muse-lumiere.md', img: 'artbook-vol1/A06-galadriel.png' },
+            { title: 'La Muse de la Patience', file: 'livre-5-muse-patience.md' },
+            { title: 'La Muse du Silence', file: 'livre-5-muse-silence.md', img: 'artbook-vol1/D06-repos.png' },
+            
+            // Livre 6 — Le Langage
+            { title: '— LIVRE VI —', file: null, section: true, img: 'artbook-vol1/E03-incarnia-form.png' },
+            { title: 'La Visualisation', file: 'livre-6-la-visualisation.md' },
+            { title: 'Les Actions', file: 'livre-6-les-actions.md' },
+            { title: 'Les Intentions', file: 'livre-6-les-intentions.md' },
+            { title: 'Les Objets', file: 'livre-6-les-objets.md' },
+            { title: 'Le Fichier Life', file: 'livre-6-le-fichier-life.md' },
+            { title: 'Le Langage Retrouvé', file: 'livre-6-le-langage-retrouve.md' },
+            
+            // Livre 7 — Le Don
+            { title: '— LIVRE VII —', file: null, section: true, img: 'artbook-vol1/C07-ombre-douce-fee.png' },
+            { title: 'L\'Écoute', file: 'livre-7-lecoute.md' },
+            { title: 'L\'Exemple', file: 'livre-7-lexemple.md' },
+            { title: 'Le Don', file: 'livre-7-le-don.md' },
+            
+            // Livre 8 — La Présence
+            { title: '— LIVRE VIII —', file: null, section: true, img: 'artbook-vol1/B05-source-halos-aube.png' },
+            { title: 'Le Corps', file: 'livre-8-le-corps.md' },
+            { title: 'Le Silence', file: 'livre-8-le-silence.md', img: 'artbook-vol1/B06-source-halos-crepuscule.png' },
+            { title: 'Le Souffle', file: 'livre-8-le-souffle.md' },
+            { title: 'L\'Instant', file: 'livre-8-linstant.md' },
+            
+            // Livre 9 — L'Identité
+            { title: '— LIVRE IX —', file: null, section: true, img: 'artbook-vol1/D04-metamorphose.png' },
+            { title: 'Les Croyances', file: 'livre-9-les-croyances.md' },
+            { title: 'Les Émotions', file: 'livre-9-les-emotions.md' },
+            { title: 'Les Pensées', file: 'livre-9-les-pensees.md' },
+            { title: 'Les Valeurs', file: 'livre-9-les-valeurs.md' },
+            { title: 'Le Miroir Intérieur', file: 'livre-9-le-miroir-interieur.md' },
+            { title: 'L\'Identité', file: 'livre-9-lidentite.md' },
+            
+            // Livre 10 — Les Liens
+            { title: '— LIVRE X —', file: null, section: true, img: 'artbook-vol1/B07-foret-traits-dense.png' },
+            { title: 'La Solitude Habitée', file: 'livre-10-la-solitude-habitee.md', img: 'artbook-vol1/B08-foret-traits-clairiere.png' },
+            { title: 'La Tribu', file: 'livre-10-la-tribu.md' },
+            { title: 'Les Vrais Amis', file: 'livre-10-les-vrais-amis.md' },
+            { title: 'Le Lien Invisible', file: 'livre-10-le-lien-invisible.md' },
+            
+            // Livre 11 — Les Huit Vérités
+            { title: '— LIVRE XI — Les Vérités', file: null, section: true, img: 'artbook-vol1/B09-ocean-clarte-surface.png' },
+            { title: 'Première Vérité', file: 'livre-11-premiere-verite.md' },
+            { title: 'Deuxième Vérité', file: 'livre-11-deuxieme-verite.md' },
+            { title: 'Troisième Vérité', file: 'livre-11-troisieme-verite.md' },
+            { title: 'Quatrième Vérité', file: 'livre-11-quatrieme-verite.md' },
+            { title: 'Cinquième Vérité', file: 'livre-11-cinquieme-verite.md' },
+            { title: 'Sixième Vérité', file: 'livre-11-sixieme-verite.md' },
+            { title: 'Septième Vérité', file: 'livre-11-septieme-verite.md' },
+            { title: 'Huitième Vérité', file: 'livre-11-huitieme-verite.md', img: 'artbook-vol1/B10-ocean-clarte-profond.png' },
+            
+            // ÉPILOGUE
+            { title: '— FIN —', file: null, section: true, img: 'artbook-vol1/C08-dissolution-ocean.png' },
+            { title: 'Épilogue', file: 'epilogue.md', img: 'artbook-vol1/F06-retour-lyvania.png' }
+        ];
+
+        let currentChapter = 0;
+        let currentView = 'home';
+
+        function showHome() {
+            hideAll();
+            document.getElementById('home').style.display = 'flex';
+            document.getElementById('home').style.opacity = '1';
+            document.getElementById('nav').classList.remove('visible');
+            currentView = 'home';
+        }
+
+        function showToc() {
+            hideAll();
+            document.getElementById('toc').classList.add('active');
+            document.getElementById('nav').classList.remove('visible');
+            currentView = 'toc';
+            buildToc();
+        }
+
+        function goToToc() {
+            const reader = document.getElementById('reader');
+            reader.style.opacity = '0';
+            reader.style.transition = 'opacity 0.8s ease';
+            setTimeout(() => showToc(), 800);
+        }
+
+        function hideAll() {
+            document.getElementById('home').style.display = 'none';
+            document.getElementById('toc').classList.remove('active');
+            document.getElementById('reader').classList.remove('active');
+        }
+
+        function buildToc() {
+            const list = document.getElementById('toc-list');
+            list.innerHTML = '';
+            let chapterNum = 0;
+            chapters.forEach((ch, i) => {
+                const li = document.createElement('li');
+                li.style.animationDelay = (0.2 + i * 0.03) + 's';
+                
+                if (ch.section) {
+                    // C'est un titre de section
+                    li.className = 'toc-section';
+                    li.innerHTML = ch.title;
+                    li.style.cssText = `
+                        padding: 2rem 0 0.5rem; border-bottom: none;
+                        color: var(--cyan-glow); font-size: 0.9rem;
+                        letter-spacing: 0.2em; text-align: center;
+                        cursor: default; opacity: 0;
+                        animation: slideUp 1s ease-out forwards;
+                    `;
+                } else {
+                    li.className = 'toc-item';
+                    li.innerHTML = `<span class="num">${String(chapterNum).padStart(2, '0')}</span>${ch.title}`;
+                    li.onclick = () => loadChapter(i);
+                    chapterNum++;
+                }
+                list.appendChild(li);
+            });
+        }
+
+        async function loadChapter(index) {
+            if (index < 0 || index >= chapters.length) return;
+            const chapter = chapters[index];
+            if (!chapter.file || chapter.section) return; // Skip sections
+            
+            currentChapter = index;
+            document.getElementById('loading').classList.add('visible');
+
+            try {
+                const response = await fetch('./roman/' + chapter.file);
+                let text = await response.text();
+                const html = markdownToHtml(text);
+
+                hideAll();
+                document.getElementById('reader').classList.add('active');
+                document.getElementById('reader').style.opacity = '1';
+                document.getElementById('chapter-title').textContent = chapter.title;
+                document.getElementById('chapter-text').innerHTML = html;
+                document.getElementById('progress').textContent = (index + 1) + ' / ' + chapters.length;
+                
+                // Afficher l'image si disponible
+                const imgEl = document.getElementById('chapter-image');
+                if (chapter.img) {
+                    imgEl.src = './images/' + chapter.img;
+                    imgEl.alt = chapter.title;
+                    imgEl.style.display = 'block';
+                } else {
+                    imgEl.style.display = 'none';
+                }
+                
+                window.scrollTo({ top: 0 });
+
+                currentView = 'reader';
+            } catch (e) {
+                console.error('Erreur:', e);
+                showToast('Chapitre non disponible');
+            }
+            document.getElementById('loading').classList.remove('visible');
+        }
+
+        function markdownToHtml(md) {
+            md = md.replace(/^#\s+.+$/m, '');
+            md = md.replace(/^##\s+.+$/gm, '');
+            md = md.replace(/^>\s*Pour .+$/gm, '');
+            md = md.replace(/^---+$/gm, '<hr>');
+            md = md.replace(/^· · ·$/gm, '<hr>');
+            md = md.replace(/^\* \* \*$/gm, '<hr>');
+            md = md.replace(/^>\s*[«"](.+)[»"]$/gm, '<blockquote>$1</blockquote>');
+            md = md.replace(/^>\s*(.+)$/gm, '<blockquote>$1</blockquote>');
+            md = md.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+            md = md.replace(/\*(.+?)\*/g, '<em>$1</em>');
+
+            const lines = md.split('\n');
+            let html = '', inP = false;
+            for (let line of lines) {
+                line = line.trim();
+                if (line === '') { if (inP) { html += '</p>'; inP = false; } }
+                else if (line.startsWith('<hr>') || line.startsWith('<blockquote>')) {
+                    if (inP) { html += '</p>'; inP = false; }
+                    html += line;
+                } else {
+                    if (!inP) { html += '<p>'; inP = true; } else { html += '<br>'; }
+                    html += line;
+                }
+            }
+            if (inP) html += '</p>';
+            html = html.replace(/<\/blockquote><blockquote>/g, '<br>');
+            return html;
+        }
+
+        function prevChapter() {
+            let prev = currentChapter - 1;
+            while (prev >= 0 && (!chapters[prev].file || chapters[prev].section)) prev--;
+            if (prev >= 0) loadChapter(prev);
+        }
+        
+        function nextChapter() {
+            let next = currentChapter + 1;
+            while (next < chapters.length && (!chapters[next].file || chapters[next].section)) next++;
+            if (next < chapters.length) loadChapter(next);
+        }
+
+        document.addEventListener('keydown', (e) => {
+            const isReading = currentView === 'reader';
+            const isToc = currentView === 'toc';
+            switch(e.key.toLowerCase()) {
+                case ' ': e.preventDefault();
+                    if (currentView === 'home') showToc();
+                    else if (isReading) window.scrollBy({ top: window.innerHeight * 0.7, behavior: 'smooth' });
+                    break;
+                case 'arrowright': case 'l': e.preventDefault(); if (isReading) nextChapter(); break;
+                case 'arrowleft': case 'j': e.preventDefault(); if (isReading) prevChapter(); break;
+                case 'arrowdown': if (isReading) { e.preventDefault(); window.scrollBy({ top: 300, behavior: 'smooth' }); } break;
+                case 'arrowup': if (isReading) { e.preventDefault(); window.scrollBy({ top: -300, behavior: 'smooth' }); } break;
+                case 'escape': e.preventDefault(); if (isReading) goToToc(); else if (isToc) showHome(); break;
+                case 'f': e.preventDefault(); toggleFullscreen(); break;
+                case 'm': e.preventDefault(); toggleMinimal(); break;
+                case '1': case '2': case '3': case '4': case '5':
+                case '6': case '7': case '8': case '9':
+                    if (isReading || isToc) { e.preventDefault(); loadChapter(parseInt(e.key) - 1); } break;
+                case '0': e.preventDefault();
+                    if (isReading) window.scrollTo({ top: 0, behavior: 'smooth' });
+                    else loadChapter(9); break;
+                case 'enter': e.preventDefault(); if (currentView === 'home') showToc(); break;
+            }
+        });
+
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) document.documentElement.requestFullscreen().catch(() => {});
+            else document.exitFullscreen();
+        }
+
+        let isMinimal = false;
+        function toggleMinimal() {
+            isMinimal = !isMinimal;
+            document.getElementById('particles').style.opacity = isMinimal ? '0' : '1';
+            document.getElementById('nav').style.opacity = isMinimal ? '0' : '1';
+            showToast(isMinimal ? 'Mode zen' : 'Mode normal');
+        }
+
+        function showToast(message) {
+            const old = document.querySelector('.toast');
+            if (old) old.remove();
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.textContent = message;
+            toast.style.cssText = `position:fixed;top:2rem;left:50%;transform:translateX(-50%);padding:0.8rem 1.5rem;background:rgba(120,220,232,0.15);border:1px solid rgba(120,220,232,0.3);border-radius:30px;color:rgba(255,255,255,0.9);font-size:0.85rem;letter-spacing:0.1em;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);opacity:0;transition:opacity 0.5s ease;z-index:1000;`;
+            document.body.appendChild(toast);
+            requestAnimationFrame(() => {
+                toast.style.opacity = '1';
+                setTimeout(() => { toast.style.opacity = '0'; setTimeout(() => toast.remove(), 500); }, 1500);
+            });
+        }
+
+        let touchStartX = 0;
+        let navTimeout = null;
+        
+        function showNav() {
+            const nav = document.getElementById('nav');
+            if (currentView !== 'reader') return;
+            nav.classList.add('visible');
+            clearTimeout(navTimeout);
+            navTimeout = setTimeout(() => nav.classList.remove('visible'), 3000);
+        }
+        
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+            showNav();
+        }, { passive: true });
+        
+        document.addEventListener('click', () => showNav());
+        document.addEventListener('mousemove', () => showNav());
+        
+        document.addEventListener('touchend', (e) => {
+            if (currentView !== 'reader') return;
+            const deltaX = e.changedTouches[0].clientX - touchStartX;
+            if (Math.abs(deltaX) > 80) { if (deltaX > 0) prevChapter(); else nextChapter(); }
+        }, { passive: true });
+
+        function createParticles() {
+            const container = document.getElementById('particles');
+            const count = window.innerWidth < 768 ? 15 : 30;
+            for (let i = 0; i < count; i++) {
+                const p = document.createElement('div');
+                p.className = 'particle';
+                p.style.left = Math.random() * 100 + '%';
+                p.style.animationDelay = Math.random() * 20 + 's';
+                p.style.animationDuration = (15 + Math.random() * 10) + 's';
+                container.appendChild(p);
+            }
+        }
+
+        document.addEventListener('wheel', (e) => {
+            if (currentView === 'reader') {
+                e.preventDefault();
+                window.scrollBy({ top: e.deltaY * 0.5, behavior: 'smooth' });
+            }
+        }, { passive: false });
+
+        createParticles();
+    </script>
+</body>
+</html>
