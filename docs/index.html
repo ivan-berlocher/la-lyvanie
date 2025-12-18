@@ -168,6 +168,8 @@
 
         .toc-item:hover { padding-left: 1rem; color: var(--cyan-glow); }
         .toc-item .num { font-size: 0.8rem; color: var(--white-dim); margin-right: 1rem; }
+        .toc-item.current { color: var(--cyan-glow); }
+        .toc-item.current::before { content: '📖 '; }
 
         /* Reader */
         .reader { display: none; min-height: 100vh; padding: 0; }
@@ -503,11 +505,13 @@
         
         function checkResume() {
             const progress = loadProgress();
-            if (progress && progress.chapter > 0) {
+            // Afficher si chapitre > 0 OU si on a scrollé dans le premier chapitre
+            if (progress && (progress.chapter > 0 || progress.scroll > 100)) {
                 const banner = document.getElementById('resume-banner');
                 const text = document.getElementById('resume-text');
                 text.textContent = `Reprendre « ${progress.title} »`;
                 setTimeout(() => banner.classList.add('visible'), 1000);
+                console.log('🦊 Progression trouvée:', progress);
             }
         }
         
@@ -584,7 +588,9 @@
                         animation: slideUp 1s ease-out forwards;
                     `;
                 } else {
-                    li.className = 'toc-item';
+                    const progress = loadProgress();
+                    const isCurrent = progress && progress.chapter === i;
+                    li.className = 'toc-item' + (isCurrent ? ' current' : '');
                     li.innerHTML = `<span class="num">${String(chapterNum).padStart(2, '0')}</span>${ch.title}`;
                     li.onclick = () => loadChapter(i);
                     chapterNum++;
