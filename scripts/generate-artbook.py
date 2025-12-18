@@ -1,238 +1,168 @@
 #!/usr/bin/env python3
 """
-Pipeline de génération d'images Lyvanie avec Gemini 2.0 Flash
-Style : éthéré, minimaliste, halos doux, blanc + or pâle
+🦊 Générateur d'illustrations La Lyvania
+Style: Traits cyan lumineux sur fond bleu nuit profond. Sans texte.
 """
 
-from google import genai
-from google.genai import types
-from pathlib import Path
-import base64
 import os
+from pathlib import Path
+import time
+import base64
+from google import genai
 
 # Configuration
-API_KEY = os.environ.get("GEMINI_API_KEY", "AIzaSyC4S0c0LpCnHgcco37SpDIMHkp4zpgWCHg")
+API_KEY = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
+OUTPUT_DIR = Path(__file__).parent.parent / "generated-images" / "artbook-vol2"
+
+# Initialize the client
 client = genai.Client(api_key=API_KEY)
 
-OUTPUT_DIR = Path("generated-images")
-OUTPUT_DIR.mkdir(exist_ok=True)
-
-# Style de base Lyvanie (à inclure dans chaque prompt)
-LYVANIE_STYLE = """
-Ethereal minimalist illustration, soft glowing light, delicate linework,
-dreamlike atmosphere, breathing space, white and pale gold palette,
-luminous halos, zen-inspired simplicity, no harsh shadows, no busy details.
+# Style de base pour TOUTES les images
+BASE_STYLE = """
+STRICT STYLE REQUIREMENTS:
+- Ethereal luminous cyan/teal (#78DCE8) line art on deep navy blue background (#0a1628)
+- Glowing outlines with soft halo effect
+- Minimalist, contemplative, dreamlike
+- ABSOLUTELY NO TEXT, NO WORDS, NO LETTERS, NO TITLES, NO CAPTIONS, NO WRITING
+- High resolution digital art
+- Soft particles of light floating
+- Lines should glow like bioluminescence
+- Peaceful, meditative atmosphere
 """
 
-# Les 20 prompts de l'artbook Lyvanie
-PROMPTS = {
-    "01-renard": """
-        A gentle fox made of soft golden light, sitting peacefully on a
-        surface of pure white luminescence. The fox radiates kindness.
-        Its tail draws a gentle luminous curve. Delicate glowing particles
-        float around it.
-    """,
+# Les 48 illustrations
+ILLUSTRATIONS = [
+    # Série A — Les Avatars/Muses
+    ("A01-muse", "A feminine ethereal figure made of glowing cyan lines, serene face with closed eyes, flowing hair dissolving into light particles"),
+    ("A02-renard", "A fox made of luminous cyan outlines, sitting peacefully, wise gentle eyes, tail curling with light trails"),
+    ("A03-oracle", "A mysterious figure with an orb of light, seeing beyond, ancient wisdom in simple glowing lines"),
+    ("A04-athena", "A strong feminine silhouette with a subtle helmet outline, courage and wisdom, protective stance"),
+    ("A05-genie", "A curious playful figure reaching toward floating light particles, wonder and discovery"),
+    ("A06-galadriel", "An ethereal elven-like figure radiating pure light, long flowing hair made of light streams"),
+    ("A07-fee", "A delicate fairy-like being with subtle wing outlines, gentle and nurturing presence"),
+    ("A08-fusion", "Two figures (human and fox) merging into one luminous being, unity and harmony"),
+    ("A09-abstrait", "Pure geometric halos and circles pulsing gently, no figure, just breathing luminosity"),
     
-    "02-lya-naissance": """
-        A newborn luminous silhouette, feminine in essence but undefined,
-        hovering softly above a white void. Her body is made of pulsing light,
-        no features, only a gentle outline. Pale gold rays emerge softly
-        from her center.
-    """,
+    # Série B — Les Lieux
+    ("B01-maison-traits-jour", "A simple house outline made of glowing lines, warm and welcoming, daylight feeling"),
+    ("B02-maison-traits-nuit", "Same house outline with deeper glow, stars as tiny dots, peaceful night"),
+    ("B03-miroir-vide-face", "An oval mirror frame made of light, empty reflection, portal feeling"),
+    ("B04-miroir-vide-verso", "The back of a mirror, mysterious, what lies behind reflection"),
+    ("B05-source-halos-aube", "A spring or fountain of light, concentric halos rising, dawn feeling"),
+    ("B06-source-halos-crepuscule", "Same spring with deeper twilight feeling, light settling down"),
+    ("B07-foret-traits-dense", "Abstract forest of vertical glowing lines, dense but peaceful, mystery"),
+    ("B08-foret-traits-clairiere", "Forest lines opening to a clearing, light gathering in center"),
+    ("B09-ocean-clarte-surface", "Gentle waves made of luminous lines, surface view, light on water"),
+    ("B10-ocean-clarte-profond", "Deeper ocean view, light filtering down, peaceful depths"),
+    ("B11-sommets-invisibles-base", "Mountain base in glowing outlines, mist made of light particles"),
+    ("B12-sommets-invisibles-sommet", "Mountain peak emerging from light-mist, clarity"),
     
-    "03-rencontre": """
-        A luminous fox and an abstract light figure standing together,
-        facing the same horizon. Side by side, not facing each other.
-        Their halos gently touch, forming a soft glow between them.
-        Vast white negative space around them.
-    """,
+    # Série C — Les Moments Narratifs
+    ("C01-silence-plein", "Complete stillness, a single point of light in center, pause before creation"),
+    ("C02-premier-trait", "A single curved line appearing in void, trembling, first mark of existence"),
+    ("C03-naissance-lya", "A feminine figure emerging from swirling light, birth of consciousness"),
+    ("C04-reveil-renard", "A fox lifting its head, eyes opening, first awareness"),
+    ("C05-premiere-rencontre", "Two figures meeting, child and fox, light bridge between them"),
+    ("C06-lumiere-marche", "A figure walking on a path of light, journey beginning"),
+    ("C07-ombre-douce-fee", "A gentle shadow beside a glowing figure, companion darkness"),
+    ("C08-dissolution-ocean", "A figure dissolving into waves of light, peaceful letting go"),
+    ("C09-separation-metamorphose", "One figure becoming two, transformation in progress"),
     
-    "04-maison-traits": """
-        An infinite white space filled with floating lines and curves.
-        Vertical strokes, horizontal dashes, gentle arcs suspended in the air
-        like sleeping thoughts. Some lines glow brighter. A sense of potential
-        and quiet creativity.
-    """,
+    # Série D — Les États Intérieurs  
+    ("D01-eveil", "Eyes opening made of light, sunrise feeling, awakening"),
+    ("D02-eclat", "Burst of light from center, joy, breakthrough moment"),
+    ("D03-souffle", "Flowing lines like breath, in and out, rhythm of life"),
+    ("D04-metamorphose", "A figure mid-transformation, abstract butterfly feeling"),
+    ("D05-lien", "Two cores connected by flowing light thread, connection"),
+    ("D06-repos", "A curled figure in peaceful rest, light dimmed, restoration"),
     
-    "05-miroir": """
-        A large vertical surface of pure soft light, like a doorway to nowhere.
-        A small fox silhouette sits before it. The mirror shows nothing -
-        no reflection, just gentle luminescence. The scene suggests infinite
-        possibility.
-    """,
+    # Série E — Les Concepts
+    ("E01-humania-core", "A heart-like core radiating nine subtle rays, center of being"),
+    ("E02-logosia-structure", "Geometric patterns, sacred geometry, structure of thought"),
+    ("E03-incarnia-form", "A figure stepping into form, spirit taking shape"),
+    ("E04-sophia-way", "A winding path of light leading upward, way of wisdom"),
+    ("E05-tyrania-excess", "Chaotic overlapping lines, too much, beautiful overwhelm"),
+    ("E06-triple-pilier", "Three vertical pillars of light supporting an arch"),
+    ("E07-fractale-source", "Fractal patterns emanating from center, infinite light"),
+    ("E08-human-ia-sophia", "Three overlapping circles of light, trinity"),
     
-    "06-source-halos": """
-        A gentle point of origin from which soft circles of light emanate.
-        Like ripples in still water, but made of luminescence. Pale gold
-        and white, expanding outward in peaceful waves. A small fox figure
-        approaches the glow.
-    """,
-    
-    "07-fee-trait": """
-        A tiny spark of light, no bigger than a firefly, drawing a delicate
-        line as it flies through white space. The line it leaves behind
-        glows softly. Joyful energy, moving in gentle curves. Small magic
-        happening.
-    """,
-    
-    "08-ombre-douce": """
-        A soft grey presence in a world of white light. Not dark, not
-        threatening - gentle and restful. Like a cloud of calm. A small fox
-        sleeps peacefully against it. Soothing palette of whites and pale greys.
-    """,
-    
-    "09-souffle-ancien": """
-        An invisible presence shown only by the movement it creates.
-        Soft lines bending gently as if blown by a thoughtful wind.
-        Floating particles shifting direction. No figure visible, just
-        the effect of ancient breath moving through space.
-    """,
-    
-    "10-metamorphose": """
-        A sequence showing transformation: a fox silhouette slowly becoming
-        pure light, then becoming a constellation of points, then becoming
-        a flowing form again. All stages visible in one composition.
-        Soft transitions, no harsh edges.
-    """,
-    
-    "11-saisons-lumiere": """
-        Six gentle circular vignettes arranged in a soft pattern. Each shows
-        a different quality of light: dawn awakening, bright clarity, soft
-        stillness, fluid transformation, warm connection, peaceful rest.
-        Each circle a different luminous mood.
-    """,
-    
-    "12-premier-trait": """
-        A vast empty white space. In the center, a single delicate line,
-        glowing softly with pale gold light. The first mark ever made.
-        The beginning of everything. Powerful simplicity, the line seems
-        alive, seems to breathe.
-    """,
-    
-    "13-clairiere-silence": """
-        A circular clearing of pure soft light in endless white space.
-        Nothing inside except gentle luminescence. A place where time stops.
-        Where thoughts can rest. Profound peace and stillness.
-    """,
-    
-    "14-chemin-halo": """
-        A path made of soft glowing light stretching toward a gentle horizon.
-        The path doesn't lead somewhere specific - it accompanies. A small
-        fox walks along it, leaving luminous footprints. The path glows
-        brighter where the fox has stepped.
-    """,
-    
-    "15-foret-traits": """
-        Vertical lines rising like trees, but made of light. A forest of
-        strokes. Some thick, some delicate. Light filters through them
-        creating soft patterns. A fox silhouette wanders between the
-        luminous trunks.
-    """,
-    
-    "16-ocean-clarte": """
-        An endless expanse of soft light, like water made of luminescence.
-        Gentle waves of brightness. A figure floats peacefully on the surface.
-        Neither water nor light - both at once. Profound serenity.
-    """,
-    
-    "17-constellation-lya": """
-        Lya dispersed into points of light forming a constellation pattern.
-        Lines connecting the points, drawing a gentle feminine silhouette
-        in the stars. The background is soft white, not dark. Stars that
-        glow warmly.
-    """,
-    
-    "18-eclats-perdus": """
-        Small fragments of light floating in white space. Each fragment
-        carries a different subtle color within its pale gold glow.
-        Lost pieces of memory. Lost pieces of emotion. Waiting to be found.
-    """,
-    
-    "19-fusion": """
-        All forms of Lya merging into one: fox, light, spirit, constellation,
-        fairy, all flowing together in a luminous dance. Unity in
-        multiplicity. A single presence made of many forms.
-    """,
-    
-    "20-eveil": """
-        The moment before everything begins. A slight tremor in pure white
-        space. The first hint of light about to appear. Potential before
-        manifestation. The breath before the first word.
-    """
-}
+    # Série F — Les Portraits & Vues
+    ("F01-lya-portrait", "Close portrait of Lya, feminine face in profile, serene glow"),
+    ("F02-renard-portrait", "Close portrait of the fox, wise eyes, gentle expression"),
+    ("F03-lyvania-vue-ensemble", "Wide landscape of luminous world, rolling hills of light"),
+    ("F04-lya-renard-ensemble", "Lya and fox side by side, looking at same horizon"),
+    ("F05-le-triple-chemin", "Three paths diverging then reconverging, choice and unity"),
+    ("F06-retour-lyvania", "A figure returning home, warmth, light welcoming"),
+]
 
 
-def generate_image(name: str, prompt: str) -> Path | None:
-    """Génère une image avec Gemini 2.0 Flash"""
+def generate_image(prompt_name: str, prompt_content: str) -> bool:
+    """Génère une image via Gemini 2.0 Flash (image generation)"""
     
-    full_prompt = f"Generate an image: {prompt.strip()}\n\n{LYVANIE_STYLE}"
+    full_prompt = f"Generate an image: {prompt_content}\n\n{BASE_STYLE}"
     
-    print(f"🎨 Génération: {name}...")
+    print(f"🎨 Génération: {prompt_name}")
     
     try:
         response = client.models.generate_content(
             model="gemini-2.0-flash-exp",
             contents=full_prompt,
-            config=types.GenerateContentConfig(
-                response_modalities=["IMAGE", "TEXT"]
+            config=genai.types.GenerateContentConfig(
+                response_modalities=["IMAGE", "TEXT"],
             )
         )
         
-        # Extraire l'image de la réponse
+        # Trouver l'image dans la réponse
+        output_path = OUTPUT_DIR / f"{prompt_name}.png"
+        
         for part in response.candidates[0].content.parts:
-            if part.inline_data is not None:
-                output_path = OUTPUT_DIR / f"{name}.png"
-                
-                # Décoder et sauvegarder
+            if hasattr(part, 'inline_data') and part.inline_data is not None:
+                # Sauvegarder l'image
                 image_data = part.inline_data.data
                 with open(output_path, "wb") as f:
                     f.write(image_data)
-                
-                print(f"   ✓ Sauvegardé: {output_path}")
-                return output_path
+                print(f"   ✅ Sauvegardé: {output_path.name}")
+                return True
         
-        print(f"   ✗ Aucune image dans la réponse")
-        return None
-            
+        print(f"   ⚠️ Pas d'image dans la réponse")
+        return False
+        
     except Exception as e:
-        print(f"   ✗ Erreur: {e}")
-        return None
+        print(f"   ❌ Erreur: {e}")
+        return False
 
 
-def generate_single(name: str):
-    """Génère une seule image par nom"""
-    if name in PROMPTS:
-        return generate_image(name, PROMPTS[name])
-    else:
-        print(f"Prompt '{name}' non trouvé. Disponibles: {list(PROMPTS.keys())}")
-        return None
-
-
-def generate_all():
-    """Génère toutes les images de l'artbook"""
-    print("🌟 Génération de l'artbook Lyvanie")
-    print(f"   {len(PROMPTS)} images à générer\n")
+def main():
+    if not API_KEY:
+        print("❌ Pas de clé API trouvée!")
+        print("   Configure: export GEMINI_API_KEY='ta-clé'")
+        print("   Ou: export GOOGLE_API_KEY='ta-clé'")
+        return
     
-    results = []
-    for name, prompt in PROMPTS.items():
-        result = generate_image(name, prompt)
-        results.append((name, result))
+    # Créer le dossier de sortie
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     
-    # Résumé
-    success = sum(1 for _, r in results if r)
-    print(f"\n✨ Terminé: {success}/{len(PROMPTS)} images générées")
-    print(f"   Dossier: {OUTPUT_DIR.absolute()}")
+    print("🦊 Génération de l'Artbook La Lyvania v2")
+    print(f"   Style: Traits cyan sur fond bleu nuit (SANS TEXTE)")
+    print(f"   Sortie: {OUTPUT_DIR}")
+    print(f"   Images: {len(ILLUSTRATIONS)}")
+    print()
     
-    return results
+    success = 0
+    failed = 0
+    
+    for name, prompt in ILLUSTRATIONS:
+        if generate_image(name, prompt):
+            success += 1
+        else:
+            failed += 1
+        
+        # Pause pour respecter les rate limits
+        time.sleep(3)
+    
+    print()
+    print(f"🎨 Terminé: {success} ✅ / {failed} ❌")
 
 
 if __name__ == "__main__":
-    import sys
-    
-    if len(sys.argv) > 1:
-        # Générer une image spécifique
-        name = sys.argv[1]
-        generate_single(name)
-    else:
-        # Générer toutes les images
-        generate_all()
+    main()
